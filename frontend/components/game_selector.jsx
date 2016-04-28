@@ -1,8 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
 
-const LOBBY = 1
-
 class GameSelector extends React.Component {
 
   constructor(props) {

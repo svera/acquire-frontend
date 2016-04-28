@@ -61,7 +61,11 @@
 	
 	var _game_selector2 = _interopRequireDefault(_game_selector);
 	
-	var _lobby = __webpack_require__(/*! ./components/lobby.jsx */ 168);
+	var _game_join = __webpack_require__(/*! ./components/game_join.jsx */ 168);
+	
+	var _game_join2 = _interopRequireDefault(_game_join);
+	
+	var _lobby = __webpack_require__(/*! ./components/lobby.jsx */ 169);
 	
 	var _lobby2 = _interopRequireDefault(_lobby);
 	
@@ -75,6 +79,7 @@
 	
 	var HOME = 0;
 	var LOBBY = 1;
+	var GAME = 2;
 	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -85,8 +90,11 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 	
 	    _this.onGameCreated = _this.onGameCreated.bind(_this);
+	    _this.onGameJoinError = _this.onGameJoinError.bind(_this);
+	    _this.onStartGame = _this.onStartGame.bind(_this);
 	    _this.state = {
 	      screen: 0,
+	      game: '',
 	      gameID: ''
 	    };
 	    return _this;
@@ -101,13 +109,40 @@
 	      });
 	    }
 	  }, {
+	    key: 'onGameJoinError',
+	    value: function onGameJoinError() {
+	      console.log("Error joining game");
+	      this.setState({
+	        screen: HOME
+	      });
+	    }
+	  }, {
+	    key: 'onStartGame',
+	    value: function onStartGame() {
+	      this.setState({
+	        screen: GAME,
+	        game: 'acquire'
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      switch (this.state.screen) {
 	        case HOME:
-	          return _react2.default.createElement(_game_selector2.default, { callbackParent: this.onGameCreated });
+	          return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(_game_selector2.default, { callbackParent: this.onGameCreated }),
+	            _react2.default.createElement(_game_join2.default, { callbackParent: this.onGameCreated })
+	          );
 	        case LOBBY:
-	          return _react2.default.createElement(_lobby2.default, { gameID: this.state.gameID });
+	          return _react2.default.createElement(_lobby2.default, { gameID: this.state.gameID, gameJoinErrorCallback: this.onGameJoinError, startGameCallback: this.onStartGame });
+	        case GAME:
+	          return _react2.default.createElement(
+	            'div',
+	            null,
+	            'Start game'
+	          );
 	      }
 	    }
 	  }]);
@@ -20598,8 +20633,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var LOBBY = 1;
-	
 	var GameSelector = function (_React$Component) {
 	  _inherits(GameSelector, _React$Component);
 	
@@ -30503,6 +30536,80 @@
 
 /***/ },
 /* 168 */
+/*!*******************************************!*\
+  !*** ./frontend/components/game_join.jsx ***!
+  \*******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 167);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var GameJoin = function (_React$Component) {
+	  _inherits(GameJoin, _React$Component);
+	
+	  function GameJoin(props) {
+	    _classCallCheck(this, GameJoin);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GameJoin).call(this, props));
+	
+	    _this.onJoin = _this.onJoin.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(GameJoin, [{
+	    key: 'onJoin',
+	    value: function onJoin() {
+	      this.props.callbackParent((0, _jquery2.default)('#gameID').val());
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'label',
+	          { 'for': 'gameID' },
+	          'game ID'
+	        ),
+	        _react2.default.createElement('input', { id: 'gameID', type: 'text', name: 'gameID' }),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onJoin, className: 'btn btn-default' },
+	          'Join'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return GameJoin;
+	}(_react2.default.Component);
+	
+	exports.default = GameJoin;
+
+/***/ },
+/* 169 */
 /*!***************************************!*\
   !*** ./frontend/components/lobby.jsx ***!
   \***************************************/
@@ -30520,9 +30627,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _player_list = __webpack_require__(/*! ./player_list.jsx */ 169);
+	var _player_list = __webpack_require__(/*! ./player_list.jsx */ 170);
 	
 	var _player_list2 = _interopRequireDefault(_player_list);
+	
+	var _add_bot = __webpack_require__(/*! ./add_bot.jsx */ 171);
+	
+	var _add_bot2 = _interopRequireDefault(_add_bot);
+	
+	var _start_game = __webpack_require__(/*! ./start_game.jsx */ 172);
+	
+	var _start_game2 = _interopRequireDefault(_start_game);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -30540,6 +30655,7 @@
 	
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Lobby).call(this, props));
 	
+	    _this.conn = null;
 	    _this.state = {
 	      players: []
 	    };
@@ -30547,12 +30663,17 @@
 	  }
 	
 	  _createClass(Lobby, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var conn = new WebSocket('ws://localhost:8001/' + this.props.gameID + '/join');
-	      var self = this;
-	      conn.onmessage = function (e) {
-	        self.parseMessage(e.data);
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var _this2 = this;
+	
+	      this.conn = new WebSocket('ws://localhost:8001/' + this.props.gameID + '/join');
+	
+	      this.conn.onmessage = function (e) {
+	        _this2.parseMessage(e.data);
+	      };
+	      this.conn.onerror = function (e) {
+	        _this2.props.gameJoinErrorCallback();
 	      };
 	    }
 	  }, {
@@ -30560,10 +30681,17 @@
 	    value: function parseMessage(data) {
 	      var msg = JSON.parse(data);
 	      switch (msg.typ) {
+	        case "err":
+	          console.log(msg.cnt);
+	          break;
 	        case "add":
 	          this.setState({
 	            players: msg.val
 	          });
+	          break;
+	        case "upd":
+	          this.props.startGameCallback();
+	          break;
 	      }
 	    }
 	  }, {
@@ -30573,7 +30701,7 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'p',
+	          'h2',
 	          null,
 	          'Lobby for game ',
 	          this.props.gameID
@@ -30583,7 +30711,9 @@
 	          null,
 	          'Connected players'
 	        ),
-	        _react2.default.createElement(_player_list2.default, { players: this.state.players })
+	        _react2.default.createElement(_player_list2.default, { players: this.state.players }),
+	        _react2.default.createElement(_add_bot2.default, { conn: this.conn }),
+	        _react2.default.createElement(_start_game2.default, { conn: this.conn })
 	      );
 	    }
 	  }]);
@@ -30594,7 +30724,7 @@
 	exports.default = Lobby;
 
 /***/ },
-/* 169 */
+/* 170 */
 /*!*********************************************!*\
   !*** ./frontend/components/player_list.jsx ***!
   \*********************************************/
@@ -30650,6 +30780,136 @@
 	}(_react2.default.Component);
 	
 	exports.default = PlayerList;
+
+/***/ },
+/* 171 */
+/*!*****************************************!*\
+  !*** ./frontend/components/add_bot.jsx ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 167);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AddBot = function (_React$Component) {
+	  _inherits(AddBot, _React$Component);
+	
+	  function AddBot(props) {
+	    _classCallCheck(this, AddBot);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AddBot).call(this, props));
+	
+	    _this.onAddBot = _this.onAddBot.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(AddBot, [{
+	    key: 'onAddBot',
+	    value: function onAddBot() {
+	      var message = { "typ": "bot", "par": "add" };
+	      this.props.conn.send(JSON.stringify(message));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'button',
+	        { onClick: this.onAddBot, className: 'btn btn-default' },
+	        'Add bot'
+	      );
+	    }
+	  }]);
+	
+	  return AddBot;
+	}(_react2.default.Component);
+	
+	exports.default = AddBot;
+
+/***/ },
+/* 172 */
+/*!********************************************!*\
+  !*** ./frontend/components/start_game.jsx ***!
+  \********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 167);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var StartGame = function (_React$Component) {
+	  _inherits(StartGame, _React$Component);
+	
+	  function StartGame(props) {
+	    _classCallCheck(this, StartGame);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(StartGame).call(this, props));
+	
+	    _this.onClick = _this.onClick.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(StartGame, [{
+	    key: 'onClick',
+	    value: function onClick() {
+	      var message = { "typ": "ini", "par": {} };
+	      this.props.conn.send(JSON.stringify(message));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'button',
+	        { onClick: this.onClick, className: 'btn btn-default' },
+	        'Start game'
+	      );
+	    }
+	  }]);
+	
+	  return StartGame;
+	}(_react2.default.Component);
+	
+	exports.default = StartGame;
 
 /***/ }
 /******/ ]);

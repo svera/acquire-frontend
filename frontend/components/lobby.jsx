@@ -1,39 +1,54 @@
 import React from 'react';
 import PlayerList from './player_list.jsx';
+import AddBot from './add_bot.jsx';
+import StartGame from './start_game.jsx';
 
 class Lobby extends React.Component {
 
   constructor(props) {
       super(props);
+      this.conn = null
       this.state = {
         players: []
       };
   }
 
-  componentDidMount() {
-    var conn = new WebSocket('ws://localhost:8001/' + this.props.gameID + '/join');
-    var self = this
-    conn.onmessage = function(e) {
-      self.parseMessage(e.data);
+  componentWillMount() {
+    this.conn = new WebSocket('ws://localhost:8001/' + this.props.gameID + '/join');
+
+    this.conn.onmessage = (e) => {
+      this.parseMessage(e.data);
+    }
+    this.conn.onerror = (e) => {
+      this.props.gameJoinErrorCallback();
     }
   }
 
   parseMessage(data) {
     var msg = JSON.parse(data);
     switch (msg.typ) {
+      case "err":
+        console.log(msg.cnt);
+        break;
       case "add":
         this.setState({
           players: msg.val
         })
+        break;
+      case "upd":
+        this.props.startGameCallback();
+        break;
     }
   }
 
   render() {
     return (
       <div>
-        <p>Lobby for game {this.props.gameID}</p>
+        <h2>Lobby for game {this.props.gameID}</h2>
         <p>Connected players</p>
         <PlayerList players={this.state.players} />
+        <AddBot conn={this.conn} />
+        <StartGame conn={this.conn} />
       </div>
     );
   }
