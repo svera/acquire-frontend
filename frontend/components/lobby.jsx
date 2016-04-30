@@ -36,7 +36,8 @@ class Lobby extends React.Component {
         })
         break;
       case "upd":
-        this.props.startGameCallback();
+        console.log(msg);
+        this.props.startGameCallback(this.conn, msg);
         break;
     }
   }

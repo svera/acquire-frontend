@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import GameSelector from './components/game_selector.jsx';
 import GameJoin from './components/game_join.jsx';
 import Lobby from './components/lobby.jsx';
+import Game from './components/acquire/game.jsx';
 
 const HOME = 0
 const LOBBY = 1
@@ -17,7 +18,8 @@ class App extends React.Component {
       this.state = {
         screen: 0,
         game: '',
-        gameID: ''
+        gameID: '',
+        conn: null
       };
     }
 
@@ -35,10 +37,12 @@ class App extends React.Component {
     });
   }
 
-  onStartGame() {
+  onStartGame(conn, msg) {
     this.setState({
       screen: GAME,
-      game: 'acquire'
+      game: 'acquire',
+      conn: conn,
+      initialStatus: msg
     });
   }
 
@@ -54,7 +58,7 @@ class App extends React.Component {
       case LOBBY:
         return (<Lobby gameID={this.state.gameID} gameJoinErrorCallback={this.onGameJoinError} startGameCallback={this.onStartGame} />);
       case GAME:
-        return (<div>Start game</div>);
+        return (<Game conn={this.state.conn} status={this.state.initialStatus} />);
     }
   }
 
