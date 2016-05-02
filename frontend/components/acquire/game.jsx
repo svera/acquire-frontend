@@ -1,6 +1,7 @@
 import React from 'react';
 import Board from './board.jsx';
 import Infobox from './infobox.jsx';
+import ContextMenu from './context_menu.jsx';
 
 class Game extends React.Component {
 
@@ -8,15 +9,34 @@ class Game extends React.Component {
       super(props);
       this.state = {
         board: props.status.brd,
-        state: props.status.sta,
+        gameState: props.status.sta,
         corps: props.status.cor,
+        tiedCorps: props.status.tie,
         hand: props.status.hnd
       };
     }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.conn.onmessage = (e) => {
-      console.log(e.data);
+      this.parseMessage(e.data);
+    }
+  }
+
+  parseMessage(data) {
+    var msg = JSON.parse(data);
+    switch (msg.typ) {
+      case "err":
+        console.log(msg.cnt);
+        break;
+      case "upd":
+        console.log(msg.hnd)
+        this.setState({
+          hand: msg.hnd,
+          corps: msg.cor,
+          tiedCorps: msg.tie,
+          gameState: msg.sta
+        })
+        break;
     }
   }
 
@@ -25,7 +45,8 @@ class Game extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-6">
-              <Board cellSize="48" originX="0" originY="0" hand={this.state.hand} />
+              <Board cellSize="48" originX="0" originY="0" hand={this.state.hand} conn={this.props.conn} />
+              <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState}/>
             </div>
             <div className="col-md-4 col-md-offset-1">
               <Infobox corps={this.state.corps} />
