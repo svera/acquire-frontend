@@ -37,13 +37,14 @@ class SellTrade extends React.Component {
 
   sellTradeCorpsMarkup() {
     var selectableCorps = [];
+    console.log(this.props.playerInfo);
     for (var i = 0; i < this.props.corps.length; i++) {
         if (this.props.corps[i].def) {
           selectableCorps.push(
-            <tr>
+            <tr key={"sell-trade-"+i}>
               <td>{this.props.corps[i].nam}</td>
-              <td><input type="number" min="0" max={this.props.corps[i].own} name={this.props.corps[i].nam.toLowerCase()} defaultValue="0" onChange={this.handleChangeSell} /></td>
-              <td><input type="number" min="0" max={this.props.corps[i].own} name={this.props.corps[i].nam.toLowerCase()} defaultValue="0" onChange={this.handleChangeTrade} step="2" /></td>
+              <td><input type="number" min="0" max={this.props.playerInfo.own[i]} name={this.props.corps[i].nam.toLowerCase()} defaultValue="0" onChange={this.handleChangeSell} /></td>
+              <td><input type="number" min="0" max={this.props.playerInfo.own[i]} name={this.props.corps[i].nam.toLowerCase()} defaultValue="0" onChange={this.handleChangeTrade} step="2" /></td>
             </tr>
           );
         }

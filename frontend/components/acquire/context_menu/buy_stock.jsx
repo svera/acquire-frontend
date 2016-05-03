@@ -38,7 +38,7 @@ class BuyStock extends React.Component {
     for (var i = 0; i < this.props.corps.length; i++) {
         if (this.props.corps[i].siz > 0) {
           selectableCorps.push(
-            <li><label key={"buy-stock-"+i}>
+            <li key={"buy-stock-"+i}><label>
                 <span>{this.props.corps[i].nam}</span>
                 <input type="number" min="0" max="3" name={this.props.corps[i].nam.toLowerCase()} defaultValue="0" onChange={this.handleChange}/>
             </label></li>
