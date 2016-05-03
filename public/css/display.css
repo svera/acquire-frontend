@@ -1,0 +1,44 @@
+.empty {
+    fill: transparent;
+    stroke: black;
+}
+
+.unincorporated {
+    fill: #ccc;
+    stroke: black;
+}
+
+.sackson{
+    fill: #f00;
+    stroke: black;
+}
+
+.zeta{
+    fill: #fdd017;
+    stroke: black;
+}
+
+.hydra{
+    fill: #ffa500;
+    stroke: black;
+}
+
+.fusion{
+    fill: #0f0;
+    stroke: black;
+}
+
+.america{
+    fill: #00f;
+    stroke: black;
+}
+
+.phoenix{
+    fill: #800080;
+    stroke: black;
+}
+
+.quantum{
+    fill: #40e0d0;
+    stroke: black;
+}

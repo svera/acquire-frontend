@@ -11,18 +11,17 @@ class Lobby extends React.Component {
       this.state = {
         players: []
       };
+
+      this.conn = new WebSocket('ws://localhost:8001/' + this.props.gameID + '/join');
+
+      this.conn.onmessage = (e) => {
+        this.parseMessage(e.data);
+      }
+      this.conn.onerror = (e) => {
+        this.props.gameJoinErrorCallback();
+      }
   }
 
-  componentWillMount() {
-    this.conn = new WebSocket('ws://localhost:8001/' + this.props.gameID + '/join');
-
-    this.conn.onmessage = (e) => {
-      this.parseMessage(e.data);
-    }
-    this.conn.onerror = (e) => {
-      this.props.gameJoinErrorCallback();
-    }
-  }
 
   parseMessage(data) {
     var msg = JSON.parse(data);

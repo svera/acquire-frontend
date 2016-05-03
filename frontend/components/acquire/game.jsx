@@ -29,8 +29,8 @@ class Game extends React.Component {
         console.log(msg.cnt);
         break;
       case "upd":
-        console.log(msg.hnd)
         this.setState({
+          board: msg.brd,
           hand: msg.hnd,
           corps: msg.cor,
           tiedCorps: msg.tie,
@@ -45,7 +45,7 @@ class Game extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-6">
-              <Board cellSize="48" originX="0" originY="0" hand={this.state.hand} conn={this.props.conn} />
+              <Board cellSize="48" originX="0" originY="0" board={this.state.board} hand={this.state.hand} conn={this.props.conn} />
               <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState}/>
             </div>
             <div className="col-md-4 col-md-offset-1">

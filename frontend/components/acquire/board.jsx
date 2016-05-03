@@ -19,7 +19,7 @@ class Board extends React.Component {
           var coords = (i+1)+letter;
           var j = letters[letter];
           grid.push(
-            <Cell x={originX+(cellSize*i)} y={originY+(cellSize*j)} size={cellSize} key={"grid-"+i+"-"+j} coords={coords} />
+            <Cell x={originX+(cellSize*i)} y={originY+(cellSize*j)} size={cellSize} key={"grid-"+i+"-"+j} owner={this.props.board[coords]} coords={coords} />
           );
           if (coords in this.props.hand) {
             grid.push(

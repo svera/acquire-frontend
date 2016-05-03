@@ -1,23 +1,28 @@
 import React from 'react';
-import $ from 'jquery';
 
 class GameJoin extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onJoin = this.onJoin.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.gameID = null;
   }
 
-  onJoin () {
-    this.props.callbackParent($('#gameID').val());
+  handleChange(event) {
+    this.gameID = event.target.value;
+  }
+
+  handleClick() {
+    this.props.callbackParent(this.gameID);
   }
 
   render() {
     return (
       <div>
         <label for="gameID">game ID</label>
-        <input id="gameID" type="text" name="gameID" />
-        <button onClick={this.onJoin} className="btn btn-default">Join</button>
+        <input id="gameID" type="text" name="gameID" onChange={this.handleChange} />
+        <button onClick={this.handleClick} className="btn btn-default">Join</button>
       </div>
     );
   }
