@@ -37,7 +37,6 @@ class SellTrade extends React.Component {
 
   sellTradeCorpsMarkup() {
     var selectableCorps = [];
-    console.log(this.props.playerInfo);
     for (var i = 0; i < this.props.corps.length; i++) {
         if (this.props.corps[i].def) {
           selectableCorps.push(

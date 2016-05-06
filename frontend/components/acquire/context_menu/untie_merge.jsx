@@ -27,7 +27,7 @@ class UntieMerge extends React.Component {
       for (var i = 0; i < this.props.corps.length; i++) {
           selectableCorps.push(
             <label class="btn btn-default" key={"untie-"+i}>
-                <input type="radio" name="corps" value={this.props.corps[i].nam.toLowerCase()} onChange={this.handleChange}/>
+                <input type="radio" name="corps" value={this.props.corps[i].toLowerCase()} onChange={this.handleChange}/>
                 <span>{this.props.corps[i].nam}</span>
             </label>
           );

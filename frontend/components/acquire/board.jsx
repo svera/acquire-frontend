@@ -23,7 +23,7 @@ class Board extends React.Component {
           );
           if (coords in this.props.hand) {
             grid.push(
-              <Tile x={originX+(cellSize*i)} y={originY+(cellSize*j)} size={cellSize} key={"tile-"+i+"-"+j} coords={coords} conn={this.props.conn} />
+              <Tile x={originX+(cellSize*i)} y={originY+(cellSize*j)} size={cellSize} key={"tile-"+i+"-"+j} coords={coords} conn={this.props.conn} playable={this.props.hand[coords]}/>
             )
           }
         }

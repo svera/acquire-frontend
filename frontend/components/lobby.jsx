@@ -20,6 +20,10 @@ class Lobby extends React.Component {
       this.conn.onerror = (e) => {
         this.props.gameJoinErrorCallback();
       }
+      this.conn.onclose = (e) => {
+        sessionStorage.setItem('info', 'Connection to server lost');
+        this.props.connectionLostCallBack();
+      }
   }
 
 

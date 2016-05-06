@@ -15,6 +15,7 @@ class App extends React.Component {
       this.onGameCreated = this.onGameCreated.bind(this);
       this.onGameJoinError = this.onGameJoinError.bind(this);
       this.onStartGame = this.onStartGame.bind(this);
+      this.onConnectionLost = this.onConnectionLost.bind(this);
       this.state = {
         screen: 0,
         game: '',
@@ -37,6 +38,12 @@ class App extends React.Component {
     });
   }
 
+  onConnectionLost() {
+    this.setState({
+      screen: HOME
+    });
+  }
+
   onStartGame(conn, msg) {
     this.setState({
       screen: GAME,
@@ -49,16 +56,19 @@ class App extends React.Component {
   render() {
     switch (this.state.screen) {
       case HOME:
+        var info = sessionStorage.getItem('info');
+        sessionStorage.setItem('info', '');
         return (
           <div>
+            {info}
             <GameSelector callbackParent={this.onGameCreated}/>
             <GameJoin callbackParent={this.onGameCreated}/>
           </div>
         );
       case LOBBY:
-        return (<Lobby gameID={this.state.gameID} gameJoinErrorCallback={this.onGameJoinError} startGameCallback={this.onStartGame} />);
+        return (<Lobby gameID={this.state.gameID} gameJoinErrorCallback={this.onGameJoinError} startGameCallback={this.onStartGame} connectionLostCallBack={this.onConnectionLost} />);
       case GAME:
-        return (<Game conn={this.state.conn} status={this.state.initialStatus} />);
+        return (<Game conn={this.state.conn} status={this.state.initialStatus} connectionLostCallBack={this.onConnectionLost} />);
     }
   }
 

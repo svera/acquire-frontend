@@ -19,12 +19,15 @@ class Game extends React.Component {
         turnNumber: props.status.trn,
         lastTurn: props.status.lst
       };
-    }
 
-  componentDidMount() {
-    this.props.conn.onmessage = (e) => {
-      this.parseMessage(e.data);
-    }
+      this.props.conn.onmessage = (e) => {
+        this.parseMessage(e.data);
+      }
+      this.props.conn.onclose = (e) => {
+        sessionStorage.setItem('info', 'Connection to server lost');
+        this.props.connectionLostCallBack();
+      }
+
   }
 
   parseMessage(data) {
@@ -50,21 +53,44 @@ class Game extends React.Component {
   }
 
   render() {
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12 col-md-6">
-              <Board cellSize="48" originX="0" originY="0" board={this.state.board} hand={this.state.hand} conn={this.props.conn} />
-              <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState} playerInfo={this.state.playerInfo} />
-            </div>
-            <div className="col-md-4 col-md-offset-1">
-              <Infobox corps={this.state.corps} />
-              <PlayerInfobox playerInfo={this.state.playerInfo} />
+    switch (this.state.gameState) {
+      case 'EndGame':
+        var playersList = this.state.rivalsInfo;
+        playersList.push(this.state.playerInfo);
+        var keysSorted = Object.keys(playersList).sort(function(a,b){return playersList[a].csh-playersList[b].csh});
+        var classification = [];
+        for (var key in keysSorted) {
+          classification.push(
+            <li key={"classification-"+i}>
+              {playersList[key].nam} - {playersList[key].csh}
+            </li>
+          );
+        }
+        return (
+          <div className="container">
+            <p>Game ended</p>
+            <ol>
+              {classification}
+            </ol>
+          </div>
+        )
+
+      default:
+        return (
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12 col-md-6">
+                <Board cellSize="48" originX="0" originY="0" board={this.state.board} hand={this.state.hand} conn={this.props.conn} />
+                <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState} playerInfo={this.state.playerInfo} />
+              </div>
+              <div className="col-md-4 col-md-offset-1">
+                <Infobox corps={this.state.corps} />
+                <PlayerInfobox playerInfo={this.state.playerInfo} />
+              </div>
             </div>
           </div>
-        </div>
-
-      );
+        );
+    }
   }
 
 }

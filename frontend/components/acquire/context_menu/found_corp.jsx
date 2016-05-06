@@ -17,29 +17,32 @@ class FoundCorp extends React.Component {
 
   handleClick() {
     var message = {"typ": "ncp", "par": {"cor": this.corp}};
-    console.log(message);
     this.props.conn.send(
         JSON.stringify(message)
     );
   }
 
+  foundableCorpsMarkup() {
+    var selectableCorps = [];
+    for (var i = 0; i < this.props.corps.length; i++) {
+        if (this.props.corps[i].siz == 0) {
+          selectableCorps.push(
+            <label class="btn btn-default" key={"found-corp-"+i}>
+                <input type="radio" name="corps" value={this.props.corps[i].nam.toLowerCase()} onChange={this.handleChange}/>
+                <span>{this.props.corps[i].nam}</span>
+            </label>
+          );
+        }
+    }
+    return selectableCorps;
+  }
+
   render() {
-      var selectableCorps = [];
-      for (var i = 0; i < this.props.corps.length; i++) {
-          if (this.props.corps[i].siz == 0) {
-            selectableCorps.push(
-              <label class="btn btn-default" key={"found-corp-"+i}>
-                  <input type="radio" name="corps" value={this.props.corps[i].nam.toLowerCase()} onChange={this.handleChange}/>
-                  <span>{this.props.corps[i].nam}</span>
-              </label>
-            );
-          }
-      }
       return (
         <div>
           <div class="btn-group" role="group" dataToggle="buttons">
               <p>You have founded a new corporation! Please choose one:</p>
-              {selectableCorps}
+              {this.foundableCorpsMarkup()}
           </div>
           <input type="button" class="btn btn-primary" value="Found corporation" onClick={this.handleClick} />
           <ClaimEnd conn={this.props.conn} />

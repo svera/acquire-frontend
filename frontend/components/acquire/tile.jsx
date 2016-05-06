@@ -14,9 +14,24 @@ class Tile extends React.Component {
     );
   }
 
+  unplayableIconMarkup() {
+    if (!this.props.playable) {
+      return (
+        <g>
+          <line x1={this.props.x+10} y1={this.props.y+10} x2={this.props.x+this.props.size-10} y2={this.props.y+this.props.size-10} style={{stroke: "red", strokeWidth: 4}} />
+          <line x1={this.props.x+this.props.size-10} y1={this.props.y+10} x2={this.props.x+10} y2={this.props.y+this.props.size-10} style={{stroke: "red", strokeWidth: 4}} />
+        </g>
+      );
+    }
+    return null;
+  }
+
   render() {
     return (
-      <rect x={this.props.x} y={this.props.y} width={this.props.size} height={this.props.size} style={{fill: "black", stroke: "black", cursor: "pointer"}} onClick={this.onClick} />
+      <g>
+        <rect x={this.props.x} y={this.props.y} width={this.props.size} height={this.props.size} style={{fill: "black", stroke: "black", cursor: "pointer"}} onClick={this.onClick} />
+        {this.unplayableIconMarkup()}
+      </g>
     );
   }
 

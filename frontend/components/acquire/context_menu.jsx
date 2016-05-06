@@ -3,6 +3,7 @@ import FoundCorp from './context_menu/found_corp.jsx';
 import BuyStock from './context_menu/buy_stock.jsx';
 import SellTrade from './context_menu/sell_trade.jsx';
 import UntieMerge from './context_menu/untie_merge.jsx';
+import PlayTile from './context_menu/play_tile.jsx';
 
 class ContextMenu extends React.Component {
 
@@ -10,9 +11,7 @@ class ContextMenu extends React.Component {
     switch (this.props.gameState) {
       case 'PlayTile':
         return (
-          <div>
-            <p>Click on a tile to play it</p>
-          </div>
+          <PlayTile conn={this.props.conn} />
         );
 
       case 'FoundCorp':
