@@ -63,7 +63,7 @@ class SellTrade extends React.Component {
                 {this.sellTradeCorpsMarkup()}
               </tbody>
           </table>
-          <input type="button" class="btn btn-primary" value="Sell / trade" onClick={this.handleClick} />
+          <input type="button" className="btn btn-primary" value="Sell / trade" onClick={this.handleClick} />
           <ClaimEnd conn={this.props.conn} />
         </div>
       );

@@ -33,10 +33,13 @@ class Lobby extends React.Component {
       case "err":
         console.log(msg.cnt);
         break;
-      case "add":
+      case "pls":
         this.setState({
           players: msg.val
         })
+        break;
+      case "ctl":
+        sessionStorage.setItem('role', msg.rol);
         break;
       case "upd":
         this.props.startGameCallback(this.conn, msg);
@@ -45,13 +48,20 @@ class Lobby extends React.Component {
   }
 
   render() {
+    if (sessionStorage.getItem('role') == 'mng') {
+      var restrictedItems = (
+        <div>
+          <AddBot conn={this.conn} />
+          <StartGame conn={this.conn} />
+        </div>
+      );
+    }
     return (
       <div>
         <h2>Lobby for game {this.props.gameID}</h2>
         <p>Connected players</p>
-        <PlayerList players={this.state.players} />
-        <AddBot conn={this.conn} />
-        <StartGame conn={this.conn} />
+        <PlayerList players={this.state.players} conn={this.conn} />
+        {restrictedItems}
       </div>
     );
   }

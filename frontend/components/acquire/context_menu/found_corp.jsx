@@ -12,6 +12,7 @@ class FoundCorp extends React.Component {
   }
 
   handleChange(event) {
+    console.log(event.target.value)
     this.corp = event.target.value
   }
 
@@ -27,7 +28,7 @@ class FoundCorp extends React.Component {
     for (var i = 0; i < this.props.corps.length; i++) {
         if (this.props.corps[i].siz == 0) {
           selectableCorps.push(
-            <label class="btn btn-default" key={"found-corp-"+i}>
+            <label className="btn btn-default" key={"found-corp-"+i}>
                 <input type="radio" name="corps" value={this.props.corps[i].nam.toLowerCase()} onChange={this.handleChange}/>
                 <span>{this.props.corps[i].nam}</span>
             </label>
@@ -40,11 +41,11 @@ class FoundCorp extends React.Component {
   render() {
       return (
         <div>
-          <div class="btn-group" role="group" dataToggle="buttons">
+          <div className="btn-group" role="group" data-toggle-not-working="buttons">
               <p>You have founded a new corporation! Please choose one:</p>
               {this.foundableCorpsMarkup()}
           </div>
-          <input type="button" class="btn btn-primary" value="Found corporation" onClick={this.handleClick} />
+          <input type="button" className="btn btn-primary" value="Found corporation" onClick={this.handleClick} />
           <ClaimEnd conn={this.props.conn} />
         </div>
       );

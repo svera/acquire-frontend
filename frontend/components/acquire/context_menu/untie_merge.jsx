@@ -26,7 +26,7 @@ class UntieMerge extends React.Component {
       var selectableCorps = [];
       for (var i = 0; i < this.props.corps.length; i++) {
           selectableCorps.push(
-            <label class="btn btn-default" key={"untie-"+i}>
+            <label className="btn btn-default" key={"untie-"+i}>
                 <input type="radio" name="corps" value={this.props.corps[i].toLowerCase()} onChange={this.handleChange}/>
                 <span>{this.props.corps[i].nam}</span>
             </label>
@@ -34,11 +34,11 @@ class UntieMerge extends React.Component {
       }
       return (
         <div>
-          <div class="btn-group" role="group" dataToggle="buttons">
+          <div className="btn-group" role="group" dataToggle="buttons">
               <p>There is a tie in the merge:</p>
               {selectableCorps}
           </div>
-          <input type="button" class="btn btn-primary" value="Untie merge" onClick={this.handleClick} />
+          <input type="button" className="btn btn-primary" value="Untie merge" onClick={this.handleClick} />
           <ClaimEnd conn={this.props.conn} />
         </div>
       );

@@ -3,6 +3,7 @@ import Board from './board.jsx';
 import Infobox from './infobox.jsx';
 import PlayerInfobox from './player_infobox.jsx';
 import ContextMenu from './context_menu.jsx';
+import GameFinished from './game_finished.jsx'
 
 class Game extends React.Component {
 
@@ -55,25 +56,9 @@ class Game extends React.Component {
   render() {
     switch (this.state.gameState) {
       case 'EndGame':
-        var playersList = this.state.rivalsInfo;
-        playersList.push(this.state.playerInfo);
-        var keysSorted = Object.keys(playersList).sort(function(a,b){return playersList[a].csh-playersList[b].csh});
-        var classification = [];
-        for (var key in keysSorted) {
-          classification.push(
-            <li key={"classification-"+i}>
-              {playersList[key].nam} - {playersList[key].csh}
-            </li>
-          );
-        }
         return (
-          <div className="container">
-            <p>Game ended</p>
-            <ol>
-              {classification}
-            </ol>
-          </div>
-        )
+          <GameFinished playerInfo={this.state.playerInfo} rivalsInfo={this.state.rivalsInfo} />
+        );
 
       default:
         return (
