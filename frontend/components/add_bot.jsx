@@ -4,19 +4,30 @@ class AddBot extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onAddBot = this.onAddBot.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.bot = "random";
   }
 
-  onAddBot () {
-    var message = {"typ": "bot", "par": "add"}
+  onClickHandler () {
+    var message = {"typ": "bot", "par": {"nam": this.bot}}
     this.props.conn.send(
         JSON.stringify(message)
     );
   }
 
+  onChangeHandler(event) {
+    this.bot = event.target.value;
+  }
+
   render() {
     return (
-      <button onClick={this.onAddBot} className="btn btn-default">Add bot</button>
+      <div>
+        <select name="bot" onChange={this.onChangeHandler}>
+          <option value="random">Random</option>
+        </select>
+        <button onClick={this.onClickHandler} className="btn btn-default">Add bot</button>
+      </div>
     );
   }
 

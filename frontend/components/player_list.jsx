@@ -10,7 +10,7 @@ class PlayerList extends React.Component {
           {
             this.props.players.map(function(player, playerNumber) {
                 return (
-                  <li key={player}>
+                  <li key={playerNumber}>
                     {player}&nbsp;
                     <KickPlayer conn={self.props.conn} playerNumber={playerNumber} />
                   </li>
