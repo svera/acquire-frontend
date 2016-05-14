@@ -14,7 +14,6 @@ class GameSelector extends React.Component {
             {game: "acquire"},
             function(data, status) {
               self.props.callbackParent(data);
-                //window.location.replace("/"+data);
             }
           );
     }
@@ -25,7 +24,7 @@ class GameSelector extends React.Component {
         <select name="game">
           <option value="acquire">Acquire</option>
         </select>
-        <button onClick={this.onCreate} className="btn btn-default">New game</button>
+        <button onClick={this.onCreate} className="btn btn-primary">New game</button>
       </div>
     );
   }

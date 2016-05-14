@@ -59,10 +59,16 @@ class App extends React.Component {
         var info = sessionStorage.getItem('info');
         sessionStorage.setItem('info', '');
         return (
-          <div>
-            {info}
-            <GameSelector callbackParent={this.onGameCreated}/>
-            <GameJoin callbackParent={this.onGameCreated}/>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 col-lg-offset-3 text-center">
+                <div className={info ? 'alert alert-warning' : 'hide'}>
+                  {info}
+                </div>
+                <GameSelector callbackParent={this.onGameCreated}/>
+                <GameJoin callbackParent={this.onGameCreated}/>
+              </div>
+            </div>
           </div>
         );
       case LOBBY:
