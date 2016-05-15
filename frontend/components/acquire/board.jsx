@@ -6,9 +6,20 @@ const COLUMNS = 12;
 const ROWS = 9;
 
 class Board extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.spacing = parseInt(this.props.spacing);
+    this.width = parseInt(this.props.width);
+    this.height = parseInt(this.props.height);
+    this.gridWith = this.width - this.spacing;
+    this.gridHeight = this.height - this.spacing;
+    this.cellWidth = (this.gridWith / 12)-this.spacing;
+    this.cellHeight = (this.gridHeight / 9)-this.spacing;
+  }
+
   render() {
     var grid = [];
-    var cellSize = parseInt(this.props.cellSize);
     var originX = parseInt(this.props.originX);
     var originY = parseInt(this.props.originY);
     var letters = { A: 0, B: 1, C: 2, D: 3, E: 4, F: 5, G: 6, H: 7, I: 8 };
@@ -18,19 +29,24 @@ class Board extends React.Component {
         if (letters.hasOwnProperty(letter)) {
           var coords = (i+1)+letter;
           var j = letters[letter];
+          var x = originX+(this.cellWidth*i)+(this.spacing*(i+1));
+          var y = originY+(this.cellWidth*j)+(this.spacing*(j+1));
           grid.push(
-            <Cell x={originX+(cellSize*i)} y={originY+(cellSize*j)} size={cellSize} key={"grid-"+i+"-"+j} owner={this.props.board[coords]} coords={coords} />
+            <Cell x={x} y={y} width={this.cellWidth} height={this.cellHeight} radius={this.props.radius} key={"grid-"+i+"-"+j} owner={this.props.board[coords]} />
           );
+
           if (coords in this.props.hand) {
             grid.push(
-              <Tile x={originX+(cellSize*i)} y={originY+(cellSize*j)} size={cellSize} key={"tile-"+i+"-"+j} coords={coords} conn={this.props.conn} playable={this.props.hand[coords]}/>
+              <Tile x={x} y={y} width={this.cellWidth} height={this.cellHeight} radius={this.props.radius} key={"tile-"+i+"-"+j} coords={coords} conn={this.props.conn} playable={this.props.hand[coords]}/>
             )
           }
+
         }
       }
     }
     return (
-      <svg width={originX+(cellSize*COLUMNS)} height={originY+(cellSize*ROWS)}>
+      <svg width={originX+this.width} height={originY+this.height}>
+        <rect width={this.width} height={this.height} id="board" rx={this.props.radius} ry={this.props.radius} />
         {grid}
       </svg>
     );
