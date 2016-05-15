@@ -65,7 +65,7 @@ class Game extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12 col-md-6">
-                <Board cellSize="48" originX="0" originY="0" board={this.state.board} hand={this.state.hand} conn={this.props.conn} />
+                <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.state.board} hand={this.state.hand} conn={this.props.conn} />
                 <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState} playerInfo={this.state.playerInfo} />
               </div>
               <div className="col-md-4 col-md-offset-1">
