@@ -2,6 +2,7 @@ import React from 'react';
 import PlayerList from './player_list.jsx';
 import AddBot from './add_bot.jsx';
 import StartGame from './start_game.jsx';
+import GameDestroy from './game_destroy.jsx';
 
 class Lobby extends React.Component {
 
@@ -53,6 +54,7 @@ class Lobby extends React.Component {
         <div>
           <AddBot conn={this.conn} />
           <StartGame conn={this.conn} />
+          <GameDestroy gameID={this.props.gameID} />
         </div>
       );
     }

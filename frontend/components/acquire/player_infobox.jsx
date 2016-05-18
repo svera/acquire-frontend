@@ -4,7 +4,7 @@ class PlayerInfobox extends React.Component {
 
   render() {
       return (
-        <table className="table">
+        <table className="table table-condensed">
               <thead>
                   <tr>
                       <th>Cash</th>

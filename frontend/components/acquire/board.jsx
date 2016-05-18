@@ -44,8 +44,9 @@ class Board extends React.Component {
         }
       }
     }
+    var viewBox = "0 0 "+(originX+this.width)+" "+originX+this.height;
     return (
-      <svg width={originX+this.width} height={originY+this.height}>
+      <svg viewBox={viewBox}>
         <rect width={this.width} height={this.height} id="board" rx={this.props.radius} ry={this.props.radius} />
         {grid}
       </svg>
