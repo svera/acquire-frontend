@@ -4,6 +4,8 @@ import Infobox from './infobox.jsx';
 import PlayerInfobox from './player_infobox.jsx';
 import ContextMenu from './context_menu.jsx';
 import GameFinished from './game_finished.jsx'
+import GameLeave from '../game_leave.jsx';
+
 
 class Game extends React.Component {
 
@@ -59,6 +61,13 @@ class Game extends React.Component {
         return (
           <GameFinished playerInfo={this.state.playerInfo} rivalsInfo={this.state.rivalsInfo} />
         );
+        break;
+
+      case 'Error':
+        return (
+          <p>Not enough players to keep playing</p>
+        );
+        break;
 
       default:
         return (
@@ -68,6 +77,7 @@ class Game extends React.Component {
                 <PlayerInfobox playerInfo={this.state.playerInfo} />
                 <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.state.board} hand={this.state.hand} conn={this.props.conn} />
                 <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState} playerInfo={this.state.playerInfo} />
+                <GameLeave conn={this.props.conn} />
               </div>
               <div className="col-md-4 col-md-offset-1">
                 <Infobox corps={this.state.corps} />

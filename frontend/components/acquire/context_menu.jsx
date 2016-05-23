@@ -8,31 +8,37 @@ import PlayTile from './context_menu/play_tile.jsx';
 class ContextMenu extends React.Component {
 
   render() {
-    switch (this.props.gameState) {
-      case 'PlayTile':
-        return (
-          <PlayTile conn={this.props.conn} />
-        );
+    if (!this.props.playerInfo.trn) {
+      return (
+        <p>Waiting for other players actions...</p>
+      );
+    } else {
+      switch (this.props.gameState) {
+        case 'PlayTile':
+          return (
+            <PlayTile conn={this.props.conn} />
+          );
 
-      case 'FoundCorp':
-        return (
-          <FoundCorp corps={this.props.corps} conn={this.props.conn} />
-        );
+        case 'FoundCorp':
+          return (
+            <FoundCorp corps={this.props.corps} conn={this.props.conn} />
+          );
 
-      case 'BuyStock':
-        return (
-          <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} />
-        );
+        case 'BuyStock':
+          return (
+            <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} />
+          );
 
-      case 'SellTrade':
-        return (
-          <SellTrade playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} />
-        );
+        case 'SellTrade':
+          return (
+            <SellTrade playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} />
+          );
 
-      case 'UntieMerge':
-        return (
-          <UntieMerge corps={this.props.tiedCorps} conn={this.props.conn} />
-        );
+        case 'UntieMerge':
+          return (
+            <UntieMerge corps={this.props.tiedCorps} conn={this.props.conn} />
+          );
+        }
     }
     return null;
   }
