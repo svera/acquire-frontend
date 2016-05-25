@@ -63,7 +63,7 @@ class Game extends React.Component {
         );
         break;
 
-      case 'Error':
+      case 'InsufficientPlayers':
         return (
           <p>Not enough players to keep playing</p>
         );

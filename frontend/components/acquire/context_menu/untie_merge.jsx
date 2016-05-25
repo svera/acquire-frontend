@@ -16,7 +16,7 @@ class UntieMerge extends React.Component {
   }
 
   handleClick() {
-    var message = {"typ": "unt", "par": {"cor": corp}};
+    var message = {"typ": "unt", "par": {"cor": this.corp}};
     this.props.conn.send(
         JSON.stringify(message)
     );
@@ -27,8 +27,8 @@ class UntieMerge extends React.Component {
       for (var i = 0; i < this.props.corps.length; i++) {
           selectableCorps.push(
             <label className="btn btn-default" key={"untie-"+i}>
-                <input type="radio" name="corps" value={this.props.corps[i].toLowerCase()} onChange={this.handleChange}/>
-                <span>{this.props.corps[i].nam}</span>
+                <input type="radio" name="corps" value={this.props.corps[i].toLowerCase()} onChange={this.handleChange}/>&nbsp;
+                <span>{this.props.corps[i]}</span>
             </label>
           );
       }

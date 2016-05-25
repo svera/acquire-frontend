@@ -8,9 +8,10 @@ class GameDestroy extends React.Component {
   }
 
   handleClick(event) {
-    $.post(
-      "http://localhost:8001/destroy",
-      {id: this.props.gameID}
+    event.preventDefault();
+    var message = {"typ": "ter", "par": {}}
+    this.props.conn.send(
+        JSON.stringify(message)
     );
   }
 
