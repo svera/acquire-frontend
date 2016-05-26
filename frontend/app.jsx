@@ -1,8 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import GameSelector from './components/game_selector.jsx';
-import GameJoin from './components/game_join.jsx';
-import Lobby from './components/lobby.jsx';
+import GameSelector from './components/common/game_selector.jsx';
+import GameJoin from './components/common/game_join.jsx';
+import Lobby from './components/common/lobby.jsx';
 import Game from './components/acquire/game.jsx';
 
 const HOME = 0

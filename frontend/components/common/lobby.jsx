@@ -68,7 +68,7 @@ class Lobby extends React.Component {
         <div>
           <AddBot conn={this.conn} />
           <StartGame conn={this.conn} />
-          <GameDestroy conn={this.conn} />
+          <GameDestroy conn={this.conn} term="Cancel"/>
         </div>
       );
     }

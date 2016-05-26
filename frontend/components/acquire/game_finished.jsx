@@ -1,4 +1,5 @@
 import React from 'react';
+import GameDestroy from '../common/game_destroy.jsx';
 
 class GameFinished extends React.Component {
 
@@ -20,6 +21,7 @@ class GameFinished extends React.Component {
             <ol>
               {classification}
             </ol>
+            <GameDestroy conn={this.props.conn} term="Back"/>
           </div>
         )
     }
