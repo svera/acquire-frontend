@@ -27,10 +27,6 @@ class Game extends React.Component {
       this.props.conn.onmessage = (e) => {
         this.parseMessage(e.data);
       }
-      this.props.conn.onclose = (e) => {
-        sessionStorage.setItem('info', 'Connection to server lost');
-        this.props.connectionLostCallBack();
-      }
 
   }
 
@@ -41,6 +37,7 @@ class Game extends React.Component {
         console.log(msg.cnt);
         break;
       case "upd":
+      console.log(msg);
         this.setState({
           board: msg.brd,
           hand: msg.hnd,
@@ -66,7 +63,14 @@ class Game extends React.Component {
 
       case 'InsufficientPlayers':
         return (
-          <p>Not enough players to keep playing</p>
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12 col-md-6">
+                <p>Not enough players to keep playing</p>
+                <GameDestroy conn={this.props.conn} term="Back"/>
+              </div>
+            </div>
+          </div>
         );
         break;
 

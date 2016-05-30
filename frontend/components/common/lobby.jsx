@@ -25,13 +25,19 @@ class Lobby extends React.Component {
         var message = null;
         switch (e.code) {
           case 4000:
-            message = 'Game terminated by owner';
+            message = '';
             break;
           case 4001:
-            message = 'You have exited from game';
+            message = 'Game terminated by owner';
             break;
           case 4002:
+            message = 'You have exited from game';
+            break;
+          case 4003:
             message = 'You have been kicked out from game';
+            break;
+          case 4004:
+            message = 'Game terminated due to time';
             break;
           default:
             message = 'Connection to server lost';
