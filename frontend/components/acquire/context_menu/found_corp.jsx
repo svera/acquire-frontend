@@ -13,7 +13,7 @@ class FoundCorp extends React.Component {
 
   handleChange(event) {
     console.log(event.target.value)
-    this.corp = event.target.value
+    this.corp = parseInt(event.target.value)
   }
 
   handleClick() {
@@ -29,7 +29,7 @@ class FoundCorp extends React.Component {
         if (this.props.corps[i].siz == 0) {
           selectableCorps.push(
             <label className="btn btn-default" key={"found-corp-"+i}>
-                <input type="radio" name="corps" value={this.props.corps[i].nam.toLowerCase()} onChange={this.handleChange}/>
+                <input type="radio" name="corps" value={i} onChange={this.handleChange}/>
                 <span>{this.props.corps[i].nam}</span>
             </label>
           );

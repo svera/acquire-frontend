@@ -12,10 +12,9 @@ class SellTrade extends React.Component {
       this.corps = {};
       for (var i = 0; i < this.props.corps.length; i++) {
           if (this.props.corps[i].def) {
-            var corpName = this.props.corps[i].nam.toLowerCase();
-            this.corps[corpName] = {};
-            this.corps[corpName].sel = 0;
-            this.corps[corpName].tra = 0;
+            this.corps[i] = {};
+            this.corps[i].sel = 0;
+            this.corps[i].tra = 0;
           }
       }
   }
@@ -42,8 +41,8 @@ class SellTrade extends React.Component {
           selectableCorps.push(
             <tr key={"sell-trade-"+i}>
               <td>{this.props.corps[i].nam}</td>
-              <td><input type="number" min="0" max={this.props.playerInfo.own[i]} name={this.props.corps[i].nam.toLowerCase()} defaultValue="0" onChange={this.handleChangeSell} /></td>
-              <td><input type="number" min="0" max={this.props.playerInfo.own[i]} name={this.props.corps[i].nam.toLowerCase()} defaultValue="0" onChange={this.handleChangeTrade} step="2" /></td>
+              <td><input type="number" min="0" max={this.props.playerInfo.own[i]} name={i} defaultValue="0" onChange={this.handleChangeSell} /></td>
+              <td><input type="number" min="0" max={this.props.playerInfo.own[i]} name={i} defaultValue="0" onChange={this.handleChangeTrade} step="2" /></td>
             </tr>
           );
         }
