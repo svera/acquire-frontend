@@ -2,6 +2,7 @@ import React from 'react';
 import Board from './board.jsx';
 import Infobox from './infobox.jsx';
 import PlayerInfobox from './player_infobox.jsx';
+import RivalsInfobox from './rivals_infobox.jsx';
 import ContextMenu from './context_menu.jsx';
 import GameFinished from './game_finished.jsx'
 import GameLeave from '../common/game_leave.jsx';
@@ -87,6 +88,7 @@ class Game extends React.Component {
               </div>
               <div className="col-md-4 col-md-offset-1">
                 <Infobox corps={this.state.corps} />
+                <RivalsInfobox rivalsInfo={this.state.rivalsInfo} />
               </div>
             </div>
           </div>
