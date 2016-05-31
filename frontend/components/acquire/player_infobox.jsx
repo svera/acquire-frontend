@@ -2,19 +2,23 @@ import React from 'react';
 
 class PlayerInfobox extends React.Component {
 
+  corpsHeaderMarkup() {
+    var corpsHeader = [];
+    for (var i = 0; i < this.props.corps.length; i++) {
+      corpsHeader.push(
+        <th key={"player-corp-header"+i}>{this.props.corps[i].nam}</th>
+      )
+    }
+    return corpsHeader;
+  }
+
   render() {
       return (
         <table className="table table-condensed">
               <thead>
                   <tr>
                       <th>Cash</th>
-                      <th>Sackson</th>
-                      <th>Zeta</th>
-                      <th>Hydra</th>
-                      <th>Fusion</th>
-                      <th>America</th>
-                      <th>Phoenix</th>
-                      <th>Quantum</th>
+                      {this.corpsHeaderMarkup()}
                   </tr>
               </thead>
               <tbody>

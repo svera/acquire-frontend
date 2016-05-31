@@ -2,6 +2,16 @@ import React from 'react';
 
 class RivalsInfobox extends React.Component {
 
+  corpsHeaderMarkup() {
+    var corpsHeader = [];
+    for (var i = 0; i < this.props.corps.length; i++) {
+      corpsHeader.push(
+        <th key={"rival-corp-header"+i}>{this.props.corps[i].nam}</th>
+      )
+    }
+    return corpsHeader;
+  }
+
   rivalsInfoMarkup() {
     var rivalsInfo = [];
     for (var i = 0; i < this.props.rivalsInfo.length; i++) {
@@ -35,13 +45,7 @@ class RivalsInfobox extends React.Component {
                   <tr>
                       <th>&nbsp;</th>
                       <th>Cash</th>
-                      <th>Sackson</th>
-                      <th>Zeta</th>
-                      <th>Hydra</th>
-                      <th>Fusion</th>
-                      <th>America</th>
-                      <th>Phoenix</th>
-                      <th>Quantum</th>
+                      {this.corpsHeaderMarkup()}
                   </tr>
               </thead>
               <tbody>

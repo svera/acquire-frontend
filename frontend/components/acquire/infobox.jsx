@@ -2,6 +2,16 @@ import React from 'react';
 
 class Infobox extends React.Component {
 
+  corpsHeaderMarkup() {
+    var corpsHeader = [];
+    for (var i = 0; i < this.props.corps.length; i++) {
+      corpsHeader.push(
+        <th key={"corp-header"+i} nowrap="nowrap"><span className={"c"+i}>&nbsp;</span> {this.props.corps[i].nam}</th>
+      )
+    }
+    return corpsHeader;
+  }
+
   render() {
       var corpsSizes = [];
       var corpsPrices = [];
@@ -20,13 +30,7 @@ class Infobox extends React.Component {
             <thead>
                 <tr>
                     <th>&nbsp;</th>
-                    <th nowrap="nowrap"><span className="sackson">&nbsp;</span> Sackson</th>
-                    <th nowrap="nowrap"><span className="zeta">&nbsp;</span> Zeta</th>
-                    <th nowrap="nowrap"><span className="hydra">&nbsp;</span> Hydra</th>
-                    <th nowrap="nowrap"><span className="fusion">&nbsp;</span> Fusion</th>
-                    <th nowrap="nowrap"><span className="america">&nbsp;</span> America</th>
-                    <th nowrap="nowrap"><span className="phoenix">&nbsp;</span> Phoenix</th>
-                    <th nowrap="nowrap"><span className="quantum">&nbsp;</span> Quantum</th>
+                    {this.corpsHeaderMarkup()}
                 </tr>
             </thead>
             <tbody>
