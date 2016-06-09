@@ -5,6 +5,7 @@ import PlayerInfobox from './player_infobox.jsx';
 import RivalsInfobox from './rivals_infobox.jsx';
 import ContextMenu from './context_menu.jsx';
 import GameFinished from './game_finished.jsx'
+import History from './history.jsx'
 import GameLeave from '../common/game_leave.jsx';
 import GameDestroy from '../common/game_destroy.jsx';
 
@@ -22,7 +23,8 @@ class Game extends React.Component {
         playerInfo: props.status.ply,
         rivalsInfo: props.status.riv,
         turnNumber: props.status.trn,
-        lastTurn: props.status.lst
+        lastTurn: props.status.lst,
+        history: props.status.his
       };
 
       this.props.conn.onmessage = (e) => {
@@ -38,7 +40,7 @@ class Game extends React.Component {
         console.log(msg.cnt);
         break;
       case "upd":
-      console.log(msg);
+        console.log(msg);
         this.setState({
           board: msg.brd,
           hand: msg.hnd,
@@ -48,7 +50,8 @@ class Game extends React.Component {
           playerInfo: msg.ply,
           rivalsInfo: msg.riv,
           turnNumber: msg.trn,
-          lastTurn: msg.lst
+          lastTurn: msg.lst,
+          history: msg.his
         })
         break;
     }
@@ -89,6 +92,7 @@ class Game extends React.Component {
               <div className="col-md-4 col-md-offset-1">
                 <Infobox corps={this.state.corps} />
                 <RivalsInfobox corps={this.state.corps} rivalsInfo={this.state.rivalsInfo} />
+                <History log={this.state.history} />
               </div>
             </div>
           </div>
