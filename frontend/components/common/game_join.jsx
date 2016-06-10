@@ -14,7 +14,11 @@ class GameJoin extends React.Component {
   }
 
   handleClick() {
-    this.props.callbackParent(this.gameID);
+    event.preventDefault();
+    var message = {"typ": "joi", "roo": this.gameID}
+    this.props.conn.send(
+        JSON.stringify(message)
+    );
   }
 
   render() {

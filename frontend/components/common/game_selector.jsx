@@ -5,17 +5,15 @@ class GameSelector extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onCreate = this.onCreate.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  onCreate () {
-    var self = this
-    $.post("http://localhost:8001/create",
-            {game: "acquire"},
-            function(data, status) {
-              self.props.callbackParent(data);
-            }
-          );
+  handleClick () {
+    event.preventDefault();
+    var message = {"typ": "cre", "roo": "", "par": {"bri": "acquire"}}
+    this.props.conn.send(
+        JSON.stringify(message)
+    );
     }
 
   render() {
@@ -24,7 +22,7 @@ class GameSelector extends React.Component {
         <select name="game">
           <option value="acquire">Acquire</option>
         </select>
-        <button onClick={this.onCreate} className="btn btn-primary">New game</button>
+        <button onClick={this.handleClick} className="btn btn-primary">New game</button>
       </div>
     );
   }

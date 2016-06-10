@@ -13,38 +13,11 @@ class Lobby extends React.Component {
         players: []
       };
 
-      this.conn = new WebSocket('ws://localhost:8001/' + this.props.gameID + '/join');
-
+/*
       this.conn.onmessage = (e) => {
         this.parseMessage(e.data);
-      }
-      this.conn.onerror = (e) => {
-        this.props.gameJoinErrorCallback();
-      }
-      this.conn.onclose = (e) => {
-        var message = null;
-        switch (e.code) {
-          case 4000:
-            message = '';
-            break;
-          case 4001:
-            message = 'Game terminated by owner';
-            break;
-          case 4002:
-            message = 'You have exited from game';
-            break;
-          case 4003:
-            message = 'You have been kicked out from game';
-            break;
-          case 4004:
-            message = 'Game terminated due to time';
-            break;
-          default:
-            message = 'Connection to server lost';
-        }
-        sessionStorage.setItem('info', message);
-        this.props.connectionLostCallBack();
-      }
+      }*/
+
   }
 
 
@@ -82,7 +55,7 @@ class Lobby extends React.Component {
       <div>
         <h2>Lobby for game {this.props.gameID}</h2>
         <p>Connected players</p>
-        <PlayerList players={this.state.players} conn={this.conn} />
+        <PlayerList players={this.props.players} conn={this.conn} />
         {restrictedItems}
       </div>
     );
