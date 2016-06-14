@@ -81,10 +81,10 @@ class Game extends React.Component {
             <div className="row">
               <div className="col-sm-12 col-md-6">
                 <PlayerInfobox playerInfo={this.state.playerInfo} corps={this.state.corps} />
-                <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.state.board} hand={this.state.hand} conn={this.props.conn} />
-                <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState} playerInfo={this.state.playerInfo} />
-                <GameLeave conn={this.props.conn} />
-                <GameDestroy conn={this.props.conn} term="Terminate game"/>
+                <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.state.board} hand={this.state.hand} conn={this.props.conn} gameID={this.props.gameID} />
+                <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState} playerInfo={this.state.playerInfo} gameID={this.props.gameID} />
+                <GameLeave conn={this.props.conn} gameID={this.props.gameID} />
+                <GameDestroy conn={this.props.conn} gameID={this.props.gameID} term="Terminate game"/>
               </div>
               <div className="col-md-4 col-md-offset-1">
                 <Infobox corps={this.state.corps} />

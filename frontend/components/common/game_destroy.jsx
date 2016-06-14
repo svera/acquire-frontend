@@ -9,7 +9,7 @@ class GameDestroy extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    var message = {"typ": "ter", "par": {}}
+    var message = {"typ": "ter", "rom": this.props.gameID, "par": {}}
     this.props.conn.send(
         JSON.stringify(message)
     );

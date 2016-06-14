@@ -13,8 +13,6 @@ class App extends React.Component {
   constructor(props) {
       super(props);
       this.onGameJoinError = this.onGameJoinError.bind(this);
-      this.onStartGame = this.onStartGame.bind(this);
-      this.onConnectionLost = this.onConnectionLost.bind(this);
       this.state = {
         screen: 0,
         game: '',
@@ -51,6 +49,9 @@ class App extends React.Component {
           default:
             message = 'Connection to server lost';
         }
+        this.setState({
+          screen: HOME
+        });
         sessionStorage.setItem('info', message);
       }
     }
@@ -61,22 +62,27 @@ class App extends React.Component {
         case "err":
           console.log(msg.cnt);
           break;
+
         case "new":
           console.log(msg)
+          sessionStorage.setItem('role', 'mng');
           this.setState({
             screen: LOBBY,
             gameID: msg.id
           });
           break;
+          /*
         case "ack":
           this.setState({
             screen: LOBBY,
             gameID: msg.id
           });
           break;
+          */
         case "pls":
         console.log(msg)
           this.setState({
+            screen: LOBBY,
             players: msg.val
           })
           break;
@@ -84,7 +90,11 @@ class App extends React.Component {
           sessionStorage.setItem('role', msg.rol);
           break;
         case "upd":
-          this.props.startGameCallback(this.conn, msg);
+          this.setState({
+            screen: GAME,
+            game: 'acquire',
+            initialStatus: msg
+          });
           break;
       }
     }
@@ -94,21 +104,6 @@ class App extends React.Component {
     console.log("Error joining game");
     this.setState({
       screen: HOME
-    });
-  }
-
-  onConnectionLost() {
-    this.setState({
-      screen: HOME
-    });
-  }
-
-  onStartGame(conn, msg) {
-    this.setState({
-      screen: GAME,
-      game: 'acquire',
-      conn: conn,
-      initialStatus: msg
     });
   }
 
@@ -125,15 +120,15 @@ class App extends React.Component {
                   {info}
                 </div>
                 <GameSelector conn={this.conn}/>
-                <GameJoin callbackParent={this.onGameCreated}/>
+                <GameJoin conn={this.conn}/>
               </div>
             </div>
           </div>
         );
       case LOBBY:
-        return (<Lobby gameID={this.state.gameID} players={this.state.players} gameJoinErrorCallback={this.onGameJoinError} startGameCallback={this.onStartGame} connectionLostCallBack={this.onConnectionLost} />);
+        return (<Lobby gameID={this.state.gameID} players={this.state.players} conn={this.conn} />);
       case GAME:
-        return (<Game conn={this.conn} status={this.state.initialStatus} connectionLostCallBack={this.onConnectionLost} />);
+        return (<Game gameID={this.state.gameID} conn={this.conn} status={this.state.initialStatus} connectionLostCallBack={this.onConnectionLost} />);
     }
   }
 

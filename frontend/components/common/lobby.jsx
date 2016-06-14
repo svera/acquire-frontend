@@ -8,7 +8,6 @@ class Lobby extends React.Component {
 
   constructor(props) {
       super(props);
-      this.conn = null
       this.state = {
         players: []
       };
@@ -20,7 +19,7 @@ class Lobby extends React.Component {
 
   }
 
-
+/*
   parseMessage(data) {
     var msg = JSON.parse(data);
     switch (msg.typ) {
@@ -40,14 +39,14 @@ class Lobby extends React.Component {
         break;
     }
   }
-
+*/
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       var restrictedItems = (
         <div>
-          <AddBot conn={this.conn} />
-          <StartGame conn={this.conn} />
-          <GameDestroy conn={this.conn} term="Cancel"/>
+          <AddBot conn={this.props.conn} gameID={this.props.gameID} />
+          <StartGame conn={this.props.conn} gameID={this.props.gameID} />
+          <GameDestroy conn={this.props.conn} gameID={this.props.gameID} term="Cancel"/>
         </div>
       );
     }
@@ -55,7 +54,7 @@ class Lobby extends React.Component {
       <div>
         <h2>Lobby for game {this.props.gameID}</h2>
         <p>Connected players</p>
-        <PlayerList players={this.props.players} conn={this.conn} />
+        <PlayerList players={this.props.players} conn={this.props.conn} gameID={this.props.gameID} />
         {restrictedItems}
       </div>
     );

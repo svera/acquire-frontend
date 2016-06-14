@@ -15,7 +15,8 @@ class GameJoin extends React.Component {
 
   handleClick() {
     event.preventDefault();
-    var message = {"typ": "joi", "roo": this.gameID}
+    var message = {"typ": "joi", "rom": this.gameID, "par": {}}
+    console.log(JSON.stringify(message));
     this.props.conn.send(
         JSON.stringify(message)
     );

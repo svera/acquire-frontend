@@ -10,7 +10,7 @@ class AddBot extends React.Component {
   }
 
   onClickHandler () {
-    var message = {"typ": "bot", "par": {"nam": this.bot}}
+    var message = {"typ": "bot", "rom": this.props.gameID, "par": {"nam": this.bot}}
     this.props.conn.send(
         JSON.stringify(message)
     );

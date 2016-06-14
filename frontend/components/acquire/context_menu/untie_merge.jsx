@@ -16,7 +16,7 @@ class UntieMerge extends React.Component {
   }
 
   handleClick() {
-    var message = {"typ": "unt", "par": {"cor": this.corp}};
+    var message = {"typ": "unt", "rom": this.props.gameID, "par": {"cor": this.corp}};
     this.props.conn.send(
         JSON.stringify(message)
     );

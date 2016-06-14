@@ -9,7 +9,7 @@ class KickPlayer extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    var message = {"typ": "kck", "par": {"ply": event.target.value}}
+    var message = {"typ": "kck", "rom": this.props.gameID, "par": {"ply": event.target.value}}
     this.props.conn.send(
         JSON.stringify(message)
     );

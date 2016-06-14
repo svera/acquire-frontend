@@ -8,7 +8,8 @@ class StartGame extends React.Component {
   }
 
   onClick () {
-    var message = {"typ": "ini", "par": {}}
+    var message = {"typ": "ini", "rom": this.props.gameID, "par": {}}
+    console.log(JSON.stringify(message))
     this.props.conn.send(
         JSON.stringify(message)
     );
