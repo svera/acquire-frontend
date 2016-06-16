@@ -28,7 +28,7 @@ class SellTrade extends React.Component {
   }
 
   handleClick() {
-    var message =  {"typ": "sel", "rom": this.props.gameID, "par": {"cor": this.corps}};
+    var message =  {"typ": "sel", "par": {"cor": this.corps}};
     this.props.conn.send(
         JSON.stringify(message)
     );

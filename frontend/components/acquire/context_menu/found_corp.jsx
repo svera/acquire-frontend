@@ -17,7 +17,7 @@ class FoundCorp extends React.Component {
   }
 
   handleClick() {
-    var message = {"typ": "ncp", "rom": this.props.gameID, "par": {"cor": this.corp}};
+    var message = {"typ": "ncp", "par": {"cor": this.corp}};
     this.props.conn.send(
         JSON.stringify(message)
     );

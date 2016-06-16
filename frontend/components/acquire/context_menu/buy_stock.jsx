@@ -21,7 +21,7 @@ class BuyStock extends React.Component {
   }
 
   handleClick() {
-    var message = {"typ": "buy", "rom": this.props.gameID, "par": {"cor": {}}};
+    var message = {"typ": "buy", "par": {"cor": {}}};
     for (var corp in this.buy) {
       if (this.buy.hasOwnProperty(corp)) {
         message["par"]["cor"][corp] = parseInt(this.buy[corp]);

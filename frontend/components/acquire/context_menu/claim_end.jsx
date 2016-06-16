@@ -8,7 +8,7 @@ class ClaimEnd extends React.Component {
   }
 
   onClick() {
-    var message =  {"typ": "end", "rom": this.props.gameID, "par": {}};
+    var message =  {"typ": "end", "par": {}};
     this.props.conn.send(
         JSON.stringify(message)
     );

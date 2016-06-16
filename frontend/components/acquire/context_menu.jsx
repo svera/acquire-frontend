@@ -16,27 +16,27 @@ class ContextMenu extends React.Component {
       switch (this.props.gameState) {
         case 'PlayTile':
           return (
-            <PlayTile conn={this.props.conn} gameID={this.props.gameID} />
+            <PlayTile conn={this.props.conn} />
           );
 
         case 'FoundCorp':
           return (
-            <FoundCorp corps={this.props.corps} conn={this.props.conn} gameID={this.props.gameID} />
+            <FoundCorp corps={this.props.corps} conn={this.props.conn} />
           );
 
         case 'BuyStock':
           return (
-            <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} gameID={this.props.gameID} />
+            <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} />
           );
 
         case 'SellTrade':
           return (
-            <SellTrade playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} gameID={this.props.gameID} />
+            <SellTrade playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} />
           );
 
         case 'UntieMerge':
           return (
-            <UntieMerge corps={this.props.tiedCorps} conn={this.props.conn} gameID={this.props.gameID} />
+            <UntieMerge corps={this.props.tiedCorps} conn={this.props.conn} />
           );
         }
     }

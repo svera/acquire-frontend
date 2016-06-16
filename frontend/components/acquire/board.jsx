@@ -37,7 +37,7 @@ class Board extends React.Component {
 
           if (coords in this.props.hand) {
             grid.push(
-              <Tile x={x} y={y} width={this.cellWidth} height={this.cellHeight} radius={this.props.radius} key={"tile-"+i+"-"+j} coords={coords} conn={this.props.conn} playable={this.props.hand[coords]} gameID={this.props.gameID} />
+              <Tile x={x} y={y} width={this.cellWidth} height={this.cellHeight} radius={this.props.radius} key={"tile-"+i+"-"+j} coords={coords} conn={this.props.conn} playable={this.props.hand[coords]} />
             )
           }
 

@@ -11,54 +11,11 @@ import GameDestroy from '../common/game_destroy.jsx';
 
 class Game extends React.Component {
 
-  constructor(props) {
-      super(props);
-      this.state = {
-        board: props.status.brd,
-        gameState: props.status.sta,
-        corps: props.status.cor,
-        tiedCorps: props.status.tie,
-        hand: props.status.hnd,
-        playerInfo: props.status.ply,
-        rivalsInfo: props.status.riv,
-        turnNumber: props.status.trn,
-        lastTurn: props.status.lst
-      };
-
-      this.props.conn.onmessage = (e) => {
-        this.parseMessage(e.data);
-      }
-
-  }
-
-  parseMessage(data) {
-    var msg = JSON.parse(data);
-    switch (msg.typ) {
-      case "err":
-        console.log(msg.cnt);
-        break;
-      case "upd":
-      console.log(msg);
-        this.setState({
-          board: msg.brd,
-          hand: msg.hnd,
-          corps: msg.cor,
-          tiedCorps: msg.tie,
-          gameState: msg.sta,
-          playerInfo: msg.ply,
-          rivalsInfo: msg.riv,
-          turnNumber: msg.trn,
-          lastTurn: msg.lst
-        })
-        break;
-    }
-  }
-
   render() {
-    switch (this.state.gameState) {
+    switch (this.props.status.gameState) {
       case 'EndGame':
         return (
-          <GameFinished playerInfo={this.state.playerInfo} rivalsInfo={this.state.rivalsInfo} conn={this.props.conn}/>
+          <GameFinished playerInfo={this.props.status.ply} rivalsInfo={this.props.status.riv} conn={this.props.conn}/>
         );
         break;
 
@@ -80,15 +37,15 @@ class Game extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12 col-md-6">
-                <PlayerInfobox playerInfo={this.state.playerInfo} corps={this.state.corps} />
-                <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.state.board} hand={this.state.hand} conn={this.props.conn} gameID={this.props.gameID} />
-                <ContextMenu conn={this.props.conn} corps={this.state.corps} tiedCorps={this.state.tiedCorps} gameState={this.state.gameState} playerInfo={this.state.playerInfo} gameID={this.props.gameID} />
-                <GameLeave conn={this.props.conn} gameID={this.props.gameID} />
-                <GameDestroy conn={this.props.conn} gameID={this.props.gameID} term="Terminate game"/>
+                <PlayerInfobox playerInfo={this.props.status.ply} corps={this.props.status.cor} />
+                <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.props.status.brd} hand={this.props.status.hnd} conn={this.props.conn} />
+                <ContextMenu conn={this.props.conn} corps={this.props.status.cor} tiedCorps={this.props.status.tie} gameState={this.props.status.sta} playerInfo={this.props.status.ply} />
+                <GameLeave conn={this.props.conn} />
+                <GameDestroy conn={this.props.conn} term="Terminate game"/>
               </div>
               <div className="col-md-4 col-md-offset-1">
-                <Infobox corps={this.state.corps} />
-                <RivalsInfobox corps={this.state.corps} rivalsInfo={this.state.rivalsInfo} />
+                <Infobox corps={this.props.status.cor} />
+                <RivalsInfobox corps={this.props.status.cor} rivalsInfo={this.props.status.riv} />
               </div>
             </div>
           </div>

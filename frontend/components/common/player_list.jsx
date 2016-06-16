@@ -12,7 +12,7 @@ class PlayerList extends React.Component {
                 return (
                   <li key={playerNumber}>
                     {player}&nbsp;
-                    <KickPlayer conn={self.props.conn} gameID={self.props.gameID} playerNumber={playerNumber} />
+                    <KickPlayer conn={self.props.conn} playerNumber={playerNumber} />
                   </li>
                 )
             })
