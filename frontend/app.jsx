@@ -25,17 +25,17 @@ class App extends React.Component {
       }
 
       this.conn.onerror = (e) => {
-        console.log("Error connecting");
+        sessionStorage.setItem('info', 'Error connecting to server');
         this.setState({
           screen: HOME
         });
       }
 
       this.conn.onclose = (e) => {
+        sessionStorage.setItem('info', 'Connection to server lost');
         this.setState({
           screen: HOME
         });
-        sessionStorage.setItem('info', 'Connection to server lost');
       }
     }
 
