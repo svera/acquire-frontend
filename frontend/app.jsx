@@ -46,6 +46,12 @@ class App extends React.Component {
           if (msg.rea == 'ter') {
             sessionStorage.setItem('info', 'Game terminated by owner');
           }
+          if (msg.rea == 'kck') {
+            sessionStorage.setItem('info', 'You have been kicked out of the game by its owner');
+          }
+          if (msg.rea == 'tim') {
+            sessionStorage.setItem('info', 'Room timed out');
+          }
           this.setState({
             screen: HOME,
           });
