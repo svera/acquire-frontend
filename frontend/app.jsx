@@ -12,46 +12,94 @@ const GAME = 2
 class App extends React.Component {
   constructor(props) {
       super(props);
-      this.onGameCreated = this.onGameCreated.bind(this);
-      this.onGameJoinError = this.onGameJoinError.bind(this);
-      this.onStartGame = this.onStartGame.bind(this);
-      this.onConnectionLost = this.onConnectionLost.bind(this);
       this.state = {
         screen: 0,
         game: '',
         gameID: '',
-        conn: null
+        players: [],
+        status: null,
       };
+      this.conn = new WebSocket('ws://localhost:8001');
+
+      this.conn.onmessage = (e) => {
+        this.parseMessage(e.data);
+      }
+
+      this.conn.onerror = (e) => {
+        sessionStorage.setItem('info', 'Error connecting to server');
+        this.setState({
+          screen: HOME
+        });
+      }
+
+      this.conn.onclose = (e) => {
+        sessionStorage.setItem('info', 'Connection to server lost');
+        this.setState({
+          screen: HOME
+        });
+      }
     }
 
-  onGameCreated(ID) {
-    this.setState({
-      screen: LOBBY,
-      gameID: ID
-    });
-  }
+    parseMessage(data) {
+      var msg = JSON.parse(data);
+      switch (msg.typ) {
+        case "out":
+          if (msg.rea == 'ter') {
+            sessionStorage.setItem('info', 'Game terminated by owner');
+          }
+          if (msg.rea == 'kck') {
+            sessionStorage.setItem('info', 'You have been kicked out of the game by its owner');
+          }
+          if (msg.rea == 'tim') {
+            sessionStorage.setItem('info', 'Room timed out');
+          }
+          if (msg.rea == 'qui') {
+            sessionStorage.setItem('info', 'You have left the room');
+          }
+          this.setState({
+            screen: HOME,
+          });
+          break;
+        case "err":
+          console.log(msg.cnt);
+          break;
 
-  onGameJoinError() {
-    console.log("Error joining game");
-    this.setState({
-      screen: HOME
-    });
-  }
-
-  onConnectionLost() {
-    this.setState({
-      screen: HOME
-    });
-  }
-
-  onStartGame(conn, msg) {
-    this.setState({
-      screen: GAME,
-      game: 'acquire',
-      conn: conn,
-      initialStatus: msg
-    });
-  }
+        case "new":
+          sessionStorage.setItem('role', 'mng');
+          this.setState({
+            screen: LOBBY,
+            gameID: msg.id
+          });
+          break;
+          /*
+        case "ack":
+          this.setState({
+            screen: LOBBY,
+            gameID: msg.id
+          });
+          break;
+          */
+        case "pls":
+          if (this.state.screen == HOME || this.state.screen == LOBBY) {
+            this.setState({
+              screen: LOBBY,
+              players: msg.val
+            });
+          }
+          break;
+        case "ctl":
+          sessionStorage.setItem('role', msg.rol);
+          break;
+        case "upd":
+          console.log(msg);
+          this.setState({
+            screen: GAME,
+            game: 'acquire',
+            status: msg,
+          });
+          break;
+      }
+    }
 
   render() {
     switch (this.state.screen) {
@@ -65,16 +113,16 @@ class App extends React.Component {
                 <div className={info ? 'alert alert-warning' : 'hide'}>
                   {info}
                 </div>
-                <GameSelector callbackParent={this.onGameCreated}/>
-                <GameJoin callbackParent={this.onGameCreated}/>
+                <GameSelector conn={this.conn} />
+                <GameJoin conn={this.conn} />
               </div>
             </div>
           </div>
         );
       case LOBBY:
-        return (<Lobby gameID={this.state.gameID} gameJoinErrorCallback={this.onGameJoinError} startGameCallback={this.onStartGame} connectionLostCallBack={this.onConnectionLost} />);
+        return (<Lobby gameID={this.state.gameID} players={this.state.players} conn={this.conn} />);
       case GAME:
-        return (<Game conn={this.state.conn} status={this.state.initialStatus} connectionLostCallBack={this.onConnectionLost} />);
+        return (<Game conn={this.conn} status={this.state.status} />);
     }
   }
 
