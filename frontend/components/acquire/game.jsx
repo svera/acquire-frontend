@@ -5,6 +5,7 @@ import PlayerInfobox from './player_infobox.jsx';
 import RivalsInfobox from './rivals_infobox.jsx';
 import ContextMenu from './context_menu.jsx';
 import GameFinished from './game_finished.jsx'
+import History from './history.jsx'
 import GameLeave from '../common/game_leave.jsx';
 import GameDestroy from '../common/game_destroy.jsx';
 
@@ -47,6 +48,7 @@ class Game extends React.Component {
               <div className="col-md-4 col-md-offset-1">
                 <Infobox corps={this.props.status.cor} />
                 <RivalsInfobox corps={this.props.status.cor} rivalsInfo={this.props.status.riv} />
+                <History log={this.props.status.his} />
               </div>
             </div>
           </div>
