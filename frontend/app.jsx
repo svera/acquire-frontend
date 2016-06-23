@@ -17,6 +17,7 @@ class App extends React.Component {
         game: '',
         gameID: '',
         players: [],
+        status: null,
       };
       this.conn = new WebSocket('ws://localhost:8001');
 
@@ -52,6 +53,9 @@ class App extends React.Component {
           if (msg.rea == 'tim') {
             sessionStorage.setItem('info', 'Room timed out');
           }
+          if (msg.rea == 'qui') {
+            sessionStorage.setItem('info', 'You have left the room');
+          }
           this.setState({
             screen: HOME,
           });
@@ -61,7 +65,6 @@ class App extends React.Component {
           break;
 
         case "new":
-          console.log(msg)
           sessionStorage.setItem('role', 'mng');
           this.setState({
             screen: LOBBY,
@@ -77,19 +80,22 @@ class App extends React.Component {
           break;
           */
         case "pls":
-          this.setState({
-            screen: LOBBY,
-            players: msg.val
-          })
+          if (this.state.screen == HOME || this.state.screen == LOBBY) {
+            this.setState({
+              screen: LOBBY,
+              players: msg.val
+            });
+          }
           break;
         case "ctl":
           sessionStorage.setItem('role', msg.rol);
           break;
         case "upd":
+          console.log(msg);
           this.setState({
             screen: GAME,
             game: 'acquire',
-            status: msg
+            status: msg,
           });
           break;
       }

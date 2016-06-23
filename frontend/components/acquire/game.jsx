@@ -12,7 +12,8 @@ import GameDestroy from '../common/game_destroy.jsx';
 class Game extends React.Component {
 
   render() {
-    switch (this.props.status.gameState) {
+    console.log(this.props.status.sta);
+    switch (this.props.status.sta) {
       case 'EndGame':
         return (
           <GameFinished playerInfo={this.props.status.ply} rivalsInfo={this.props.status.riv} conn={this.props.conn}/>
