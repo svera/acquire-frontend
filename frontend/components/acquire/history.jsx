@@ -5,20 +5,24 @@ class History extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        cont: ""
+        cont: this.addNewLogs(props)
       }
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState({
+      cont: this.state.cont + this.addNewLogs(nextProps)
+    });
+  }
+
+  addNewLogs(content) {
     var newCont = "";
-    if (nextProps.log != null) {
-      for (var i = 0; i < nextProps.log.length; i++) {
-        newCont += nextProps.log[i]+"\n";
+    if (content.log != null) {
+      for (var i = 0; i < content.log.length; i++) {
+        newCont += content.log[i]+"\n";
       }
-      this.setState({
-        cont: this.state.cont + newCont
-      });
     }
+    return newCont;
   }
 
   render() {

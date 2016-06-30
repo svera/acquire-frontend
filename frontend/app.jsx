@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import GameSelector from './components/common/game_selector.jsx';
+import GameCreate from './components/common/game_create.jsx';
 import GameJoin from './components/common/game_join.jsx';
 import Lobby from './components/common/lobby.jsx';
 import Game from './components/acquire/game.jsx';
@@ -113,7 +113,7 @@ class App extends React.Component {
                 <div className={info ? 'alert alert-warning' : 'hide'}>
                   {info}
                 </div>
-                <GameSelector conn={this.conn} />
+                <GameCreate conn={this.conn} gameName="acquire" />
                 <GameJoin conn={this.conn} />
               </div>
             </div>

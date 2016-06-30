@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-class GameSelector extends React.Component {
+class GameCreate extends React.Component {
 
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ class GameSelector extends React.Component {
 
   handleClick () {
     event.preventDefault();
-    var message = {"typ": "cre", "roo": "", "par": {"bri": "acquire"}}
+    var message = {"typ": "cre", "roo": "", "par": {"bri": this.props.gameName}}
     this.props.conn.send(
         JSON.stringify(message)
     );
@@ -19,9 +19,6 @@ class GameSelector extends React.Component {
   render() {
     return (
       <div>
-        <select name="game">
-          <option value="acquire">Acquire</option>
-        </select>
         <button onClick={this.handleClick} className="btn btn-primary">New game</button>
       </div>
     );
@@ -29,4 +26,4 @@ class GameSelector extends React.Component {
 
 }
 
-export default GameSelector;
+export default GameCreate;
