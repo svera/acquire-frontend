@@ -9,18 +9,21 @@ class History extends React.Component {
       }
   }
 
-  historyContent() {
-    if (this.props.log != null) {
-      for (var i = 0; i < this.props.log.length; i++) {
-        this.state.cont += "<p>"+this.props.log[i]+"</p>"
+  componentWillReceiveProps(nextProps) {
+    var newCont = "";
+    if (nextProps.log != null) {
+      for (var i = 0; i < nextProps.log.length; i++) {
+        newCont += nextProps.log[i]+"\n";
       }
-      return this.state.cont
+      this.setState({
+        cont: this.state.cont + newCont
+      });
     }
   }
 
   render() {
       return (
-        <div>{this.historyContent()}</div>
+        <textarea readOnly="readOnly" rows="10" style={{width: '100%'}} value={this.state.cont}></textarea>
       );
   }
 
