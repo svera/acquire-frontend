@@ -4,7 +4,9 @@ import GameCreate from './components/common/game_create.jsx';
 import GameJoin from './components/common/game_join.jsx';
 import Lobby from './components/common/lobby.jsx';
 import Game from './components/acquire/game.jsx';
+import ChangeLanguage from './components/common/change_language.jsx';
 import {en} from './components/acquire/languages/en.js';
+import {es} from './components/acquire/languages/es.js';
 import Polyglot from 'node-polyglot';
 
 const HOME = 0
@@ -21,8 +23,12 @@ class App extends React.Component {
         players: [],
         status: null,
       };
+      if (!localStorage.getItem('language')) {
+        localStorage.setItem('language', 'en');
+      }
       this.polyglot = new Polyglot();
       this.polyglot.extend(en);
+      this.polyglot.extend(es);
 
       this.conn = new WebSocket('ws://localhost:8001');
 
@@ -38,7 +44,7 @@ class App extends React.Component {
       }
 
       this.conn.onclose = (e) => {
-        sessionStorage.setItem('info', this.polyglot.t("en.connection_lost"));
+        sessionStorage.setItem('info', this.polyglot.t(localStorage.getItem('language') + ".connection_lost"));
         this.setState({
           screen: HOME
         });
@@ -118,6 +124,7 @@ class App extends React.Component {
                 <div className={info ? 'alert alert-warning' : 'hide'}>
                   {info}
                 </div>
+                <ChangeLanguage />
                 <GameCreate conn={this.conn} gameName="acquire" />
                 <GameJoin conn={this.conn} />
               </div>
