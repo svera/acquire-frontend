@@ -4,6 +4,8 @@ import GameCreate from './components/common/game_create.jsx';
 import GameJoin from './components/common/game_join.jsx';
 import Lobby from './components/common/lobby.jsx';
 import Game from './components/acquire/game.jsx';
+import {en} from './components/acquire/languages/en.js';
+import Polyglot from 'node-polyglot';
 
 const HOME = 0
 const LOBBY = 1
@@ -19,6 +21,9 @@ class App extends React.Component {
         players: [],
         status: null,
       };
+      this.polyglot = new Polyglot();
+      this.polyglot.extend(en);
+
       this.conn = new WebSocket('ws://localhost:8001');
 
       this.conn.onmessage = (e) => {
@@ -33,7 +38,7 @@ class App extends React.Component {
       }
 
       this.conn.onclose = (e) => {
-        sessionStorage.setItem('info', 'Connection to server lost');
+        sessionStorage.setItem('info', this.polyglot.t("en.connection_lost"));
         this.setState({
           screen: HOME
         });
