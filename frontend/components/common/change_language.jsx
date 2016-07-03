@@ -8,15 +8,15 @@ class ChangeLanguage extends React.Component {
   }
 
   onChange(event) {
-    console.log(event.target.value);
     localStorage.setItem('language', event.target.value);
+    location.reload();
   }
 
   render() {
     return (
-      <select onChange={this.onChange}>
-        <option value="en" selected={localStorage.getItem('language') == 'en' ? true : false }>English</option>
-        <option value="es" selected={localStorage.getItem('language') == 'es' ? true : false }>Español</option>
+      <select onChange={this.onChange} value={localStorage.getItem('language')}>
+        <option value="en">English</option>
+        <option value="es">Español</option>
       </select>
     );
   }

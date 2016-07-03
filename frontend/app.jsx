@@ -23,32 +23,42 @@ class App extends React.Component {
         players: [],
         status: null,
       };
-      if (!localStorage.getItem('language')) {
-        localStorage.setItem('language', 'en');
-      }
-      this.polyglot = new Polyglot();
-      this.polyglot.extend(en);
-      this.polyglot.extend(es);
 
       this.conn = new WebSocket('ws://localhost:8001');
+
+      this.initLanguages();
 
       this.conn.onmessage = (e) => {
         this.parseMessage(e.data);
       }
 
       this.conn.onerror = (e) => {
-        sessionStorage.setItem('info', 'Error connecting to server');
+        sessionStorage.setItem('info', this.t("connection_error"));
         this.setState({
           screen: HOME
         });
       }
 
       this.conn.onclose = (e) => {
-        sessionStorage.setItem('info', this.polyglot.t(localStorage.getItem('language') + ".connection_lost"));
+        sessionStorage.setItem('info', this.t("connection_lost"));
         this.setState({
           screen: HOME
         });
       }
+    }
+
+    initLanguages() {
+      if (!localStorage.getItem('language')) {
+        localStorage.setItem('language', 'en');
+      }
+      this.polyglot = new Polyglot();
+      this.polyglot.extend(en);
+      this.polyglot.extend(es);
+    }
+
+    // Return the translation for the passed key in the current language
+    t(key) {
+      return this.polyglot.t(localStorage.getItem('language') + "." + key)
     }
 
     parseMessage(data) {
@@ -56,16 +66,16 @@ class App extends React.Component {
       switch (msg.typ) {
         case "out":
           if (msg.rea == 'ter') {
-            sessionStorage.setItem('info', 'Game terminated by owner');
+            sessionStorage.setItem('info', this.t("game_terminated"));
           }
           if (msg.rea == 'kck') {
-            sessionStorage.setItem('info', 'You have been kicked out of the game by its owner');
+            sessionStorage.setItem('info', this.t("kicked"));
           }
           if (msg.rea == 'tim') {
-            sessionStorage.setItem('info', 'Room timed out');
+            sessionStorage.setItem('info', this.t("room_timed_out"));
           }
           if (msg.rea == 'qui') {
-            sessionStorage.setItem('info', 'You have left the room');
+            sessionStorage.setItem('info', this.t("left_room"));
           }
           this.setState({
             screen: HOME,
