@@ -1,7 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import GameCreate from './components/common/game_create.jsx';
-import GameJoin from './components/common/game_join.jsx';
+import Home from './components/common/home.jsx';
 import Lobby from './components/common/lobby.jsx';
 import Game from './components/acquire/game.jsx';
 import {en} from './components/acquire/languages/en.js';
@@ -21,9 +20,9 @@ class App extends React.Component {
         gameID: '',
         players: [],
         status: null,
-        language: this.initLanguages(),
       };
 
+      this.initLanguages();
       sessionStorage.setItem('info', '');
       this.conn = new WebSocket('ws://localhost:8001');
 
@@ -45,7 +44,6 @@ class App extends React.Component {
         });
       }
 
-      this.onChangeLanguage = this.onChangeLanguage.bind(this);
       this.t = this.t.bind(this);
     }
 
@@ -61,7 +59,7 @@ class App extends React.Component {
 
     // Return the translation for the passed key in the current language
     t(key, values) {
-      return this.polyglot.t(this.state.language + "." + key, values);
+      return this.polyglot.t(localStorage.getItem('language') + "." + key, values);
     }
 
     parseMessage(data) {
@@ -125,33 +123,10 @@ class App extends React.Component {
       }
     }
 
-  onChangeLanguage(event) {
-    localStorage.setItem('language', event.target.value);
-    this.setState({language: event.target.value})
-  }
-
   render() {
     switch (this.state.screen) {
       case HOME:
-        var info = sessionStorage.getItem('info');
-        sessionStorage.setItem('info', '');
-        return (
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 col-lg-offset-3 text-center">
-                <div className={info ? 'alert alert-warning' : 'hide'}>
-                  {info}
-                </div>
-                <select onChange={this.onChangeLanguage} value={this.state.language}>
-                  <option value="en">English</option>
-                  <option value="es">Español</option>
-                </select>
-                <GameCreate conn={this.conn} gameName="acquire" text={this.t('create_game')} />
-                <GameJoin conn={this.conn} />
-              </div>
-            </div>
-          </div>
-        );
+        return (<Home conn={this.conn} translator={this.t} language={localStorage.getItem('language')} />);
       case LOBBY:
         return (<Lobby gameID={this.state.gameID} players={this.state.players} conn={this.conn} translator={this.t} />);
       case GAME:

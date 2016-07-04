@@ -9,6 +9,7 @@ export const es = {
     "create_game": "Nueva partida",
     "lobby": {
       "title": "Sala de espera para la partida %{gameID}",
+      "connected_players": "Jugadores conectados",
     }
   }
 };

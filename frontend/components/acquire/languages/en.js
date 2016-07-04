@@ -9,6 +9,7 @@ export const en = {
     "create_game": "New game",
     "lobby": {
       "title": "Lobby for game %{gameID}",
+      "connected_players": "Connected players",
     }
   }
 };
