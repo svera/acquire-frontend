@@ -7,9 +7,14 @@ export const en = {
     "room_timed_out": "Room timed out",
     "left_room": "You have left the room",
     "create_game": "New game",
+    "join": "Join",
+    "remove": "Remove",
+    "cancel": "Cancel",
     "lobby": {
       "title": "Lobby for game %{gameID}",
       "connected_players": "Connected players",
+      "start_game": "Start game",
+      "add_bot": "Add bot",
     }
   }
 };

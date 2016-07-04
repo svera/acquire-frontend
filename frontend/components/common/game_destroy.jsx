@@ -18,7 +18,7 @@ class GameDestroy extends React.Component {
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       return (
-        <button onClick={this.handleClick} className="btn btn-default">{this.props.term}</button>
+        <button onClick={this.handleClick} className="btn btn-default">{this.props.text}</button>
       );
     }
     return null;

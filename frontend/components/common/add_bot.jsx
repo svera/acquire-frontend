@@ -26,7 +26,7 @@ class AddBot extends React.Component {
         <select name="bot" onChange={this.onChangeHandler}>
           <option value="random">Random</option>
         </select>
-        <button onClick={this.onClickHandler} className="btn btn-default">Add bot</button>
+        <button onClick={this.onClickHandler} className="btn btn-default">{this.props.text}</button>
       </div>
     );
   }

@@ -18,7 +18,7 @@ class KickPlayer extends React.Component {
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       return (
-        <a href="#" onClick={this.handleClick} value={this.props.playerNumber}>Remove</a>
+        <a href="#" onClick={this.handleClick} value={this.props.playerNumber}>{this.props.text}</a>
       );
     }
     return null;

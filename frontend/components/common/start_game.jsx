@@ -17,7 +17,7 @@ class StartGame extends React.Component {
 
   render() {
     return (
-      <button onClick={this.onClick} className="btn btn-default">Start game</button>
+      <button onClick={this.onClick} className="btn btn-default">{this.props.text}</button>
     );
   }
 

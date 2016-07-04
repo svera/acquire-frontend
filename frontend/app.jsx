@@ -130,7 +130,7 @@ class App extends React.Component {
       case LOBBY:
         return (<Lobby gameID={this.state.gameID} players={this.state.players} conn={this.conn} translator={this.t} />);
       case GAME:
-        return (<Game conn={this.conn} status={this.state.status} />);
+        return (<Game conn={this.conn} status={this.state.status} translator={this.t} />);
     }
   }
 

@@ -7,9 +7,14 @@ export const es = {
     "room_timed_out": "La sala ha expirado",
     "left_room": "Has abandonado la sala",
     "create_game": "Nueva partida",
+    "join": "Unirse",
+    "remove": "Eliminar",
+    "cancel": "Cancelar",
     "lobby": {
       "title": "Sala de espera para la partida %{gameID}",
       "connected_players": "Jugadores conectados",
+      "add_bot": "Añadir bot",
+      "start_game": "Comenzar partida",
     }
   }
 };

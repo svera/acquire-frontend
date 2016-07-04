@@ -31,7 +31,7 @@ class Home extends React.Component {
               <option value="es">Español</option>
             </select>
             <GameCreate conn={this.props.conn} gameName="acquire" text={this.props.translator('create_game')} />
-            <GameJoin conn={this.props.conn} />
+            <GameJoin conn={this.props.conn} text={this.props.translator('join')} />
           </div>
         </div>
       </div>

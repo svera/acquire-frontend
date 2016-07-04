@@ -17,9 +17,9 @@ class Lobby extends React.Component {
     if (sessionStorage.getItem('role') == 'mng') {
       var restrictedItems = (
         <div>
-          <AddBot conn={this.props.conn} />
-          <StartGame conn={this.props.conn} />
-          <GameDestroy conn={this.props.conn} term="Cancel"/>
+          <AddBot conn={this.props.conn} text={this.props.translator('lobby.add_bot')} />
+          <StartGame conn={this.props.conn} text={this.props.translator('lobby.start_game')} />
+          <GameDestroy conn={this.props.conn} text={this.props.translator('cancel')} />
         </div>
       );
     }
@@ -27,7 +27,7 @@ class Lobby extends React.Component {
       <div>
         <h2>{this.props.translator('lobby.title', {'gameID': this.props.gameID})}</h2>
         <h3>{this.props.translator('lobby.connected_players')}</h3>
-        <PlayerList players={this.props.players} conn={this.props.conn} />
+        <PlayerList players={this.props.players} conn={this.props.conn} translator={this.props.translator} />
         {restrictedItems}
       </div>
     );

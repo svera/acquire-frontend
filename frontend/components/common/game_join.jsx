@@ -27,7 +27,7 @@ class GameJoin extends React.Component {
       <div>
         <label for="gameID">game ID</label>
         <input id="gameID" type="text" name="gameID" onChange={this.handleChange} />
-        <button onClick={this.handleClick} className="btn btn-default">Join</button>
+        <button onClick={this.handleClick} className="btn btn-default">{this.props.text}</button>
       </div>
     );
   }
