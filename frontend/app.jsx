@@ -4,7 +4,6 @@ import GameCreate from './components/common/game_create.jsx';
 import GameJoin from './components/common/game_join.jsx';
 import Lobby from './components/common/lobby.jsx';
 import Game from './components/acquire/game.jsx';
-import ChangeLanguage from './components/common/change_language.jsx';
 import {en} from './components/acquire/languages/en.js';
 import {es} from './components/acquire/languages/es.js';
 import Polyglot from 'node-polyglot';
@@ -22,14 +21,21 @@ class App extends React.Component {
         gameID: '',
         players: [],
         status: null,
+        language: this.initLanguages(),
       };
 
+      sessionStorage.setItem('info', '');
       this.conn = new WebSocket('ws://localhost:8001');
-
-      this.initLanguages();
 
       this.conn.onmessage = (e) => {
         this.parseMessage(e.data);
+      }
+
+      this.conn.onclose = (e) => {
+        sessionStorage.setItem('info', this.t("connection_lost"));
+        this.setState({
+          screen: HOME
+        });
       }
 
       this.conn.onerror = (e) => {
@@ -39,12 +45,8 @@ class App extends React.Component {
         });
       }
 
-      this.conn.onclose = (e) => {
-        sessionStorage.setItem('info', this.t("connection_lost"));
-        this.setState({
-          screen: HOME
-        });
-      }
+      this.onChangeLanguage = this.onChangeLanguage.bind(this);
+      this.t = this.t.bind(this);
     }
 
     initLanguages() {
@@ -54,11 +56,12 @@ class App extends React.Component {
       this.polyglot = new Polyglot();
       this.polyglot.extend(en);
       this.polyglot.extend(es);
+      return localStorage.getItem('language');
     }
 
     // Return the translation for the passed key in the current language
-    t(key) {
-      return this.polyglot.t(localStorage.getItem('language') + "." + key)
+    t(key, values) {
+      return this.polyglot.t(this.state.language + "." + key, values);
     }
 
     parseMessage(data) {
@@ -122,6 +125,11 @@ class App extends React.Component {
       }
     }
 
+  onChangeLanguage(event) {
+    localStorage.setItem('language', event.target.value);
+    this.setState({language: event.target.value})
+  }
+
   render() {
     switch (this.state.screen) {
       case HOME:
@@ -134,15 +142,18 @@ class App extends React.Component {
                 <div className={info ? 'alert alert-warning' : 'hide'}>
                   {info}
                 </div>
-                <ChangeLanguage />
-                <GameCreate conn={this.conn} gameName="acquire" />
+                <select onChange={this.onChangeLanguage} value={this.state.language}>
+                  <option value="en">English</option>
+                  <option value="es">Español</option>
+                </select>
+                <GameCreate conn={this.conn} gameName="acquire" text={this.t('create_game')} />
                 <GameJoin conn={this.conn} />
               </div>
             </div>
           </div>
         );
       case LOBBY:
-        return (<Lobby gameID={this.state.gameID} players={this.state.players} conn={this.conn} />);
+        return (<Lobby gameID={this.state.gameID} players={this.state.players} conn={this.conn} translator={this.t} />);
       case GAME:
         return (<Game conn={this.conn} status={this.state.status} />);
     }

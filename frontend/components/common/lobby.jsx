@@ -25,7 +25,7 @@ class Lobby extends React.Component {
     }
     return (
       <div>
-        <h2>Lobby for game {this.props.gameID}</h2>
+        <h2>{this.props.translator('lobby.title', {'gameID': this.props.gameID})}</h2>
         <p>Connected players</p>
         <PlayerList players={this.props.players} conn={this.props.conn} />
         {restrictedItems}

@@ -6,5 +6,9 @@ export const es = {
     "kicked": "Te han expulsado de una partida",
     "room_timed_out": "La sala ha expirado",
     "left_room": "Has abandonado la sala",
+    "create_game": "Nueva partida",
+    "lobby": {
+      "title": "Sala de espera para la partida %{gameID}",
+    }
   }
 };

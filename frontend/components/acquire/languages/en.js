@@ -6,5 +6,9 @@ export const en = {
     "kicked": "You have been kicked out of the game by its owner",
     "room_timed_out": "Room timed out",
     "left_room": "You have left the room",
+    "create_game": "New game",
+    "lobby": {
+      "title": "Lobby for game %{gameID}",
+    }
   }
 };
