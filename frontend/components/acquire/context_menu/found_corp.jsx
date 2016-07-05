@@ -42,10 +42,10 @@ class FoundCorp extends React.Component {
       return (
         <div>
           <div className="btn-group" role="group" data-toggle-not-working="buttons">
-              <p>You have founded a new corporation! Please choose one:</p>
+              <p>{this.props.translator("game.founded_corporation")}</p>
               {this.foundableCorpsMarkup()}
           </div>
-          <input type="button" className="btn btn-primary" value="Found corporation" onClick={this.handleClick} />
+          <input type="button" className="btn btn-primary" value={this.props.translator("game.found_corporation")} onClick={this.handleClick} />
           <ClaimEnd conn={this.props.conn} />
         </div>
       );

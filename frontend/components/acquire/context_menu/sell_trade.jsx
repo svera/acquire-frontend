@@ -53,16 +53,16 @@ class SellTrade extends React.Component {
   render() {
       return (
         <div>
-          <p>Sell / Trade stock shares</p>
+          <p>{this.props.translator("game.sell_trade_title")}</p>
           <table>
               <thead><tr>
-                  <th>&nbsp;</th><th>Sell</th><th>Trade</th>
+                  <th>&nbsp;</th><th>{this.props.translator("game.sell")}</th><th>{this.props.translator("game.trade")}</th>
               </tr></thead>
               <tbody>
                 {this.sellTradeCorpsMarkup()}
               </tbody>
           </table>
-          <input type="button" className="btn btn-primary" value="Sell / trade" onClick={this.handleClick} />
+          <input type="button" className="btn btn-primary" value={this.props.translator("game.sell_trade")} onClick={this.handleClick} />
           <ClaimEnd conn={this.props.conn} />
         </div>
       );

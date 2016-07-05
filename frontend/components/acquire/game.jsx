@@ -26,8 +26,8 @@ class Game extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12 col-md-6">
-                <p>Not enough players to keep playing</p>
-                <GameDestroy conn={this.props.conn} term="Back"/>
+                <p>{this.props.translator("insufficient_players")}</p>
+                <GameDestroy conn={this.props.conn} text={this.props.translator("back")} />
               </div>
             </div>
           </div>
@@ -39,16 +39,16 @@ class Game extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12 col-md-6">
-                <PlayerInfobox playerInfo={this.props.status.ply} corps={this.props.status.cor} />
+                <PlayerInfobox playerInfo={this.props.status.ply} corps={this.props.status.cor} translator={this.props.translator} />
                 <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.props.status.brd} hand={this.props.status.hnd} conn={this.props.conn} />
-                <ContextMenu conn={this.props.conn} corps={this.props.status.cor} tiedCorps={this.props.status.tie} gameState={this.props.status.sta} playerInfo={this.props.status.ply} />
-                <GameLeave conn={this.props.conn} />
-                <GameDestroy conn={this.props.conn} term="Terminate game"/>
+                <ContextMenu conn={this.props.conn} corps={this.props.status.cor} tiedCorps={this.props.status.tie} gameState={this.props.status.sta} playerInfo={this.props.status.ply} translator={this.props.translator} />
+                <GameLeave conn={this.props.conn} text={this.props.translator("game.leave")}/>
+                <GameDestroy conn={this.props.conn} text={this.props.translator("game.terminate")} />
               </div>
               <div className="col-md-4 col-md-offset-1">
-                <Infobox corps={this.props.status.cor} />
-                <RivalsInfobox corps={this.props.status.cor} rivalsInfo={this.props.status.riv} />
-                <History log={this.props.status.his} />
+                <Infobox corps={this.props.status.cor} translator={this.props.translator} />
+                <RivalsInfobox corps={this.props.status.cor} rivalsInfo={this.props.status.riv} translator={this.props.translator} />
+                <History log={this.props.status.his} translator={this.props.translator} />
               </div>
             </div>
           </div>

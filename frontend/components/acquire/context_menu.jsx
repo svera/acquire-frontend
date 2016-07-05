@@ -10,33 +10,33 @@ class ContextMenu extends React.Component {
   render() {
     if (!this.props.playerInfo.trn) {
       return (
-        <p>Waiting for other players actions...</p>
+        <p>{this.props.translator("game.waiting")}</p>
       );
     } else {
       switch (this.props.gameState) {
         case 'PlayTile':
           return (
-            <PlayTile conn={this.props.conn} />
+            <PlayTile conn={this.props.conn} text={this.props.translator("game.play_tile")}/>
           );
 
         case 'FoundCorp':
           return (
-            <FoundCorp corps={this.props.corps} conn={this.props.conn} />
+            <FoundCorp corps={this.props.corps} conn={this.props.conn} translator={this.props.translator} />
           );
 
         case 'BuyStock':
           return (
-            <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} />
+            <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} text={this.props.translator("game.buy_stock")}  />
           );
 
         case 'SellTrade':
           return (
-            <SellTrade playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} />
+            <SellTrade playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} translator={this.props.translator} />
           );
 
         case 'UntieMerge':
           return (
-            <UntieMerge corps={this.props.tiedCorps} conn={this.props.conn} />
+            <UntieMerge corps={this.props.tiedCorps} conn={this.props.conn} translator={this.props.translator} />
           );
         }
     }

@@ -18,7 +18,7 @@ class GameLeave extends React.Component {
   render() {
     if (sessionStorage.getItem('role') ==! 'mng') {
       return (
-        <a href="#" onClick={this.handleClick}>Leave game</a>
+        <a href="#" onClick={this.handleClick}>{this.props.text}</a>
       );
     }
     return null;

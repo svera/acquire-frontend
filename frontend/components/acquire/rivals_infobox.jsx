@@ -44,7 +44,7 @@ class RivalsInfobox extends React.Component {
               <thead>
                   <tr>
                       <th>&nbsp;</th>
-                      <th>Cash</th>
+                      <th>{this.props.translator("game.cash")}</th>
                       {this.corpsHeaderMarkup()}
                   </tr>
               </thead>

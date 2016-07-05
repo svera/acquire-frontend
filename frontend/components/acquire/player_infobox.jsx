@@ -17,7 +17,7 @@ class PlayerInfobox extends React.Component {
         <table className="table table-condensed">
               <thead>
                   <tr>
-                      <th>Cash</th>
+                      <th>{this.props.translator("game.cash")}</th>
                       {this.corpsHeaderMarkup()}
                   </tr>
               </thead>

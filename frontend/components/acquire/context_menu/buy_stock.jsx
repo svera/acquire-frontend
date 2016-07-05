@@ -54,7 +54,7 @@ class BuyStock extends React.Component {
           <ul className="list-unstyled">
             {this.buyStockCorpsMarkup()}
           </ul>
-          <input type="button" className="btn btn-primary" value="Buy stock" onClick={this.handleClick} />
+          <input type="button" className="btn btn-primary" value={this.props.text} onClick={this.handleClick} />
           <ClaimEnd conn={this.props.conn} />
         </div>
       );

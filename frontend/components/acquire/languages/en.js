@@ -10,11 +10,32 @@ export const en = {
     "join": "Join",
     "remove": "Remove",
     "cancel": "Cancel",
+    "back": "Back",
     "lobby": {
       "title": "Lobby for game %{gameID}",
       "connected_players": "Connected players",
       "start_game": "Start game",
       "add_bot": "Add bot",
-    }
+    },
+    "game": {
+      "insufficient_players": "Not enough players to keep playing",
+      "terminate": "Terminate game",
+      "size": "Size",
+      "price": "Price",
+      "majority_bonus": "Majority bonus",
+      "minority_bonus": "Minority bonus",
+      "remaining_stock": "Remaining stock",
+      "cash": "Cash",
+      "leave": "Leave",
+      "waiting": "Waiting for other players...",
+      "play_tile": "Click on a tile to play it",
+      "founded_corporation": "You have founded a new corporation! Please choose one:",
+      "found_corporation": "Found corporation",
+      "buy_stock": "Buy stock",
+      "sell_trade_title": "Sell / Trade stock shares",
+      "sell_trade": "Sell / Trade",
+      "sell": "Sell",
+      "trade": "Trade",
+    },
   }
 };

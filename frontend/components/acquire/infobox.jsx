@@ -35,23 +35,23 @@ class Infobox extends React.Component {
             </thead>
             <tbody>
               <tr>
-                <td>Size</td>
+                <td>{this.props.translator("game.size")}</td>
                 {corpsSizes}
               </tr>
               <tr>
-                <td>Price</td>
+                <td>{this.props.translator("game.price")}</td>
                 {corpsPrices}
               </tr>
               <tr>
-                <td>Majority</td>
+                <td>{this.props.translator("game.majority_bonus")}</td>
                 {corpsMajority}
               </tr>
               <tr>
-                <td>Minority</td>
+                <td>{this.props.translator("game.minority_bonus")}</td>
                 {corpsMinority}
               </tr>
               <tr>
-                <td>Remaining</td>
+                <td>{this.props.translator("game.remaining_stock")}</td>
                 {corpsRemaining}
               </tr>
             </tbody>

@@ -6,7 +6,7 @@ class PlayTile extends React.Component {
   render() {
       return (
         <div>
-          <p>Click on a tile to play it</p>
+          <p>{this.props.text}</p>
           <ClaimEnd conn={this.props.conn} />
         </div>
       );
