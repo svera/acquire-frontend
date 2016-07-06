@@ -46,7 +46,7 @@ class FoundCorp extends React.Component {
               {this.foundableCorpsMarkup()}
           </div>
           <input type="button" className="btn btn-primary" value={this.props.translator("game.found_corporation")} onClick={this.handleClick} />
-          <ClaimEnd conn={this.props.conn} />
+          <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
         </div>
       );
   }

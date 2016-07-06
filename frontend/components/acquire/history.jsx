@@ -19,7 +19,7 @@ class History extends React.Component {
     var newCont = "";
     if (content.log != null) {
       for (var i = 0; i < content.log.length; i++) {
-        newCont += content.log[i]+"\n";
+        newCont += this.props.translator(content.log[i].key, content.log[i].arg) + "\n";
       }
     }
     return newCont;

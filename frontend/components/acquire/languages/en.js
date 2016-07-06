@@ -39,6 +39,16 @@ export const en = {
       "untie_merge_title": "There is a tie in the merge:",
       "untie_merge": "Untie merge",
       "claim_end": "Claim end",
+      "history": {
+        "starter_player": "%{player} is the starting player",
+        "played_tile": "%{player} played tile %{tile}",
+        "founded_corporation": "%{player} founded %{corporation}",
+        "bought_stock": "%{player} bought %{amount} stock shares of corporation %{corporation}",
+        "sold_stock": "%{player} sold %{amount} stock shares of %{corporation}",
+        "traded_stock": "%{player} traded %{amount} stock shares of %{corporation}",
+        "untied_merge": "%{player} untied merge choosing %{corporation}",
+        "claimed_end": "%{player} claimed end game",
+      },
     },
   }
 };

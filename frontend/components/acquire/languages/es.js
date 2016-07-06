@@ -39,6 +39,16 @@ export const es = {
       "untie_merge_title": "Hay un empate en la absorción:",
       "untie_merge": "Desempatar",
       "claim_end": "Declarar fin de partida",
+      "history": {
+        "starter_player": "%{player} es el jugador inicial",
+        "played_tile": "%{player} jugó la ficha %{tile}",
+        "founded_corporation": "%{player} fundó %{corporation}",
+        "bought_stock": "%{player} compró %{amount} acciones de %{corporation}",
+        "sold_stock": "%{player} vendió %{amount} acciones de %{corporation}",
+        "traded_stock": "%{player} intercambió %{amount} acciones de %{corporation}",
+        "untied_merge": "%{player} desempató la absorción eligiendo %{corporation}",
+        "claimed_end": "%{player} claimed end game",
+      },
     },
   }
 };

@@ -39,7 +39,7 @@ class UntieMerge extends React.Component {
               {selectableCorps}
           </div>
           <input type="button" className="btn btn-primary" value={this.props.translator("game.untie_merge")} onClick={this.handleClick} />
-          <ClaimEnd conn={this.props.conn} />
+          <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
         </div>
       );
   }

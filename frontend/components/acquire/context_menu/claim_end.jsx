@@ -16,7 +16,7 @@ class ClaimEnd extends React.Component {
 
   render() {
       return (
-          <input type="button" className="btn btn-default" value="Claim game end" onClick={this.onClick} />
+          <input type="button" className="btn btn-default" value={this.props.translator("game.claim_end")} onClick={this.onClick} />
       );
   }
 

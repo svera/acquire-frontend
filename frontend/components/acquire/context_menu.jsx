@@ -16,7 +16,7 @@ class ContextMenu extends React.Component {
       switch (this.props.gameState) {
         case 'PlayTile':
           return (
-            <PlayTile conn={this.props.conn} text={this.props.translator("game.play_tile")}/>
+            <PlayTile conn={this.props.conn} translator={this.props.translator} />
           );
 
         case 'FoundCorp':
@@ -26,7 +26,7 @@ class ContextMenu extends React.Component {
 
         case 'BuyStock':
           return (
-            <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} text={this.props.translator("game.buy_stock")}  />
+            <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} translator={this.props.translator}  />
           );
 
         case 'SellTrade':

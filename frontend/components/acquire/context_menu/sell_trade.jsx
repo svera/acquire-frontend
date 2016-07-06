@@ -63,7 +63,7 @@ class SellTrade extends React.Component {
               </tbody>
           </table>
           <input type="button" className="btn btn-primary" value={this.props.translator("game.sell_trade")} onClick={this.handleClick} />
-          <ClaimEnd conn={this.props.conn} />
+          <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
         </div>
       );
   }
