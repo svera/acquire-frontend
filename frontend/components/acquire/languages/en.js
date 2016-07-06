@@ -36,6 +36,9 @@ export const en = {
       "sell_trade": "Sell / Trade",
       "sell": "Sell",
       "trade": "Trade",
+      "untie_merge_title": "There is a tie in the merge:",
+      "untie_merge": "Untie merge",
+      "claim_end": "Claim end",
     },
   }
 };

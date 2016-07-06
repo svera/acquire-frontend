@@ -35,10 +35,10 @@ class UntieMerge extends React.Component {
       return (
         <div>
           <div className="btn-group" role="group" dataToggle="buttons">
-              <p>There is a tie in the merge:</p>
+              <p>{this.props.translator("game.untie_merge_title")}</p>
               {selectableCorps}
           </div>
-          <input type="button" className="btn btn-primary" value="Untie merge" onClick={this.handleClick} />
+          <input type="button" className="btn btn-primary" value={this.props.translator("game.untie_merge")} onClick={this.handleClick} />
           <ClaimEnd conn={this.props.conn} />
         </div>
       );

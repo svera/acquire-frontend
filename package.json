@@ -1,5 +1,5 @@
 {
-  "name": "tbg-frontend",
+  "name": "acquire-frontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/svera/tbg-frontend.git"
+    "url": "git+https://github.com/svera/acquire-frontend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/svera/tbg-frontend/issues"
+    "url": "https://github.com/svera/acquire-frontend/issues"
   },
-  "homepage": "https://github.com/svera/tbg-frontend#readme",
+  "homepage": "https://github.com/svera/acquire-frontend#readme",
   "devDependencies": {
     "webpack": "^1.13.0"
   },

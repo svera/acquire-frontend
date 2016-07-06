@@ -36,6 +36,9 @@ export const es = {
       "sell_trade": "Vender / Intercambiar",
       "sell": "Vender",
       "trade": "Intercambiar",
+      "untie_merge_title": "Hay un empate en la absorción:",
+      "untie_merge": "Desempatar",
+      "claim_end": "Declarar fin de partida",
     },
   }
 };

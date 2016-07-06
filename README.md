@@ -1,4 +1,4 @@
-# Turn-based games frontend
+# Acquire frontend
 
 ## Requirements
 
