@@ -30,7 +30,7 @@ class Tile extends React.Component {
   render() {
     return (
       <g>
-        <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} class="tile" style={{cursor: "pointer"}} onClick={this.onClick} />
+        <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} className="tile" style={{cursor: "pointer"}} onClick={this.onClick} filter="url(#Bevel)" />
         {this.unplayableIconMarkup()}
       </g>
     );

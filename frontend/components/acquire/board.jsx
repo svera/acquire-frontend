@@ -1,6 +1,7 @@
 import React from 'react';
 import Cell from './cell.jsx';
 import Tile from './tile.jsx';
+import Bevel from '../common/filters/bevel.jsx';
 
 const COLUMNS = 12;
 const ROWS = 9;
@@ -47,6 +48,7 @@ class Board extends React.Component {
     var viewBox = "0 0 "+(originX+this.width)+" "+originX+this.height;
     return (
       <svg viewBox={viewBox}>
+        <Bevel />
         <rect width={this.width} height={this.height} id="board" rx={this.props.radius} ry={this.props.radius} />
         {grid}
       </svg>

@@ -15,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        screen: 0,
+        screen: HOME,
         game: '',
         gameID: '',
         players: [],
