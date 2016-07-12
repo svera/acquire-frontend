@@ -1,21 +1,23 @@
 import React from 'react';
 import ClaimEnd from './claim_end.jsx';
+import Button from 'react-bootstrap/lib/Button';
+import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 
 class UntieMerge extends React.Component {
 
   constructor(props) {
       super(props);
-      this.handleClick = this.handleClick.bind(this);
-      this.handleChange = this.handleChange.bind(this);
+      this.handleClickUntie = this.handleClickUntie.bind(this);
+      this.handleClickCorp = this.handleClickCorp.bind(this);
 
       this.corp = null;
   }
 
-  handleChange(event) {
+  handleClickCorp(event) {
     this.corp = parseInt(event.target.value)
   }
 
-  handleClick() {
+  handleClickUntie() {
     var message = {"typ": "unt", "par": {"cor": this.corp}};
     this.props.conn.send(
         JSON.stringify(message)
@@ -26,19 +28,20 @@ class UntieMerge extends React.Component {
       var selectableCorps = [];
       for (var i = 0; i < this.props.corps.length; i++) {
           selectableCorps.push(
-            <label className="btn btn-default" key={"untie-"+i}>
-                <input type="radio" name="corps" value={i} onChange={this.handleChange}/>&nbsp;
-                <span>{this.props.corps[i]}</span>
-            </label>
+            <Button value={i} onClick={this.handleClickCorp}>
+              {this.props.corps[i]}
+            </Button>
           );
       }
       return (
         <div>
-          <div className="btn-group" role="group" dataToggle="buttons">
-              <p>{this.props.translator("game.untie_merge_title")}</p>
-              {selectableCorps}
-          </div>
-          <input type="button" className="btn btn-primary" value={this.props.translator("game.untie_merge")} onClick={this.handleClick} />
+          <p>{this.props.translator("game.untie_merge_title")}</p>
+          <ButtonGroup>
+            {selectableCorps}
+          </ButtonGroup>
+          <Button bsStyle="primary" onClick={this.handleClickUntie}>
+            {this.props.translator("game.untie_merge")}
+          </Button>
           <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
         </div>
       );

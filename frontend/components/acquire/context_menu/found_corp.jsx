@@ -1,22 +1,24 @@
 import React from 'react';
 import ClaimEnd from './claim_end.jsx';
+import Button from 'react-bootstrap/lib/Button';
+import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 
 class FoundCorp extends React.Component {
 
   constructor(props) {
       super(props);
-      this.handleClick = this.handleClick.bind(this);
-      this.handleChange = this.handleChange.bind(this);
+      this.handleClickCreate = this.handleClickCreate.bind(this);
+      this.handleClickCorp = this.handleClickCorp.bind(this);
 
       this.corp = null;
   }
 
-  handleChange(event) {
+  handleClickCorp(event) {
     console.log(event.target.value)
     this.corp = parseInt(event.target.value)
   }
 
-  handleClick() {
+  handleClickCreate() {
     var message = {"typ": "ncp", "par": {"cor": this.corp}};
     this.props.conn.send(
         JSON.stringify(message)
@@ -28,10 +30,9 @@ class FoundCorp extends React.Component {
     for (var i = 0; i < this.props.corps.length; i++) {
         if (this.props.corps[i].siz == 0) {
           selectableCorps.push(
-            <label className="btn btn-default" key={"found-corp-"+i}>
-                <input type="radio" name="corps" value={i} onChange={this.handleChange}/>
-                <span>{this.props.corps[i].nam}</span>
-            </label>
+                <Button value={i} onClick={this.handleClickCorp}>
+                  {this.props.corps[i].nam}
+                </Button>
           );
         }
     }
@@ -41,11 +42,13 @@ class FoundCorp extends React.Component {
   render() {
       return (
         <div>
-          <div className="btn-group" role="group" data-toggle-not-working="buttons">
-              <p>{this.props.translator("game.founded_corporation")}</p>
-              {this.foundableCorpsMarkup()}
-          </div>
-          <input type="button" className="btn btn-primary" value={this.props.translator("game.found_corporation")} onClick={this.handleClick} />
+          <p>{this.props.translator("game.founded_corporation")}</p>
+          <ButtonGroup>
+            {this.foundableCorpsMarkup()}
+          </ButtonGroup>
+          <Button bsStyle="primary" onClick={this.handleClickCreate}>
+            {this.props.translator("game.found_corporation")}
+          </Button>
           <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
         </div>
       );

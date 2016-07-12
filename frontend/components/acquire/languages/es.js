@@ -36,8 +36,8 @@ export const es = {
       "sell_trade": "Vender / Intercambiar",
       "sell": "Vender",
       "trade": "Intercambiar",
-      "untie_merge_title": "Hay un empate en la absorción:",
-      "untie_merge": "Desempatar",
+      "untie_merge_title": "Hay un empate en la fusión:",
+      "untie_merge": "Desempatar fusión",
       "claim_end": "Declarar fin de partida",
       "history": {
         "starter_player": "%{player} es el jugador inicial",
@@ -46,8 +46,8 @@ export const es = {
         "bought_stock": "%{player} compró %{amount} acciones de %{corporation}",
         "sold_stock": "%{player} vendió %{amount} acciones de %{corporation}",
         "traded_stock": "%{player} intercambió %{amount} acciones de %{corporation}",
-        "untied_merge": "%{player} desempató la absorción eligiendo %{corporation}",
-        "claimed_end": "%{player} claimed end game",
+        "untied_merge": "%{player} desempató la fusión eligiendo %{corporation}",
+        "claimed_end": "%{player} declaró el fin de la partida",
       },
     },
   }

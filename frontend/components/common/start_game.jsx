@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/lib/Button';
 
 class StartGame extends React.Component {
 
@@ -17,7 +18,7 @@ class StartGame extends React.Component {
 
   render() {
     return (
-      <button onClick={this.onClick} className="btn btn-default">{this.props.text}</button>
+      <Button onClick={this.onClick} bsStyle="default">{this.props.text}</Button>
     );
   }
 

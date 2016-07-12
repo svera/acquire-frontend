@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/lib/Button';
 
 class ClaimEnd extends React.Component {
 
@@ -16,7 +17,9 @@ class ClaimEnd extends React.Component {
 
   render() {
       return (
-          <input type="button" className="btn btn-default" value={this.props.translator("game.claim_end")} onClick={this.onClick} />
+          <Button className="btn btn-default" onClick={this.onClick}>
+            {this.props.translator("game.claim_end")}
+          </Button>
       );
   }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import ClaimEnd from './claim_end.jsx';
+import Button from 'react-bootstrap/lib/Button';
 
 class BuyStock extends React.Component {
 
@@ -54,7 +55,9 @@ class BuyStock extends React.Component {
           <ul className="list-unstyled">
             {this.buyStockCorpsMarkup()}
           </ul>
-          <input type="button" className="btn btn-primary" value={this.props.translator("game.buy_stock")} onClick={this.handleClick} />
+          <Button bsStyle="primary" onClick={this.handleClick}>
+            {this.props.translator("game.buy_stock")}
+          </Button>
           <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
         </div>
       );

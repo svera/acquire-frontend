@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import Button from 'react-bootstrap/lib/Button';
 
 class GameCreate extends React.Component {
 
@@ -19,7 +20,7 @@ class GameCreate extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick} className="btn btn-primary">{this.props.text}</button>
+        <Button onClick={this.handleClick} bsStyle="default" bsSize="large">{this.props.text}</Button>
       </div>
     );
   }

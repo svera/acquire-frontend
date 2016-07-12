@@ -1,4 +1,9 @@
 import React from 'react';
+import Button from 'react-bootstrap/lib/Button';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import Form from 'react-bootstrap/lib/Form';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
 
 class GameJoin extends React.Component {
 
@@ -24,11 +29,13 @@ class GameJoin extends React.Component {
 
   render() {
     return (
-      <div>
-        <label for="gameID">game ID</label>
-        <input id="gameID" type="text" name="gameID" onChange={this.handleChange} />
-        <button onClick={this.handleClick} className="btn btn-default">{this.props.text}</button>
-      </div>
+      <Form inline>
+        <FormGroup>
+          <ControlLabel for="gameID">game ID</ControlLabel>
+          <FormControl id="gameID" type="text" name="gameID" onChange={this.handleChange} />
+          <Button onClick={this.handleClick} bsStyle="default">{this.props.text}</Button>
+        </FormGroup>
+      </Form>
     );
   }
 

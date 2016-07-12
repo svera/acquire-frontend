@@ -1,5 +1,6 @@
 import React from 'react';
 import ClaimEnd from './claim_end.jsx';
+import Button from 'react-bootstrap/lib/Button';
 
 class SellTrade extends React.Component {
 
@@ -62,7 +63,9 @@ class SellTrade extends React.Component {
                 {this.sellTradeCorpsMarkup()}
               </tbody>
           </table>
-          <input type="button" className="btn btn-primary" value={this.props.translator("game.sell_trade")} onClick={this.handleClick} />
+          <Button bsStyle="primary" onClick={this.handleClick}>
+            {this.props.translator("game.sell_trade")} 
+          </Button>
           <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
         </div>
       );

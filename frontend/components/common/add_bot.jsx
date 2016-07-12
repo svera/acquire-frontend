@@ -1,4 +1,8 @@
 import React from 'react';
+import Button from 'react-bootstrap/lib/Button';
+import Form from 'react-bootstrap/lib/Form';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
 
 class AddBot extends React.Component {
 
@@ -22,12 +26,13 @@ class AddBot extends React.Component {
 
   render() {
     return (
-      <div>
-        <select name="bot" onChange={this.onChangeHandler}>
+      <FormGroup>
+        <FormControl componentClass="select" onChange={this.onChangeHandler}>
           <option value="random">Random</option>
-        </select>
-        <button onClick={this.onClickHandler} className="btn btn-default">{this.props.text}</button>
-      </div>
+        </FormControl>
+        &nbsp;
+        <Button onClick={this.onClickHandler} bsStyle="default">{this.props.text}</Button>
+      </FormGroup>
     );
   }
 

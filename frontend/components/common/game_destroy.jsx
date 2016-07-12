@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/lib/Button';
 
 class GameDestroy extends React.Component {
 
@@ -18,7 +19,7 @@ class GameDestroy extends React.Component {
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       return (
-        <button onClick={this.handleClick} className="btn btn-default">{this.props.text}</button>
+        <Button onClick={this.handleClick} bsStyle="default">{this.props.text}</Button>
       );
     }
     return null;

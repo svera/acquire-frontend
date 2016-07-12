@@ -3,6 +3,13 @@ import PlayerList from './player_list.jsx';
 import AddBot from './add_bot.jsx';
 import StartGame from './start_game.jsx';
 import GameDestroy from './game_destroy.jsx';
+import Button from 'react-bootstrap/lib/Button';
+import Form from 'react-bootstrap/lib/Form';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 
 class Lobby extends React.Component {
 
@@ -16,18 +23,20 @@ class Lobby extends React.Component {
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       var restrictedItems = (
-        <div>
+        <Form inline>
           <AddBot conn={this.props.conn} text={this.props.translator('lobby.add_bot')} />
-          <StartGame conn={this.props.conn} text={this.props.translator('lobby.start_game')} />
-          <GameDestroy conn={this.props.conn} text={this.props.translator('cancel')} />
-        </div>
+          <ButtonToolbar>
+              <StartGame conn={this.props.conn} text={this.props.translator('lobby.start_game')} />
+              <GameDestroy conn={this.props.conn} text={this.props.translator('cancel')} />
+          </ButtonToolbar>
+        </Form>
       );
     }
     return (
       <div>
         <h2>{this.props.translator('lobby.title', {'gameID': this.props.gameID})}</h2>
         <h3>{this.props.translator('lobby.connected_players')}</h3>
-        <PlayerList players={this.props.players} conn={this.props.conn} translator={this.props.translator} />
+            <PlayerList players={this.props.players} conn={this.props.conn} translator={this.props.translator} />
         {restrictedItems}
       </div>
     );
