@@ -31,7 +31,7 @@ class GameJoin extends React.Component {
     return (
       <Form inline>
         <FormGroup>
-          <ControlLabel for="gameID">game ID</ControlLabel>
+          <ControlLabel htmlFor="gameID">game ID</ControlLabel>
           <FormControl id="gameID" type="text" name="gameID" onChange={this.handleChange} />
           <Button onClick={this.handleClick} bsStyle="default">{this.props.text}</Button>
         </FormGroup>

@@ -9,12 +9,11 @@ class AddBot extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onSelectHandler = this.onSelectHandler.bind(this);
   }
 
-  onChangeHandler(event) {
-    console.log("entra");
-    var message = {"typ": "bot", "par": {"lvl": event.target.value}}
+  onSelectHandler(eventKey) {
+    var message = {"typ": "bot", "par": {"lvl": eventKey}}
     this.props.conn.send(
         JSON.stringify(message)
     );
@@ -25,7 +24,7 @@ class AddBot extends React.Component {
       <Form inline>
         <FormGroup>
           <DropdownButton bsStyle="default" bsSize="xsmall" title={this.props.text} id="add-bot">
-            <MenuItem value="random" onClick={this.onChangeHandler}>Random</MenuItem>
+            <MenuItem eventKey="random" onSelect={this.onSelectHandler}>Random</MenuItem>
           </DropdownButton>
           &nbsp;
         </FormGroup>

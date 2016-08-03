@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import Button from 'react-bootstrap/lib/Button';
 
 class GameCreate extends React.Component {
