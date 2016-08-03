@@ -11,7 +11,7 @@ class GameCreate extends React.Component {
 
   handleClick () {
     event.preventDefault();
-    var message = {"typ": "cre", "roo": "", "par": {"bri": this.props.gameName}}
+    var message = {"typ": "cre", "par": {"bri": this.props.gameName}}
     this.props.conn.send(
         JSON.stringify(message)
     );
@@ -19,9 +19,7 @@ class GameCreate extends React.Component {
 
   render() {
     return (
-      <div>
         <Button onClick={this.handleClick} bsStyle="default" bsSize="large">{this.props.text}</Button>
-      </div>
     );
   }
 

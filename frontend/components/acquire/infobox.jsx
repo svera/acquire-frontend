@@ -6,7 +6,7 @@ class Infobox extends React.Component {
     var corpsHeader = [];
     for (var i = 0; i < this.props.corps.length; i++) {
       corpsHeader.push(
-        <th key={"corp-header"+i} nowrap="nowrap"><span className={"c"+i}>&nbsp;</span> {this.props.corps[i].nam}</th>
+        <th key={"corp-header"+i} nowrap="nowrap" className={"c"+i}>{this.props.corps[i].nam}</th>
       )
     }
     return corpsHeader;

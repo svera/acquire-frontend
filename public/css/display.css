@@ -1,44 +1,72 @@
-.empty {
+svg .empty {
     fill: #888;
 }
 
-.tile {
+svg .tile {
     fill: #966F33;
     cursor: pointer;
 }
 
-.unincorporated {
+svg .unincorporated {
     fill: #ccc;
 }
 
-.c0{
+svg .c0{
     fill: #f00;
 }
 
-.c1{
+svg .c1{
     fill: #fdd017;
 }
 
-.c2{
+svg .c2{
     fill: #ffa500;
 }
 
-.c3{
+svg .c3{
     fill: #0f0;
 }
 
-.c4{
+svg .c4{
     fill: #00f;
 }
 
-.c5{
+svg .c5{
     fill: #800080;
 }
 
-.c6{
+svg .c6{
     fill: #40e0d0;
 }
 
-#board {
+svg #board {
   fill: #555;
+}
+
+.c0{
+    color: #f00;
+}
+
+.c1{
+    color: #fdd017;
+}
+
+.c2{
+    color: #ffa500;
+}
+
+.c3{
+    color: #0f0;
+}
+
+.c4{
+    color: #00f;
+}
+
+.c5{
+    color: #800080;
+}
+
+.c6{
+    color: #40e0d0;
 }

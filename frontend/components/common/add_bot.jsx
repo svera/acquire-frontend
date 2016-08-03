@@ -14,7 +14,7 @@ class AddBot extends React.Component {
   }
 
   onClickHandler () {
-    var message = {"typ": "bot", "rom": this.props.gameID, "par": {"nam": this.bot}}
+    var message = {"typ": "bot", "par": {"lvl": this.bot}}
     this.props.conn.send(
         JSON.stringify(message)
     );
@@ -26,13 +26,15 @@ class AddBot extends React.Component {
 
   render() {
     return (
-      <FormGroup>
-        <FormControl componentClass="select" onChange={this.onChangeHandler}>
-          <option value="random">Random</option>
-        </FormControl>
-        &nbsp;
-        <Button onClick={this.onClickHandler} bsStyle="default">{this.props.text}</Button>
-      </FormGroup>
+      <Form inline>
+        <FormGroup>
+          <FormControl componentClass="select" onChange={this.onChangeHandler} bsSize="xsmall">
+            <option value="random">Random</option>
+          </FormControl>
+          &nbsp;
+          <Button onClick={this.onClickHandler} bsStyle="default" bsSize="xsmall">{this.props.text}</Button>
+        </FormGroup>
+      </Form>
     );
   }
 

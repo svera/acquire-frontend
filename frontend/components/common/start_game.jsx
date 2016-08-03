@@ -18,7 +18,7 @@ class StartGame extends React.Component {
 
   render() {
     return (
-      <Button onClick={this.onClick} bsStyle="default">{this.props.text}</Button>
+      <Button onClick={this.onClick} bsStyle="default" bsSize="lg">{this.props.text}</Button>
     );
   }
 
