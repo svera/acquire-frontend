@@ -13,7 +13,6 @@ import GameDestroy from '../common/game_destroy.jsx';
 class Game extends React.Component {
 
   render() {
-    console.log(this.props.status.sta);
     switch (this.props.status.sta) {
       case 'EndGame':
         return (
@@ -45,7 +44,7 @@ class Game extends React.Component {
                 <GameLeave conn={this.props.conn} text={this.props.translator("game.leave")}/>
                 <GameDestroy conn={this.props.conn} text={this.props.translator("game.terminate")} />
               </div>
-              <div className="col-md-4 col-md-offset-1">
+              <div className="col-md-6">
                 <Infobox corps={this.props.status.cor} translator={this.props.translator} />
                 <RivalsInfobox corps={this.props.status.cor} rivalsInfo={this.props.status.riv} translator={this.props.translator} />
                 <History log={this.props.status.his} translator={this.props.translator} />

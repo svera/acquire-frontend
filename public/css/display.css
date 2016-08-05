@@ -47,26 +47,61 @@ svg #board {
     color: #f00;
 }
 
+td.c0 {
+  background-color: #f00;
+  color: #fff;
+}
+
 .c1{
     color: #fdd017;
+}
+
+td.c1 {
+  background-color: #fdd017;
+  color: #fff;
 }
 
 .c2{
     color: #ffa500;
 }
 
+td.c2 {
+  background-color: #ffa500;
+  color: #fff;
+}
+
 .c3{
     color: #0f0;
+}
+
+td.c3 {
+  background-color: #0f0;
+  color: #fff;
 }
 
 .c4{
     color: #00f;
 }
 
+td.c4 {
+  background-color: #00f;
+  color: #fff;
+}
+
 .c5{
     color: #800080;
 }
 
+td.c5 {
+  background-color: #800080;
+  color: #fff;
+}
+
 .c6{
     color: #40e0d0;
+}
+
+td.c6 {
+  background-color: #40e0d0;
+  color: #fff;
 }

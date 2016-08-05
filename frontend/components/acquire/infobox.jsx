@@ -6,7 +6,9 @@ class Infobox extends React.Component {
     var corpsHeader = [];
     for (var i = 0; i < this.props.corps.length; i++) {
       corpsHeader.push(
-        <th key={"corp-header"+i} nowrap="nowrap" className={"c"+i}>{this.props.corps[i].nam}</th>
+        <th key={"corp-header"+i} className={"c"+i}>
+          <span className="hidden-xs">{this.props.corps[i].nam}</span>
+        </th>
       )
     }
     return corpsHeader;
@@ -26,36 +28,38 @@ class Infobox extends React.Component {
         corpsRemaining.push(<td key={"info-remaining-"+i}>{this.props.corps[i].rem}</td>);
       }
       return (
-        <table className="table">
-            <thead>
-                <tr>
-                    <th>&nbsp;</th>
-                    {this.corpsHeaderMarkup()}
-                </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{this.props.translator("game.size")}</td>
-                {corpsSizes}
-              </tr>
-              <tr>
-                <td>{this.props.translator("game.price")}</td>
-                {corpsPrices}
-              </tr>
-              <tr>
-                <td>{this.props.translator("game.majority_bonus")}</td>
-                {corpsMajority}
-              </tr>
-              <tr>
-                <td>{this.props.translator("game.minority_bonus")}</td>
-                {corpsMinority}
-              </tr>
-              <tr>
-                <td>{this.props.translator("game.remaining_stock")}</td>
-                {corpsRemaining}
-              </tr>
-            </tbody>
-        </table>
+        <div className="table-responsive">
+            <table className="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        {this.corpsHeaderMarkup()}
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{this.props.translator("game.size")}</td>
+                    {corpsSizes}
+                  </tr>
+                  <tr>
+                    <td>{this.props.translator("game.price")}</td>
+                    {corpsPrices}
+                  </tr>
+                  <tr>
+                    <td>{this.props.translator("game.majority_bonus")}</td>
+                    {corpsMajority}
+                  </tr>
+                  <tr>
+                    <td>{this.props.translator("game.minority_bonus")}</td>
+                    {corpsMinority}
+                  </tr>
+                  <tr>
+                    <td>{this.props.translator("game.remaining_stock")}</td>
+                    {corpsRemaining}
+                  </tr>
+                </tbody>
+            </table>
+        </div>
       );
   }
 

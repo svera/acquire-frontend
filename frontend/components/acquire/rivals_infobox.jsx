@@ -6,7 +6,9 @@ class RivalsInfobox extends React.Component {
     var corpsHeader = [];
     for (var i = 0; i < this.props.corps.length; i++) {
       corpsHeader.push(
-        <th key={"rival-corp-header"+i}>{this.props.corps[i].nam}</th>
+        <th key={"rival-corp-header"+i} className={"c"+i}>
+          <span className="hidden-xs">{this.props.corps[i].nam}</span>
+        </th>
       )
     }
     return corpsHeader;
@@ -31,7 +33,7 @@ class RivalsInfobox extends React.Component {
     var rivalsOwnedSharesInfo = [];
       for (var j = 0; j < this.props.rivalsInfo[rivalNumber].own.length; j++) {
         rivalsOwnedSharesInfo.push(
-            <td key={"rival-info-"+rivalNumber+"own-"+j}>{this.props.rivalsInfo[rivalNumber].own[j]}</td>
+            <td key={"rival-info-"+rivalNumber+"own-"+j} className={"c"+j}>{this.props.rivalsInfo[rivalNumber].own[j]}</td>
         );
       }
 
@@ -40,18 +42,20 @@ class RivalsInfobox extends React.Component {
 
   render() {
       return (
-        <table className="table">
-              <thead>
-                  <tr>
-                      <th>&nbsp;</th>
-                      <th>{this.props.translator("game.cash")}</th>
-                      {this.corpsHeaderMarkup()}
-                  </tr>
-              </thead>
-              <tbody>
-                {this.rivalsInfoMarkup()}
-            </tbody>
-        </table>
+        <div className="table-responsive">
+            <table className="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>{this.props.translator("game.cash")}</th>
+                        {this.corpsHeaderMarkup()}
+                    </tr>
+                </thead>
+                <tbody>
+                  {this.rivalsInfoMarkup()}
+                </tbody>
+            </table>
+      </div>
       );
   }
 

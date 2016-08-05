@@ -27,7 +27,7 @@ class History extends React.Component {
 
   render() {
       return (
-        <textarea readOnly="readOnly" rows="10" style={{width: '100%'}} value={this.state.cont}></textarea>
+        <textarea readOnly="readOnly" rows="10" style={{width: '100%'}} value={this.state.cont} className="hidden-xs"></textarea>
       );
   }
 
