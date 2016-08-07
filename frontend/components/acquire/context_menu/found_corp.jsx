@@ -2,6 +2,8 @@ import React from 'react';
 import ClaimEnd from './claim_end.jsx';
 import Button from 'react-bootstrap/lib/Button';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 class FoundCorp extends React.Component {
 
@@ -42,14 +44,22 @@ class FoundCorp extends React.Component {
   render() {
       return (
         <div>
-          <p>{this.props.translator("game.founded_corporation")}</p>
-          <ButtonGroup>
-            {this.foundableCorpsMarkup()}
-          </ButtonGroup>
-          <Button bsStyle="primary" onClick={this.handleClickCreate}>
-            {this.props.translator("game.found_corporation")}
-          </Button>
-          <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
+          <Row>
+            <Col xs={12}>
+              <p>{this.props.translator("game.founded_corporation")}</p>
+              <ButtonGroup>
+                {this.foundableCorpsMarkup()}
+              </ButtonGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <Button bsStyle="primary" onClick={this.handleClickCreate}>
+                {this.props.translator("game.found_corporation")}
+              </Button>
+              <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
+            </Col>
+          </Row>
         </div>
       );
   }
