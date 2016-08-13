@@ -1,4 +1,6 @@
 import React from 'react';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 class History extends React.Component {
 
@@ -27,7 +29,11 @@ class History extends React.Component {
 
   render() {
       return (
-        <textarea readOnly="readOnly" rows="10" style={{width: '100%'}} value={this.state.cont} className="hidden-xs"></textarea>
+        <Row>
+          <Col xs={12}>
+            <textarea readOnly="readOnly" rows="10" style={{width: '100%'}} value={this.state.cont} className="hidden-xs"></textarea>
+          </Col>
+        </Row>
       );
   }
 

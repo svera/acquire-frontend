@@ -17,7 +17,7 @@ class ClaimEnd extends React.Component {
 
   render() {
       return (
-          <Button className="btn btn-default" onClick={this.onClick}>
+          <Button className="btn btn-default pull-right" bsSize="small" onClick={this.onClick}>
             {this.props.translator("game.claim_end")}
           </Button>
       );

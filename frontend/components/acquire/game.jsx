@@ -1,6 +1,5 @@
 import React from 'react';
 import Board from './board.jsx';
-import Infobox from './infobox.jsx';
 import PlayerInfobox from './player_infobox.jsx';
 import ContextMenu from './context_menu.jsx';
 import GameFinished from './game_finished.jsx'
@@ -9,6 +8,8 @@ import GameLeave from '../common/game_leave.jsx';
 import GameDestroy from '../common/game_destroy.jsx';
 import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 class Game extends React.Component {
 
@@ -23,12 +24,12 @@ class Game extends React.Component {
       case 'InsufficientPlayers':
         return (
           <div className="container">
-            <div className="row">
-              <div className="col-sm-12 col-md-6">
+            <Row>
+              <Col sm={12} md={6}>
                 <p>{this.props.translator("insufficient_players")}</p>
                 <GameDestroy conn={this.props.conn} text={this.props.translator("back")} />
-              </div>
-            </div>
+              </Col>
+            </Row>
           </div>
         );
         break;
@@ -52,17 +53,16 @@ class Game extends React.Component {
             </Navbar>
 
             <div className="container">
-              <div className="row">
-                <div className="col-sm-12 col-md-6">
+              <Row>
+                <Col xs={12} sm={7}>
                   <PlayerInfobox playerInfo={this.props.status.ply} rivalsInfo={this.props.status.riv} corps={this.props.status.cor} translator={this.props.translator} />
-                  <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.props.status.brd} hand={this.props.status.hnd} conn={this.props.conn} />
+                  <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.props.status.brd} hand={this.props.status.hnd} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
+                </Col>
+                <Col sm={5}>
                   <ContextMenu conn={this.props.conn} corps={this.props.status.cor} tiedCorps={this.props.status.tie} gameState={this.props.status.sta} playerInfo={this.props.status.ply} translator={this.props.translator} />
-                </div>
-                <div className="col-md-6">
-                  <Infobox corps={this.props.status.cor} translator={this.props.translator} />
                   <History log={this.props.status.his} translator={this.props.translator} />
-                </div>
-              </div>
+                </Col>
+              </Row>
             </div>
           </div>
         );

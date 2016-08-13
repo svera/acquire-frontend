@@ -32,6 +32,7 @@ export const en = {
       "founded_corporation": "You have founded a new corporation! Please choose one:",
       "found_corporation": "Found corporation",
       "buy_stock": "Buy stock",
+      "buy_stock_description": "Select how many stock shares of the active corporations do you want to buy",
       "sell_trade_title": "Sell / Trade stock shares",
       "sell_trade": "Sell / Trade",
       "sell": "Sell",

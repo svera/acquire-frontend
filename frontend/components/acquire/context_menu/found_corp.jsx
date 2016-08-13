@@ -2,6 +2,8 @@ import React from 'react';
 import ClaimEnd from './claim_end.jsx';
 import Button from 'react-bootstrap/lib/Button';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
+import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
@@ -32,7 +34,7 @@ class FoundCorp extends React.Component {
     for (var i = 0; i < this.props.corps.length; i++) {
         if (this.props.corps[i].siz == 0) {
           selectableCorps.push(
-                <Button value={i} onClick={this.handleClickCorp}>
+                <Button value={i} onClick={this.handleClickCorp} bsSize="small">
                   {this.props.corps[i].nam}
                 </Button>
           );
@@ -45,19 +47,29 @@ class FoundCorp extends React.Component {
       return (
         <div>
           <Row>
-            <Col xs={12}>
+            <Col xs={9}>
               <p>{this.props.translator("game.founded_corporation")}</p>
-              <ButtonGroup>
-                {this.foundableCorpsMarkup()}
-              </ButtonGroup>
+            </Col>
+            <Col xs={3}>
+              <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
             </Col>
           </Row>
           <Row>
             <Col xs={12}>
-              <Button bsStyle="primary" onClick={this.handleClickCreate}>
-                {this.props.translator("game.found_corporation")}
-              </Button>
-              <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
+              <form>
+                <FormGroup>
+                  <ButtonGroup>
+                    {this.foundableCorpsMarkup()}
+                  </ButtonGroup>
+                </FormGroup>
+                <FormGroup>
+                  <ButtonToolbar>
+                    <Button bsStyle="primary" onClick={this.handleClickCreate}>
+                      {this.props.translator("game.found_corporation")}
+                    </Button>
+                  </ButtonToolbar>
+                </FormGroup>
+              </form>
             </Col>
           </Row>
         </div>

@@ -3,6 +3,7 @@ import ClaimEnd from './claim_end.jsx';
 import Button from 'react-bootstrap/lib/Button';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import FormControl from 'react-bootstrap/lib/FormControl';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 
@@ -44,7 +45,12 @@ class BuyStock extends React.Component {
           selectableCorps.push(
             <ListGroupItem key={"buy-stock-"+i}><label>
                 {this.props.corps[i].nam}&nbsp;
-                <input type="number" min="0" max="3" name={i} defaultValue="0" onChange={this.handleChange}/>
+                <FormControl name={i} componentClass="select" onChange={this.handleChange}>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </FormControl>
             </label></ListGroupItem>
           );
         } else {
@@ -57,9 +63,16 @@ class BuyStock extends React.Component {
   }
 
   render() {
-    console.log(this.props.corps)
       return (
         <div>
+          <Row>
+            <Col xs={9}>
+              {this.props.translator("game.buy_stock_description")}
+            </Col>
+            <Col xs={3}>
+              <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
+            </Col>
+          </Row>
           <Row>
             <Col xs={6} md={3}>
               <ul className="list-unstyled list-group">
@@ -87,7 +100,6 @@ class BuyStock extends React.Component {
               <Button bsStyle="primary" onClick={this.handleClick}>
                 {this.props.translator("game.buy_stock")}
               </Button>
-              <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
             </Col>
           </Row>
         </div>

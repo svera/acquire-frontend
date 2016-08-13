@@ -16,10 +16,9 @@ class Home extends React.Component {
       this.onClickLanguage = this.onClickLanguage.bind(this);
   }
 
-  onClickLanguage(event) {
-    event.preventDefault();
-    localStorage.setItem('language', event.target.value);
-    this.setState({language: event.target.value})
+  onClickLanguage(eventKey) {
+    localStorage.setItem('language', eventKey);
+    this.setState({language: eventKey})
   }
 
   render() {
@@ -34,9 +33,9 @@ class Home extends React.Component {
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Nav pullRight>
-              <NavItem onClick={this.onClickLanguage} href="#" value="en">English</NavItem>
-              <NavItem onClick={this.onClickLanguage} href="#" value="es">Español</NavItem>
+            <Nav pullRight onSelect={this.onClickLanguage}>
+              <NavItem href="#" eventKey="en">English</NavItem>
+              <NavItem href="#" eventKey="es">Español</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

@@ -5,18 +5,18 @@ class PlayerInfobox extends React.Component {
   render() {
       return (
         <div className="table-responsive">
-          <table className="table table-condensed">
+          <table className="table table-condensed small">
                 <thead>
                     <tr>
                         <th>&nbsp;</th>
-                        <th>{this.props.translator("game.cash")}</th>
+                        <th>&nbsp;</th>
                         {this.corpsHeaderMarkup()}
                     </tr>
                 </thead>
                 <tbody>
                 <tr>
                   <td><strong>{this.props.playerInfo.nam}</strong></td>
-                  <td>{this.props.playerInfo.csh}</td>
+                  <td>{this.props.playerInfo.csh}$</td>
                   <td className="c0">{this.props.playerInfo.own[0]}</td>
                   <td className="c1">{this.props.playerInfo.own[1]}</td>
                   <td className="c2">{this.props.playerInfo.own[2]}</td>
@@ -50,7 +50,7 @@ class PlayerInfobox extends React.Component {
         rivalsInfo.push(
           <tr key={"rival-info-"+i}>
             <td>{this.props.rivalsInfo[i].nam}</td>
-            <td>{this.props.rivalsInfo[i].csh}</td>
+            <td>{this.props.rivalsInfo[i].csh}$</td>
             {this.rivalsOwnedSharesInfoMarkup(i)}
           </tr>
         );

@@ -32,6 +32,7 @@ export const es = {
       "founded_corporation": "¡Has fundado una nueva corporación! Por favor, selecciona una:",
       "found_corporation": "Fundar corporación",
       "buy_stock": "Comprar stock",
+      "buy_stock_description": "Selecciona el número de acciones que deseas comprar de las corporaciones activas",
       "sell_trade_title": "Vender / Intercambiar acciones",
       "sell_trade": "Vender / Intercambiar",
       "sell": "Vender",

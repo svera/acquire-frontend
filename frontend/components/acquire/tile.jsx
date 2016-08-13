@@ -9,7 +9,6 @@ class Tile extends React.Component {
 
   onClick() {
     var message = {"typ": "ply", "par": {"til": this.props.coords}}
-    console.log(JSON.stringify(message));
     this.props.conn.send(
         JSON.stringify(message)
     );
