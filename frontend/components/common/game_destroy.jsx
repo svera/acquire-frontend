@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/lib/Button';
+import NavItem from 'react-bootstrap/lib/NavItem';
 
 class GameDestroy extends React.Component {
 
@@ -19,7 +19,7 @@ class GameDestroy extends React.Component {
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       return (
-        <Button onClick={this.handleClick} bsStyle="default" bsSize="xsmall">{this.props.text}</Button>
+        <NavItem onClick={this.handleClick}>{this.props.text}</NavItem>
       );
     }
     return null;

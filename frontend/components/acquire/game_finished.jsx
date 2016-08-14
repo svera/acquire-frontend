@@ -1,5 +1,6 @@
 import React from 'react';
 import GameDestroy from '../common/game_destroy.jsx';
+import Grid from 'react-bootstrap/lib/Grid';
 
 class GameFinished extends React.Component {
 
@@ -16,13 +17,13 @@ class GameFinished extends React.Component {
           );
         }
         return (
-          <div className="container">
+          <Grid>
             <h2>Game ended</h2>
             <ol>
               {classification}
             </ol>
             <GameDestroy conn={this.props.conn} term="Back"/>
-          </div>
+          </Grid>
         )
     }
 

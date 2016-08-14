@@ -41,23 +41,23 @@ class BuyStock extends React.Component {
   buyStockCorpsMarkup(start, end) {
     var selectableCorps  = [];
     for (var i = start; i < end; i++) {
+        var disabled = true;
+        var muted = "text-muted"
         if (this.props.corps[i].siz > 0) {
-          selectableCorps.push(
-            <ListGroupItem key={"buy-stock-"+i}><label>
-                {this.props.corps[i].nam}&nbsp;
-                <FormControl name={i} componentClass="select" onChange={this.handleChange}>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </FormControl>
-            </label></ListGroupItem>
-          );
-        } else {
-          selectableCorps.push(
-            <ListGroupItem key={"buy-stock-"+i} className="text-muted"><label>{this.props.corps[i].nam}</label></ListGroupItem>
-          );
+          disabled = false;
+          muted = ""
         }
+        selectableCorps.push(
+          <ListGroupItem key={"buy-stock-"+i} className={muted}><label>
+              {this.props.corps[i].nam}&nbsp;
+              <FormControl name={i} componentClass="select" onChange={this.handleChange} disabled={disabled}>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </FormControl>
+          </label></ListGroupItem>
+        );
     }
     return selectableCorps;
   }

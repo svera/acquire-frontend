@@ -33,7 +33,7 @@ class Board extends React.Component {
           var x = originX+(this.cellWidth*i)+(this.spacing*(i+1));
           var y = originY+(this.cellWidth*j)+(this.spacing*(j+1));
           grid.push(
-            <Cell x={x} y={y} width={this.cellWidth} height={this.cellHeight} radius={this.props.radius} key={"grid-"+i+"-"+j} owner={this.props.board[coords]} corps={this.props.corps} translator={this.props.translator} />
+            <Cell x={x} y={y} width={this.cellWidth} height={this.cellHeight} radius={this.props.radius} key={"grid-"+i+"-"+j} owner={this.props.board[coords]} corps={this.props.corps} translator={this.props.translator} letterPosition={j} />
           );
 
           if (coords in this.props.hand) {

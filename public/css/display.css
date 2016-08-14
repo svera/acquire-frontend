@@ -47,7 +47,7 @@ svg #board {
     color: #f00;
 }
 
-td.c0 {
+td.c0, .btn-c0 {
   background-color: #f00;
   color: #fff;
 }
@@ -56,7 +56,7 @@ td.c0 {
     color: #fdd017;
 }
 
-td.c1 {
+td.c1, .btn-c1 {
   background-color: #fdd017;
   color: #fff;
 }
@@ -65,7 +65,7 @@ td.c1 {
     color: #ffa500;
 }
 
-td.c2 {
+td.c2, .btn-c2 {
   background-color: #ffa500;
   color: #fff;
 }
@@ -74,7 +74,7 @@ td.c2 {
     color: #0f0;
 }
 
-td.c3 {
+td.c3, .btn-c3 {
   background-color: #0f0;
   color: #fff;
 }
@@ -83,7 +83,7 @@ td.c3 {
     color: #00f;
 }
 
-td.c4 {
+td.c4, .btn-c4 {
   background-color: #00f;
   color: #fff;
 }
@@ -92,7 +92,7 @@ td.c4 {
     color: #800080;
 }
 
-td.c5 {
+td.c5, .btn-c5 {
   background-color: #800080;
   color: #fff;
 }
@@ -101,7 +101,7 @@ td.c5 {
     color: #40e0d0;
 }
 
-td.c6 {
+td.c6, .btn-c6 {
   background-color: #40e0d0;
   color: #fff;
 }

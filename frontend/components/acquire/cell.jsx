@@ -12,9 +12,13 @@ class Cell extends React.Component {
         </g>
       );
     } else {
+      var placement = "bottom";
+      if (this.props.letterPosition > 4) {
+        placement = "top";
+      }
       return (
         <g>
-          <OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.buildPopover()}>
+          <OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.buildPopover()} placement={placement}>
             <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} className={"c"+this.props.owner} />
           </OverlayTrigger>
         </g>
@@ -23,14 +27,13 @@ class Cell extends React.Component {
   }
 
   buildPopover() {
-    console.log(this.props.owner)
     return (
       <Popover id="popover" title={this.props.corps[this.props.owner].nam}>
-        <p><strong>{this.props.translator("game.size")}:</strong> {this.props.corps[this.props.owner].siz}</p>
-        <p><strong>{this.props.translator("game.price")}:</strong> {this.props.corps[this.props.owner].prc}</p>
-        <p><strong>{this.props.translator("game.majority_bonus")}:</strong> {this.props.corps[this.props.owner].maj}</p>
-        <p><strong>{this.props.translator("game.minority_bonus")}:</strong> {this.props.corps[this.props.owner].min}</p>
-        <p><strong>{this.props.translator("game.remaining_stock")}:</strong> {this.props.corps[this.props.owner].rem}</p>
+        <p className="small"><strong>{this.props.translator("game.size")}:</strong> {this.props.corps[this.props.owner].siz}</p>
+        <p className="small"><strong>{this.props.translator("game.price")}:</strong> {this.props.corps[this.props.owner].prc}</p>
+        <p className="small"><strong>{this.props.translator("game.majority_bonus")}:</strong> {this.props.corps[this.props.owner].maj}</p>
+        <p className="small"><strong>{this.props.translator("game.minority_bonus")}:</strong> {this.props.corps[this.props.owner].min}</p>
+        <p className="small"><strong>{this.props.translator("game.remaining_stock")}:</strong> {this.props.corps[this.props.owner].rem}</p>
       </Popover>
     )
   }
