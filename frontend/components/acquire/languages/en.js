@@ -15,6 +15,7 @@ export const en = {
       "title": "Lobby for game %{gameID}",
       "connected_players": "Connected players",
       "start_game": "Start game",
+      "start_game_disabled": "Waiting for %{number} more players...",
       "add_bot": "Add bot",
     },
     "game": {

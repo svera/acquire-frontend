@@ -8,8 +8,9 @@ class KickPlayer extends React.Component {
   }
 
   handleClick(event) {
+    var playerNumber = parseInt(event.currentTarget.dataset['number']);
     event.preventDefault();
-    var message = {"typ": "kck", "par": {"ply": event.target.value}}
+    var message = {"typ": "kck", "par": {"ply": playerNumber}}
     this.props.conn.send(
         JSON.stringify(message)
     );
@@ -18,7 +19,9 @@ class KickPlayer extends React.Component {
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       return (
-        <a href="#" onClick={this.handleClick} value={this.props.playerNumber}><Glyphicon glyph="trash" title={this.props.text} /></a>
+        <a href="#" onClick={this.handleClick} data-number={this.props.playerNumber} className="pull-right">
+          <Glyphicon glyph="trash" title={this.props.text} />
+        </a>
       );
     }
     return null;

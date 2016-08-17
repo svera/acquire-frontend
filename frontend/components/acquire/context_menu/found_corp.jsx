@@ -6,13 +6,21 @@ import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-
+import {addStyle} from 'react-bootstrap/lib/utils/bootstrapUtils'
 class FoundCorp extends React.Component {
 
   constructor(props) {
       super(props);
       this.handleClickCreate = this.handleClickCreate.bind(this);
       this.handleClickCorp = this.handleClickCorp.bind(this);
+
+      addStyle(Button, 'c0');
+      addStyle(Button, 'c1');
+      addStyle(Button, 'c2');
+      addStyle(Button, 'c3');
+      addStyle(Button, 'c4');
+      addStyle(Button, 'c5');
+      addStyle(Button, 'c6');
 
       this.corp = null;
   }
@@ -29,12 +37,12 @@ class FoundCorp extends React.Component {
     );
   }
 
-  foundableCorpsMarkup() {
+  foundableCorpsMarkup(offset, limit) {
     var selectableCorps = [];
-    for (var i = 0; i < this.props.corps.length; i++) {
+    for (var i = offset; i < limit; i++) {
         if (this.props.corps[i].siz == 0) {
           selectableCorps.push(
-                <Button value={i} onClick={this.handleClickCorp} bsSize="small">
+                <Button value={i} onClick={this.handleClickCorp} bsSize="xsmall" key={"f"+i} bsStyle={"c"+i}>
                   {this.props.corps[i].nam}
                 </Button>
           );
@@ -58,9 +66,17 @@ class FoundCorp extends React.Component {
             <Col xs={12}>
               <form>
                 <FormGroup>
-                  <ButtonGroup>
-                    {this.foundableCorpsMarkup()}
-                  </ButtonGroup>
+                  <ButtonToolbar>
+                    <ButtonGroup>
+                      {this.foundableCorpsMarkup(0, 2)}
+                    </ButtonGroup>
+                    <ButtonGroup>
+                      {this.foundableCorpsMarkup(2, 5)}
+                    </ButtonGroup>
+                    <ButtonGroup>
+                      {this.foundableCorpsMarkup(5, 7)}
+                    </ButtonGroup>
+                  </ButtonToolbar>
                 </FormGroup>
                 <FormGroup>
                   <ButtonToolbar>

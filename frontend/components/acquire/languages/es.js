@@ -16,6 +16,7 @@ export const es = {
       "connected_players": "Jugadores conectados",
       "add_bot": "Añadir bot",
       "start_game": "Comenzar partida",
+      "start_game_disabled": "Esperando %{number} jugadores más...",
     },
     "game": {
       "insufficient_players": "No hay jugadores suficientes para continuar la partida",

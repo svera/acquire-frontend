@@ -21,14 +21,9 @@ class AddBot extends React.Component {
 
   render() {
     return (
-      <Form inline>
-        <FormGroup>
-          <DropdownButton bsStyle="default" bsSize="xsmall" title={this.props.text} id="add-bot">
+          <DropdownButton bsStyle="default" bsSize="large" title={this.props.text} id="add-bot">
             <MenuItem eventKey="random" onSelect={this.onSelectHandler}>Random</MenuItem>
           </DropdownButton>
-          &nbsp;
-        </FormGroup>
-      </Form>
     );
   }
 

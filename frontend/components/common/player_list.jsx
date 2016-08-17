@@ -1,23 +1,25 @@
 import React from 'react';
 import KickPlayer from './kick_player.jsx';
+import ListGroup from 'react-bootstrap/lib/ListGroup';
+import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 
 class PlayerList extends React.Component {
 
   render() {
     var self = this;
     return (
-        <ul>
+        <ListGroup>
           {
             this.props.players.map(function(player, playerNumber) {
                 return (
-                  <li key={playerNumber}>
+                  <ListGroupItem key={playerNumber}>
                     {player}&nbsp;
                     <KickPlayer conn={self.props.conn} playerNumber={playerNumber} text={self.props.translator('remove')}/>
-                  </li>
+                  </ListGroupItem>
                 )
             })
           }
-        </ul>
+        </ListGroup>
     );
   }
 

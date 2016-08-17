@@ -13,15 +13,16 @@ class History extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      cont: this.state.cont + this.addNewLogs(nextProps)
+      cont: this.addNewLogs(nextProps) + this.state.cont
     });
   }
 
+  // Adds new log messages in reverse order
   addNewLogs(content) {
     var newCont = "";
     if (content.log != null) {
-      for (var i = 0; i < content.log.length; i++) {
-        newCont += this.props.translator(content.log[i].key, content.log[i].arg) + "\n";
+      for (var i = content.log.length-1; i >= 0; i--) {
+        newCont = this.props.translator(content.log[i].key, content.log[i].arg) + "\n" + newCont;
       }
     }
     return newCont;

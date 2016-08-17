@@ -27,13 +27,7 @@ class Lobby extends React.Component {
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       var restrictedItems = (
-        <Row style={{marginTop: "10px"}}>
-          <Col md={12}>
-            <ButtonToolbar>
-                <StartGame conn={this.props.conn} text={this.props.translator('lobby.start_game')} />
-            </ButtonToolbar>
-          </Col>
-        </Row>
+        <StartGame conn={this.props.conn} players={this.props.players} translator={this.props.translator} />
       );
     }
     return (
@@ -56,9 +50,19 @@ class Lobby extends React.Component {
         <Grid>
           <h2>{this.props.translator('lobby.title', {'gameID': this.props.gameID})}</h2>
           <h3>{this.props.translator('lobby.connected_players')}</h3>
-          <AddBot conn={this.props.conn} text={this.props.translator('lobby.add_bot')} />
-          <PlayerList players={this.props.players} conn={this.props.conn} translator={this.props.translator} />
-          {restrictedItems}
+          <Row>
+            <Col xs={12} sm={4}>
+              <PlayerList players={this.props.players} conn={this.props.conn} translator={this.props.translator} />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <ButtonToolbar>
+                <AddBot conn={this.props.conn} text={this.props.translator('lobby.add_bot')} />
+                {restrictedItems}
+              </ButtonToolbar>
+            </Col>
+          </Row>
         </Grid>
       </div>
     );
