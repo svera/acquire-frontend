@@ -51,6 +51,10 @@ export const en = {
         "untied_merge": "%{player} untied merge choosing %{corporation}",
         "claimed_end": "%{player} claimed end game",
       },
+      "insufficient_players": {
+        "title": "Oooooops!",
+        "body": "Sorry, one of the players has left the game and there are not enough players to continue playing."
+      }
     },
   }
 };

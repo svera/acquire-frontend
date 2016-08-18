@@ -6,19 +6,19 @@ class InsufficientPlayers extends React.Component {
 
   render() {
     return (
-      <Modal.Dialog>
+      <Modal show={true}>
         <Modal.Header>
-          <Modal.Title>{this.props.translator("insufficient_players")}</Modal.Title>
+          <Modal.Title>{this.props.translator("insufficient_players.title")}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          One fine body...
+          {this.props.translator("insufficient_players.body")}
         </Modal.Body>
 
         <Modal.Footer>
+          <GameDestroy conn={this.props.conn} term={this.props.translator("back")}/>
         </Modal.Footer>
-
-      </Modal.Dialog>
+      </Modal>
     );
   }
 

@@ -51,6 +51,10 @@ export const es = {
         "untied_merge": "%{player} desempató la fusión eligiendo %{corporation}",
         "claimed_end": "%{player} declaró el fin de la partida",
       },
+      "insufficient_players": {
+        "title": "¡Oooooops!",
+        "body": "Lo sentimos, uno de los jugadores ha abandonado la partida y no quedan suficientes participantes para continuar."
+      }
     },
   }
 };

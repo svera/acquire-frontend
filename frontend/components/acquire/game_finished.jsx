@@ -23,7 +23,7 @@ class GameFinished extends React.Component {
         var classification = this.getClassification();
 
         return (
-          <Modal.Dialog>
+          <Modal show={true}>
             <Modal.Header>
               <Modal.Title>{this.props.translator("game.ended")}</Modal.Title>
             </Modal.Header>
@@ -35,10 +35,9 @@ class GameFinished extends React.Component {
             </Modal.Body>
 
             <Modal.Footer>
-              <GameDestroy conn={this.props.conn} term={this.props.translator("game.back")}/>
+              <GameDestroy conn={this.props.conn} term={this.props.translator("back")}/>
             </Modal.Footer>
-
-          </Modal.Dialog>
+          </Modal>
         );
     }
 
