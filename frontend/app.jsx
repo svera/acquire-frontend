@@ -6,6 +6,7 @@ import Game from './components/acquire/game.jsx';
 import {en} from './components/acquire/languages/en.js';
 import {es} from './components/acquire/languages/es.js';
 import Polyglot from 'node-polyglot';
+import ReconnectingWebSocket from 'reconnecting-websocket';
 
 const HOME = 0
 const LOBBY = 1
@@ -24,7 +25,7 @@ class App extends React.Component {
 
       this.initLanguages();
       sessionStorage.setItem('info', '');
-      this.conn = new WebSocket('ws://localhost:8001');
+      this.conn = new ReconnectingWebSocket('ws://localhost:8001');
 
       this.conn.onmessage = (e) => {
         this.parseMessage(e.data);
@@ -37,8 +38,8 @@ class App extends React.Component {
         });
       }
 
-      this.conn.onerror = (e) => {
-        sessionStorage.setItem('info', this.t("connection_error"));
+      this.conn.onopen = () => {
+        sessionStorage.setItem('info', '');
         this.setState({
           screen: HOME
         });

@@ -1,6 +1,6 @@
 export const es = {
   "es": {
-    "connection_lost": "Perdida conexión con el servidor",
+    "connection_lost": "Perdida conexión con el servidor, reconectando...",
     "connection_error": "No se pudo conectar con el servidor",
     "game_terminated": "Partida terminada por su propietario",
     "kicked": "Te han expulsado de una partida",

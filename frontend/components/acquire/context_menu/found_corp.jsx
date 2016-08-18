@@ -54,14 +54,7 @@ class FoundCorp extends React.Component {
   render() {
       return (
         <div>
-          <Row>
-            <Col xs={9}>
-              <p>{this.props.translator("game.founded_corporation")}</p>
-            </Col>
-            <Col xs={3}>
-              <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
-            </Col>
-          </Row>
+          <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.founded_corporation" />
           <Row>
             <Col xs={12}>
               <form>

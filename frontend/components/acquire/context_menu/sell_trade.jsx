@@ -90,14 +90,7 @@ class SellTrade extends React.Component {
   render() {
       return (
         <div>
-          <Row>
-            <Col xs={9}>
-              <p>{this.props.translator("game.sell_trade_title")}</p>
-            </Col>
-            <Col xs={3}>
-              <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
-            </Col>
-          </Row>
+          <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.sell_trade_title" />
           <Row>
             <Col xs={12}>
               <Table condensed>

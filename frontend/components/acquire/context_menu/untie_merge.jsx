@@ -35,14 +35,21 @@ class UntieMerge extends React.Component {
       }
       return (
         <div>
-          <p>{this.props.translator("game.untie_merge_title")}</p>
-          <ButtonGroup>
-            {selectableCorps}
-          </ButtonGroup>
-          <Button bsStyle="primary" onClick={this.handleClickUntie}>
-            {this.props.translator("game.untie_merge")}
-          </Button>
-          <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
+          <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.untie_merge_title" />
+          <Row>
+            <Col xs={12}>
+              <ButtonGroup>
+                {selectableCorps}
+              </ButtonGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <Button bsStyle="primary" onClick={this.handleClickUntie}>
+                {this.props.translator("game.untie_merge")}
+              </Button>
+            </Col>
+          </Row>
         </div>
       );
   }

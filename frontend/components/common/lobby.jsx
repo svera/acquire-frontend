@@ -27,7 +27,14 @@ class Lobby extends React.Component {
   render() {
     if (sessionStorage.getItem('role') == 'mng') {
       var restrictedItems = (
-        <StartGame conn={this.props.conn} players={this.props.players} translator={this.props.translator} />
+        <Row>
+          <Col xs={12}>
+            <ButtonToolbar>
+              <AddBot conn={this.props.conn} text={this.props.translator('lobby.add_bot')} />
+              <StartGame conn={this.props.conn} players={this.props.players} translator={this.props.translator} />
+            </ButtonToolbar>
+          </Col>
+        </Row>
       );
     }
     return (
@@ -55,14 +62,7 @@ class Lobby extends React.Component {
               <PlayerList players={this.props.players} conn={this.props.conn} translator={this.props.translator} />
             </Col>
           </Row>
-          <Row>
-            <Col xs={12}>
-              <ButtonToolbar>
-                <AddBot conn={this.props.conn} text={this.props.translator('lobby.add_bot')} />
-                {restrictedItems}
-              </ButtonToolbar>
-            </Col>
-          </Row>
+          {restrictedItems}
         </Grid>
       </div>
     );

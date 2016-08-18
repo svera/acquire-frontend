@@ -11,12 +11,19 @@ class PlayerList extends React.Component {
         <ListGroup>
           {
             this.props.players.map(function(player, playerNumber) {
+                if (player.own) {
+                  return (
+                    <ListGroupItem key={playerNumber}>
+                      {player.nam}
+                    </ListGroupItem>
+                  );
+                }
                 return (
                   <ListGroupItem key={playerNumber}>
-                    {player}&nbsp;
+                    {player.nam}
                     <KickPlayer conn={self.props.conn} playerNumber={playerNumber} text={self.props.translator('remove')}/>
                   </ListGroupItem>
-                )
+                );
             })
           }
         </ListGroup>

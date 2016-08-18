@@ -65,14 +65,7 @@ class BuyStock extends React.Component {
   render() {
       return (
         <div>
-          <Row>
-            <Col xs={9}>
-              {this.props.translator("game.buy_stock_description")}
-            </Col>
-            <Col xs={3}>
-              <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
-            </Col>
-          </Row>
+          <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.buy_stock_description" />
           <Row>
             <Col xs={6} md={3}>
               <ul className="list-unstyled list-group">
