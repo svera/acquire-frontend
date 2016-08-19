@@ -54,6 +54,9 @@ export const es = {
       "insufficient_players": {
         "title": "¡Oooooops!",
         "body": "Lo sentimos, uno de los jugadores ha abandonado la partida y no quedan suficientes participantes para continuar."
+      },
+      "finished": {
+        "title": "Fin de partida"
       }
     },
   }

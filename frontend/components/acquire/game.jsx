@@ -28,7 +28,7 @@ class Game extends React.Component {
   gameFinished() {
     if (this.props.status.sta == 'EndGame') {
       return (
-        <GameFinished playerInfo={this.props.status.ply} rivalsInfo={this.props.status.riv} conn={this.props.conn}/>
+        <GameFinished playerInfo={this.props.status.ply} rivalsInfo={this.props.status.riv} conn={this.props.conn} translator={this.props.translator} />
       );
     }
   }

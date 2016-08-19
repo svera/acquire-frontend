@@ -54,6 +54,9 @@ export const en = {
       "insufficient_players": {
         "title": "Oooooops!",
         "body": "Sorry, one of the players has left the game and there are not enough players to continue playing."
+      },
+      "finished": {
+        "title": "Game over"
       }
     },
   }

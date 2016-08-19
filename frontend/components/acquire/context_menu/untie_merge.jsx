@@ -2,6 +2,10 @@ import React from 'react';
 import ClaimEnd from './claim_end.jsx';
 import Button from 'react-bootstrap/lib/Button';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
+import ContextMenuHeader from './context_menu_header.jsx';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
 
 class UntieMerge extends React.Component {
 
@@ -29,7 +33,7 @@ class UntieMerge extends React.Component {
       for (var i = 0; i < this.props.corps.length; i++) {
           selectableCorps.push(
             <Button value={i} onClick={this.handleClickCorp}>
-              {this.props.corps[i]}
+              {this.props.corps[i].nam}
             </Button>
           );
       }
@@ -38,9 +42,13 @@ class UntieMerge extends React.Component {
           <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.untie_merge_title" />
           <Row>
             <Col xs={12}>
-              <ButtonGroup>
-                {selectableCorps}
-              </ButtonGroup>
+              <form>
+                <FormGroup>
+                  <ButtonGroup>
+                    {selectableCorps}
+                  </ButtonGroup>
+                </FormGroup>
+              </form>
             </Col>
           </Row>
           <Row>

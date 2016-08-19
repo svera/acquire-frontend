@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/lib/Col';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
+import ContextMenuHeader from './context_menu_header.jsx';
 
 class BuyStock extends React.Component {
 
