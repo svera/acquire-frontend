@@ -36,7 +36,7 @@ class ContextMenu extends React.Component {
 
         case 'UntieMerge':
           return (
-            <UntieMerge corps={this.props.tiedCorps} conn={this.props.conn} translator={this.props.translator} />
+            <UntieMerge corps={this.props.corps} conn={this.props.conn} translator={this.props.translator} />
           );
         }
     }

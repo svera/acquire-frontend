@@ -59,7 +59,7 @@ class Game extends React.Component {
               </Col>
               <Col xs={12} sm={5}>
                 <Panel>
-                  <ContextMenu conn={this.props.conn} corps={this.props.status.cor} tiedCorps={this.props.status.tie} gameState={this.props.status.sta} playerInfo={this.props.status.ply} translator={this.props.translator} />
+                  <ContextMenu conn={this.props.conn} corps={this.props.status.cor} gameState={this.props.status.sta} playerInfo={this.props.status.ply} translator={this.props.translator} />
                 </Panel>
                 <History log={this.props.status.his} translator={this.props.translator} />
               </Col>

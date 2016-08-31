@@ -31,11 +31,13 @@ class UntieMerge extends React.Component {
   render() {
       var selectableCorps = [];
       for (var i = 0; i < this.props.corps.length; i++) {
-          selectableCorps.push(
-            <Button value={i} onClick={this.handleClickCorp}>
-              {this.props.corps[i].nam}
-            </Button>
-          );
+          if (this.props.corps[i].tie) {
+            selectableCorps.push(
+              <Button value={i} onClick={this.handleClickCorp} key={"u"+i}>
+                {this.props.corps[i].nam}
+              </Button>
+            );
+          }
       }
       return (
         <div>
