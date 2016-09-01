@@ -26,7 +26,7 @@ class ContextMenu extends React.Component {
 
         case 'BuyStock':
           return (
-            <BuyStock playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} translator={this.props.translator}  />
+            <BuyStock playerInfo={this.props.playerInfo} player={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} translator={this.props.translator}  />
           );
 
         case 'SellTrade':

@@ -55,7 +55,7 @@ class UntieMerge extends React.Component {
           </Row>
           <Row>
             <Col xs={12}>
-              <Button bsStyle="primary" onClick={this.handleClickUntie}>
+              <Button bsStyle="primary" onClick={this.handleClickUntie} className="pull-right">
                 {this.props.translator("game.untie_merge")}
               </Button>
             </Col>

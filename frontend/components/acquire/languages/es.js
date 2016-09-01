@@ -57,6 +57,10 @@ export const es = {
       },
       "finished": {
         "title": "Fin de partida"
+      },
+      "errors": {
+        "buy_too_many_shares": "Solo puedes comprar un máximo de 3 acciones por turno",
+        "not_enough_cash": "No tienes suficiente dinero"        
       }
     },
   }

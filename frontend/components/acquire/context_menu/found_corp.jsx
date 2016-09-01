@@ -16,6 +16,10 @@ class FoundCorp extends React.Component {
       this.handleClickCreate = this.handleClickCreate.bind(this);
       this.handleClickCorp = this.handleClickCorp.bind(this);
 
+      this.state = {
+        buttonDisabled: true,
+      }
+/*
       addStyle(Button, 'c0');
       addStyle(Button, 'c1');
       addStyle(Button, 'c2');
@@ -23,12 +27,12 @@ class FoundCorp extends React.Component {
       addStyle(Button, 'c4');
       addStyle(Button, 'c5');
       addStyle(Button, 'c6');
-
+*/
       this.corp = null;
   }
 
   handleClickCorp(event) {
-    console.log(event.target.value)
+    this.setState({buttonDisabled: false});
     this.corp = parseInt(event.target.value)
   }
 
@@ -44,9 +48,9 @@ class FoundCorp extends React.Component {
     for (var i = offset; i < limit; i++) {
         if (this.props.corps[i].siz == 0) {
           selectableCorps.push(
-                <Button value={i} onClick={this.handleClickCorp} bsSize="xsmall" key={"f"+i} bsStyle={"c"+i}>
-                  {this.props.corps[i].nam}
-                </Button>
+            <Button value={i} onClick={this.handleClickCorp} bsSize="xsmall" key={"f"+i}>
+              {this.props.corps[i].nam}
+            </Button>
           );
         }
     }
@@ -75,7 +79,7 @@ class FoundCorp extends React.Component {
                 </FormGroup>
                 <FormGroup>
                   <ButtonToolbar>
-                    <Button bsStyle="primary" onClick={this.handleClickCreate}>
+                    <Button bsStyle="primary" onClick={this.handleClickCreate} disabled={this.state.buttonDisabled} className="pull-right">
                       {this.props.translator("game.found_corporation")}
                     </Button>
                   </ButtonToolbar>

@@ -106,7 +106,7 @@ class SellTrade extends React.Component {
           </Row>
           <Row>
             <Col xs={12}>
-              <Button bsStyle="primary" onClick={this.handleClick}>
+              <Button bsStyle="primary" onClick={this.handleClick} className="pull-right">
                 {this.props.translator("game.sell_trade")}
               </Button>
             </Col>
