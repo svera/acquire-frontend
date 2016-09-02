@@ -82,15 +82,15 @@ class BuyStock extends React.Component {
           muted = ""
         }
         selectableCorps.push(
-          <ListGroupItem key={"buy-stock-"+i} className={muted}><label>
+          <li key={"buy-stock-"+i} className={muted}><label>
               {this.props.corps[i].nam}&nbsp;
-              <FormControl name={i} componentClass="select" onChange={this.handleChange} disabled={disabled}>
+              <FormControl name={i} componentClass="select" onChange={this.handleChange} disabled={disabled} className="input-sm">
                 <option value="0">0</option>
                 <option value="1">1 ({this.props.corps[i].prc}$)</option>
                 <option value="2">2 ({this.props.corps[i].prc*2}$)</option>
                 <option value="3">3 ({this.props.corps[i].prc*3}$)</option>
               </FormControl>
-          </label></ListGroupItem>
+          </label></li>
         );
     }
     return selectableCorps;
@@ -109,33 +109,33 @@ class BuyStock extends React.Component {
         <div>
           <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.buy_stock_description" />
           <Row>
-            <Col xs={6} md={3}>
-              <ul className="list-unstyled list-group">
+            <Col xs={3}>
+              <ul className="list-unstyled list-inline">
                 {this.buyStockCorpsMarkup(0, 2)}
               </ul>
             </Col>
-            <Col xs={6} md={3}>
-              <ul className="list-unstyled list-group">
+            <Col xs={3}>
+              <ul className="list-unstyled list-inline">
                 {this.buyStockCorpsMarkup(2, 4)}
               </ul>
             </Col>
-            <Col xs={6} md={3}>
-              <ul className="list-unstyled list-group">
+            <Col xs={3}>
+              <ul className="list-unstyled list-inline">
                 {this.buyStockCorpsMarkup(4, 6)}
               </ul>
             </Col>
-            <Col xs={6} md={3}>
-              <ul className="list-unstyled list-group">
+            <Col xs={3}>
+              <ul className="list-unstyled list-inline">
                 {this.buyStockCorpsMarkup(6, 7)}
               </ul>
             </Col>
           </Row>
           <Row>
-            <Col xs={8}>
+            <Col xs={7}>
               {this.showErrors()}
             </Col>
-            <Col xs={4}>
-              <Button bsStyle="primary" onClick={this.handleClick} disabled={this.state.buttonDisabled}>
+            <Col xs={5}>
+              <Button bsStyle="primary" onClick={this.handleClick} disabled={this.state.buttonDisabled} className="pull-right">
                 {this.props.translator("game.buy_stock")}
               </Button>
             </Col>
