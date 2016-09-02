@@ -2,7 +2,6 @@ import React from 'react';
 import ClaimEnd from './claim_end.jsx';
 import Button from 'react-bootstrap/lib/Button';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-import ContextMenuHeader from './context_menu_header.jsx';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
@@ -41,7 +40,7 @@ class UntieMerge extends React.Component {
       }
       return (
         <div>
-          <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.untie_merge_title" />
+          <p>{this.props.translator("game.untie_merge_title")}</p>
           <Row>
             <Col xs={12}>
               <form>

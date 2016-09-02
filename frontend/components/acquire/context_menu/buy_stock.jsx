@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/lib/Col';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
-import ContextMenuHeader from './context_menu_header.jsx';
 
 class BuyStock extends React.Component {
 
@@ -107,7 +106,7 @@ class BuyStock extends React.Component {
   render() {
       return (
         <div>
-          <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.buy_stock_description" />
+          <p className="hidden-xs">{this.props.translator("game.buy_stock_description")}</p>
           <Row>
             <Col xs={3}>
               <ul className="list-unstyled list-inline">

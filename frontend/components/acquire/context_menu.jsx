@@ -4,10 +4,14 @@ import BuyStock from './context_menu/buy_stock.jsx';
 import SellTrade from './context_menu/sell_trade.jsx';
 import UntieMerge from './context_menu/untie_merge.jsx';
 import PlayTile from './context_menu/play_tile.jsx';
+import Panel from 'react-bootstrap/lib/Panel';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import ClaimEnd from './context_menu/claim_end.jsx';
 
 class ContextMenu extends React.Component {
 
-  render() {
+  getContent() {
     if (!this.props.playerInfo.trn) {
       return (
         <p>{this.props.translator("game.waiting")}</p>
@@ -40,7 +44,27 @@ class ContextMenu extends React.Component {
           );
         }
     }
-    return null;
+  }
+
+  getTitle() {
+    return (
+      <Row>
+        <Col xs={9}>
+          <p>{this.props.playerInfo.nam} ({this.props.playerInfo.csh}$)</p>
+        </Col>
+        <Col xs={3}>
+          <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
+        </Col>
+      </Row>
+    );
+  }
+
+  render() {
+    return (
+      <Panel header={this.getTitle()}>
+        {this.getContent()}
+      </Panel>
+    )
   }
 
 }

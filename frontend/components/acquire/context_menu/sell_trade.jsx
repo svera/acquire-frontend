@@ -5,7 +5,6 @@ import Table from 'react-bootstrap/lib/Table';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import FormControl from 'react-bootstrap/lib/FormControl';
-import ContextMenuHeader from './context_menu_header.jsx';
 
 class SellTrade extends React.Component {
 
@@ -91,7 +90,7 @@ class SellTrade extends React.Component {
   render() {
       return (
         <div>
-          <ContextMenuHeader conn={this.props.conn} translator={this.props.translator} text="game.sell_trade_title" />
+          <p>{this.props.translator("game.sell_trade_title")}</p>
           <Row>
             <Col xs={12}>
               <Table condensed>

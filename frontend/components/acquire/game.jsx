@@ -13,7 +13,6 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Grid from 'react-bootstrap/lib/Grid';
 import Modal from 'react-bootstrap/lib/Modal';
-import Panel from 'react-bootstrap/lib/Panel';
 
 class Game extends React.Component {
 
@@ -54,9 +53,7 @@ class Game extends React.Component {
           <Grid>
             <Row>
               <Col xs={12} sm={7}>
-                <Panel>
-                  <ContextMenu conn={this.props.conn} corps={this.props.status.cor} gameState={this.props.status.sta} playerInfo={this.props.status.ply} translator={this.props.translator} />
-                </Panel>
+                <ContextMenu conn={this.props.conn} corps={this.props.status.cor} gameState={this.props.status.sta} playerInfo={this.props.status.ply} translator={this.props.translator} />
                 <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.props.status.brd} hand={this.props.status.hnd} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
               </Col>
               <Col xs={12} sm={5}>
