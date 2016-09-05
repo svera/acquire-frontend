@@ -8,16 +8,20 @@ import Panel from 'react-bootstrap/lib/Panel';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import ClaimEnd from './context_menu/claim_end.jsx';
+import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
+import DropdownButton from 'react-bootstrap/lib/DropdownButton';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
+import Badge from 'react-bootstrap/lib/Badge';
 
 class ContextMenu extends React.Component {
 
   getContent() {
-    if (!this.props.playerInfo.trn) {
+    if (!this.props.status.ply.trn) {
       return (
         <p>{this.props.translator("game.waiting")}</p>
       );
     } else {
-      switch (this.props.gameState) {
+      switch (this.props.status.sta) {
         case 'PlayTile':
           return (
             <PlayTile conn={this.props.conn} translator={this.props.translator} />
@@ -25,22 +29,22 @@ class ContextMenu extends React.Component {
 
         case 'FoundCorp':
           return (
-            <FoundCorp corps={this.props.corps} conn={this.props.conn} translator={this.props.translator} />
+            <FoundCorp corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
           );
 
         case 'BuyStock':
           return (
-            <BuyStock playerInfo={this.props.playerInfo} player={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} translator={this.props.translator}  />
+            <BuyStock playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator}  />
           );
 
         case 'SellTrade':
           return (
-            <SellTrade playerInfo={this.props.playerInfo} corps={this.props.corps} conn={this.props.conn} translator={this.props.translator} />
+            <SellTrade playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
           );
 
         case 'UntieMerge':
           return (
-            <UntieMerge corps={this.props.corps} conn={this.props.conn} translator={this.props.translator} />
+            <UntieMerge corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
           );
         }
     }
@@ -50,13 +54,61 @@ class ContextMenu extends React.Component {
     return (
       <Row>
         <Col xs={9}>
-          <p>{this.props.playerInfo.nam} ({this.props.playerInfo.csh}$)</p>
+          <ButtonToolbar>
+            <DropdownButton title={this.getPlayerInfo()} id="players-info">
+              {this.getRivalsInfoMarkup()}
+            </DropdownButton>
+          </ButtonToolbar>
         </Col>
         <Col xs={3}>
           <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
         </Col>
       </Row>
     );
+  }
+
+  getPlayerInfo() {
+    return (
+      <span>
+        {this.props.status.ply.nam} ({this.props.status.ply.csh}$)<br />
+        <Badge className={"c0"} title={this.props.status.cor[0].nam}>{this.props.status.ply.own[0]}</Badge>&nbsp;
+        <Badge className={"c1"} title={this.props.status.cor[1].nam}>{this.props.status.ply.own[1]}</Badge>&nbsp;
+        <Badge className={"c2"} title={this.props.status.cor[2].nam}>{this.props.status.ply.own[2]}</Badge>&nbsp;
+        <Badge className={"c3"} title={this.props.status.cor[3].nam}>{this.props.status.ply.own[3]}</Badge>&nbsp;
+        <Badge className={"c4"} title={this.props.status.cor[4].nam}>{this.props.status.ply.own[4]}</Badge>&nbsp;
+        <Badge className={"c5"} title={this.props.status.cor[5].nam}>{this.props.status.ply.own[5]}</Badge>&nbsp;
+        <Badge className={"c6"} title={this.props.status.cor[6].nam}>{this.props.status.ply.own[6]}</Badge>&nbsp;
+      </span>
+    );
+  }
+
+  getRivalsInfoMarkup() {
+    var markup = [];
+
+    for (var i = 0; i < this.props.status.riv.length; i++) {
+        markup.push(
+          <MenuItem header key={i}>
+            {this.props.status.riv[i].nam} ({this.props.status.riv[i].csh}$)<br />
+            {this.getRivalSharesMarkup(i)}&nbsp;
+          </MenuItem>
+        );
+        if (i < this.props.status.riv.length-1) {
+          markup.push(
+            <MenuItem divider key={"d"+i}></MenuItem>
+          );
+        }
+    }
+    return markup;
+  }
+
+  getRivalSharesMarkup(rivalNumber) {
+    var markup = [];
+    for (var j = 0; j < 7; j++) {
+      markup.push(
+        <span key={"r"+j}><Badge className={"c"+j} title={this.props.status.cor[j].nam}>{this.props.status.riv[rivalNumber].own[j]}</Badge>&nbsp;</span>
+      );
+    }
+    return markup;
   }
 
   render() {

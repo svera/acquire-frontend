@@ -19,6 +19,7 @@ export const en = {
       "add_bot": "Add bot",
     },
     "game": {
+      "turn": "Turn %{turnNumber}",
       "insufficient_players": "Not enough players to keep playing",
       "terminate": "Terminate game",
       "size": "Size",

@@ -6,7 +6,7 @@ class PlayerInfobox extends React.Component {
       return (
         <div className="table-responsive">
           <table className="table table-condensed small">
-                <thead>
+                <thead className="hidden-xs">
                     <tr>
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
@@ -37,7 +37,7 @@ class PlayerInfobox extends React.Component {
     for (var i = 0; i < this.props.corps.length; i++) {
       corpsHeader.push(
         <th key={"player-corp-header"+i} className={"c"+i}>
-          <span className="hidden-xs">{this.props.corps[i].nam}</span>
+          <span>{this.props.corps[i].nam}</span>
         </th>
       )
     }

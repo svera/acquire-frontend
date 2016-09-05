@@ -38,7 +38,7 @@ class Game extends React.Component {
           <Navbar>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="#">Acquire</a>
+                {this.props.translator("game.turn", {"turnNumber": this.props.status.rnd})}
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -53,7 +53,7 @@ class Game extends React.Component {
           <Grid>
             <Row>
               <Col xs={12} sm={7}>
-                <ContextMenu conn={this.props.conn} corps={this.props.status.cor} gameState={this.props.status.sta} playerInfo={this.props.status.ply} translator={this.props.translator} />
+                <ContextMenu conn={this.props.conn} status={this.props.status} translator={this.props.translator} />
                 <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.props.status.brd} hand={this.props.status.hnd} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
               </Col>
               <Col xs={12} sm={5}>

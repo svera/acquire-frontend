@@ -19,6 +19,7 @@ export const es = {
       "start_game_disabled": "Esperando %{number} jugadores más...",
     },
     "game": {
+      "turn": "Turn %{turnNumber}",      
       "insufficient_players": "No hay jugadores suficientes para continuar la partida",
       "terminate": "Terminar la partida",
       "size": "Tamaño",
@@ -60,7 +61,7 @@ export const es = {
       },
       "errors": {
         "buy_too_many_shares": "Solo puedes comprar un máximo de 3 acciones por turno",
-        "not_enough_cash": "No tienes suficiente dinero"        
+        "not_enough_cash": "No tienes suficiente dinero"
       }
     },
   }

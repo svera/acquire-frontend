@@ -65,7 +65,7 @@ class BuyStock extends React.Component {
     if (total > 3) {
       return this.props.translator("game.errors.buy_too_many_shares");
     }
-    if (amount > this.props.player.csh) {
+    if (amount > this.props.playerInfo.csh) {
       return this.props.translator("game.errors.not_enough_cash");
     }
     return '';
