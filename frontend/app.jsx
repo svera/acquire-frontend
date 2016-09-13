@@ -21,6 +21,7 @@ class App extends React.Component {
         gameID: '',
         players: [],
         status: null,
+        rooms: [],
       };
 
       this.initLanguages();
@@ -102,6 +103,14 @@ class App extends React.Component {
           });
           break;
           */
+        case "rms":
+          console.log(msg);
+          if (this.state.screen == HOME) {
+            this.setState({
+              rooms: msg.val
+            })
+          }
+          break;
         case "pls":
           if (this.state.screen == HOME || this.state.screen == LOBBY) {
             this.setState({
@@ -127,7 +136,7 @@ class App extends React.Component {
   render() {
     switch (this.state.screen) {
       case HOME:
-        return (<Home conn={this.conn} translator={this.t} language={localStorage.getItem('language')} />);
+        return (<Home conn={this.conn} translator={this.t} language={localStorage.getItem('language')} rooms={this.state.rooms} />);
       case LOBBY:
         return (<Lobby gameID={this.state.gameID} players={this.state.players} conn={this.conn} translator={this.t} />);
       case GAME:

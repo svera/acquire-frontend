@@ -8,6 +8,7 @@ import Panel from 'react-bootstrap/lib/Panel';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import ClaimEnd from './context_menu/claim_end.jsx';
+import PlayerInfo from './player_info.jsx';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
@@ -54,11 +55,7 @@ class ContextMenu extends React.Component {
     return (
       <Row>
         <Col xs={9}>
-          <ButtonToolbar>
-            <DropdownButton title={this.getPlayerInfo()} id="players-info">
-              {this.getRivalsInfoMarkup()}
-            </DropdownButton>
-          </ButtonToolbar>
+          <PlayerInfo player={this.props.status.ply} corps={this.props.status.cor} />
         </Col>
         <Col xs={3}>
           <ClaimEnd conn={this.props.conn} translator={this.props.translator} />
@@ -80,35 +77,6 @@ class ContextMenu extends React.Component {
         <Badge className={"c6"} title={this.props.status.cor[6].nam}>{this.props.status.ply.own[6]}</Badge>&nbsp;
       </span>
     );
-  }
-
-  getRivalsInfoMarkup() {
-    var markup = [];
-
-    for (var i = 0; i < this.props.status.riv.length; i++) {
-        markup.push(
-          <MenuItem header key={i}>
-            {this.props.status.riv[i].nam} ({this.props.status.riv[i].csh}$)<br />
-            {this.getRivalSharesMarkup(i)}&nbsp;
-          </MenuItem>
-        );
-        if (i < this.props.status.riv.length-1) {
-          markup.push(
-            <MenuItem divider key={"d"+i}></MenuItem>
-          );
-        }
-    }
-    return markup;
-  }
-
-  getRivalSharesMarkup(rivalNumber) {
-    var markup = [];
-    for (var j = 0; j < 7; j++) {
-      markup.push(
-        <span key={"r"+j}><Badge className={"c"+j} title={this.props.status.cor[j].nam}>{this.props.status.riv[rivalNumber].own[j]}</Badge>&nbsp;</span>
-      );
-    }
-    return markup;
   }
 
   render() {

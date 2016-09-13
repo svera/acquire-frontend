@@ -48,7 +48,7 @@ class Home extends React.Component {
             <h1 className="cover-heading">Cover your page.</h1>
             <p className="lead">Lorem ipsum dolor sit amet.</p>
             <GameCreate conn={this.props.conn} gameName="acquire" text={this.props.translator('create_game')} />
-            <GameJoin conn={this.props.conn} text={this.props.translator('join')} />
+            <GameJoin conn={this.props.conn} rooms={this.props.rooms} text={this.props.translator('join')} />
         </div>
       </div>
     );

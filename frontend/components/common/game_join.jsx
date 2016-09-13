@@ -1,26 +1,19 @@
 import React from 'react';
-import Button from 'react-bootstrap/lib/Button';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import Form from 'react-bootstrap/lib/Form';
-import FormControl from 'react-bootstrap/lib/FormControl';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ListGroup from 'react-bootstrap/lib/ListGroup';
+import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 
 class GameJoin extends React.Component {
 
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.gameID = null;
   }
 
-  handleChange(event) {
-    this.gameID = event.target.value;
-  }
-
-  handleClick() {
+  handleClick(event) {
+    var gameID = event.currentTarget.dataset.gameid;
     event.preventDefault();
-    var message = {"typ": "joi", "par": {"rom": this.gameID}}
+    console.log(event.currentTarget.dataset.gameid);
+    var message = {"typ": "joi", "par": {"rom": gameID}}
     console.log(JSON.stringify(message));
     this.props.conn.send(
         JSON.stringify(message)
@@ -28,15 +21,28 @@ class GameJoin extends React.Component {
   }
 
   render() {
+    var self = this
+    if (this.props.rooms.length == 0) {
+      return (
+        <p>No Rooms currently available to join</p>
+      )
+    }
     return (
-      <Form inline>
-        <FormGroup>
-          <ControlLabel htmlFor="gameID">game ID</ControlLabel>
-          <FormControl id="gameID" type="text" name="gameID" onChange={this.handleChange} />
-          <Button onClick={this.handleClick} bsStyle="default">{this.props.text}</Button>
-        </FormGroup>
-      </Form>
-    );
+      <ListGroup>
+        {
+          this.props.rooms.map(function(room) {
+            return (
+              <ListGroupItem key={room}>
+                {room}
+                <a href="#" onClick={self.handleClick} data-gameid={room} className="pull-right">
+                  {self.props.text}
+                </a>
+              </ListGroupItem>
+            )
+          })
+        }
+      </ListGroup>
+    )
   }
 
 }
