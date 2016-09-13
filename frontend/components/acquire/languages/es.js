@@ -11,6 +11,8 @@ export const es = {
     "remove": "Eliminar",
     "cancel": "Cancelar",
     "back": "Volver",
+    "available_games": "Partidas disponibles",
+    "no_games_available": "No hay partidas disponibles para unirse",    
     "lobby": {
       "title": "Sala de espera para la partida %{gameID}",
       "connected_players": "Jugadores conectados",
@@ -19,7 +21,7 @@ export const es = {
       "start_game_disabled": "Esperando %{number} jugadores más...",
     },
     "game": {
-      "turn": "Turn %{turnNumber}",      
+      "turn": "Turn %{turnNumber}",
       "insufficient_players": "No hay jugadores suficientes para continuar la partida",
       "terminate": "Terminar la partida",
       "size": "Tamaño",

@@ -104,7 +104,6 @@ class App extends React.Component {
           break;
           */
         case "rms":
-          console.log(msg);
           if (this.state.screen == HOME) {
             this.setState({
               rooms: msg.val
@@ -123,7 +122,6 @@ class App extends React.Component {
           sessionStorage.setItem('role', msg.rol);
           break;
         case "upd":
-          console.log(msg);
           this.setState({
             screen: GAME,
             game: 'acquire',

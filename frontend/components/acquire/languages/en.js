@@ -11,6 +11,8 @@ export const en = {
     "remove": "Remove",
     "cancel": "Cancel",
     "back": "Back",
+    "available_games": "Available games",
+    "no_games_available": "No games currently available to join",
     "lobby": {
       "title": "Lobby for game %{gameID}",
       "connected_players": "Connected players",

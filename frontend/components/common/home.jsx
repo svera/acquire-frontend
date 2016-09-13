@@ -4,6 +4,10 @@ import GameJoin from './game_join.jsx';
 import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import NavItem from 'react-bootstrap/lib/NavItem';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+
 
 
 class Home extends React.Component {
@@ -40,16 +44,22 @@ class Home extends React.Component {
           </Navbar.Collapse>
         </Navbar>
 
-        <div className="container">
+        <Grid>
             <div className={info ? 'alert alert-warning' : 'hide'}>
               {info}
             </div>
-
-            <h1 className="cover-heading">Cover your page.</h1>
-            <p className="lead">Lorem ipsum dolor sit amet.</p>
-            <GameCreate conn={this.props.conn} gameName="acquire" text={this.props.translator('create_game')} />
-            <GameJoin conn={this.props.conn} rooms={this.props.rooms} text={this.props.translator('join')} />
-        </div>
+            <Row>
+              <Col xs={12} sm={7}>
+                <h1 className="cover-heading">Cover your page.</h1>
+                <p className="lead">Lorem ipsum dolor sit amet.</p>
+                <GameCreate conn={this.props.conn} gameName="acquire" text={this.props.translator('create_game')} />
+              </Col>
+              <Col xs={12} sm={5}>
+                <h2>{this.props.translator('available_games')}</h2>
+                <GameJoin conn={this.props.conn} rooms={this.props.rooms} translator={this.props.translator} />
+              </Col>
+            </Row>
+        </Grid>
       </div>
     );
   }
