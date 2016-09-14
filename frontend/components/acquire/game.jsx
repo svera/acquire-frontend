@@ -19,7 +19,7 @@ class Game extends React.Component {
   insufficientPlayers() {
     if (this.props.status.sta == 'InsufficientPlayers') {
       return (
-        <InsufficientPlayers translator={this.props.translator} />
+        <InsufficientPlayers conn={this.props.conn} translator={this.props.translator} />
       );
     }
   }

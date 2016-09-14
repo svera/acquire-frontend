@@ -80,6 +80,7 @@ class App extends React.Component {
           if (msg.rea == 'qui') {
             sessionStorage.setItem('info', this.t("left_room"));
           }
+          sessionStorage.setItem('role', '');
           this.setState({
             screen: HOME,
           });
@@ -95,14 +96,6 @@ class App extends React.Component {
             gameID: msg.id
           });
           break;
-          /*
-        case "ack":
-          this.setState({
-            screen: LOBBY,
-            gameID: msg.id
-          });
-          break;
-          */
         case "rms":
           if (this.state.screen == HOME) {
             this.setState({
@@ -117,9 +110,6 @@ class App extends React.Component {
               players: msg.val
             });
           }
-          break;
-        case "ctl":
-          sessionStorage.setItem('role', msg.rol);
           break;
         case "upd":
           this.setState({
