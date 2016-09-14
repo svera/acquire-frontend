@@ -8,8 +8,6 @@ import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
-
-
 class Home extends React.Component {
 
   constructor(props) {
@@ -50,7 +48,7 @@ class Home extends React.Component {
             </div>
             <Row>
               <Col xs={12} sm={7}>
-                <h1 className="cover-heading">Cover your page.</h1>
+                <h2 className="cover-heading">Cover your page.</h2>
                 <p className="lead">Lorem ipsum dolor sit amet.</p>
                 <GameCreate conn={this.props.conn} gameName="acquire" text={this.props.translator('create_game')} />
               </Col>

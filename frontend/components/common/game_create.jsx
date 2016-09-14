@@ -18,7 +18,7 @@ class GameCreate extends React.Component {
 
   render() {
     return (
-        <Button onClick={this.handleClick} bsStyle="default" bsSize="large">{this.props.text}</Button>
+        <Button onClick={this.handleClick} bsStyle="primary" bsSize="large">{this.props.text}</Button>
     );
   }
 

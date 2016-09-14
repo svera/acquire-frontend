@@ -12,7 +12,7 @@ export const es = {
     "cancel": "Cancelar",
     "back": "Volver",
     "available_games": "Partidas disponibles",
-    "no_games_available": "No hay partidas disponibles para unirse",    
+    "no_games_available": "No hay partidas disponibles para unirse",
     "lobby": {
       "title": "Sala de espera para la partida %{gameID}",
       "connected_players": "Jugadores conectados",
@@ -22,7 +22,6 @@ export const es = {
     },
     "game": {
       "turn": "Turn %{turnNumber}",
-      "insufficient_players": "No hay jugadores suficientes para continuar la partida",
       "terminate": "Terminar la partida",
       "size": "Tamaño",
       "price": "Precio",
