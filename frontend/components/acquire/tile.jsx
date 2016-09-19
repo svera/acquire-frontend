@@ -2,6 +2,15 @@ import React from 'react';
 
 class Tile extends React.Component {
 
+  texture() {
+    return (
+    <defs id="defs">
+        <pattern id="tile-texture" x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} patternUnits="userSpaceOnUse" >
+            <image x="0" y="0" width="1024px" height="683px" xlinkHref="img/wood.jpg" />
+        </pattern>
+    </defs>
+    );
+  }
   constructor(props) {
       super(props);
       this.onClick = this.onClick.bind(this);
@@ -29,7 +38,8 @@ class Tile extends React.Component {
   render() {
     return (
       <g>
-        <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} className="tile" style={{cursor: "pointer"}} onClick={this.onClick} filter="url(#Bevel)" />
+        {this.texture()}
+        <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} className="tile" style={{cursor: "pointer"}} fill="url(#tile-texture)" onClick={this.onClick} filter="url(#Bevel)" />
         {this.unplayableIconMarkup()}
       </g>
     );

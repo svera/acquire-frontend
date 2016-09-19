@@ -2,12 +2,11 @@ import React from 'react';
 
 class Bevel extends React.Component {
 
-/*
   render() {
     return (
       <filter id="Bevel" filterUnits="objectBoundingBox" x="-10%" y="-10%" width="150%" height="150%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="0.5" result="blur"/>
-        <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.5" specularExponent="10" result="specOut" lighting-color="white">
+        <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.5" specularExponent="10" result="specOut" lightingColor="white">
           <fePointLight x="-5000" y="-10000" z="0000"/>
         </feSpecularLighting>
         <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut2"/>
@@ -15,8 +14,8 @@ class Bevel extends React.Component {
       </filter>
     );
   }
-*/
 
+/*
   render() {
     return (
     <filter id="Bevel" x0="-50%" y0="-50%" width="200%" height="200%">
@@ -37,7 +36,7 @@ class Bevel extends React.Component {
     		</filter>
       );
   }
-
+*/
 }
 
 export default Bevel;

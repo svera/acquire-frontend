@@ -52,13 +52,13 @@ class Game extends React.Component {
 
           <Grid>
             <Row>
-              <Col xs={12} sm={7}>
+              <Col sm={5} smPush={7}>
                 <ContextMenu conn={this.props.conn} status={this.props.status} translator={this.props.translator} />
-                <Board width="576" height="432" spacing="5" originX="0" originY="0" radius="3" board={this.props.status.brd} hand={this.props.status.hnd} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
-              </Col>
-              <Col xs={12} sm={5}>
                 <PlayerInfobox playerInfo={this.props.status.ply} rivalsInfo={this.props.status.riv} corps={this.props.status.cor} translator={this.props.translator} />
                 <History log={this.props.status.his} translator={this.props.translator} />
+              </Col>
+              <Col sm={7} smPull={5}>
+                <Board width="576" height="432" spacing="2" originX="0" originY="0" radius="0" board={this.props.status.brd} hand={this.props.status.hnd} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
               </Col>
             </Row>
           </Grid>
