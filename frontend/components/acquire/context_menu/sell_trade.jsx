@@ -47,7 +47,7 @@ class SellTrade extends React.Component {
         if (this.props.corps[i].def) {
           selectableCorps.push(
             <tr key={"sell-trade-"+i}>
-              <td>{this.props.corps[i].nam}</td>
+              <td><span className={"c"+i}>&#9632;&nbsp;</span>{this.props.corps[i].nam}</td>
               <td>
                 <FormControl name={i} componentClass="select" onChange={this.handleChangeSell}>
                   {this.sellOptions(i)}

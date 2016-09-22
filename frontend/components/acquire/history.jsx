@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import FormControl from 'react-bootstrap/lib/FormControl';
 
 class History extends React.Component {
 
@@ -32,7 +33,7 @@ class History extends React.Component {
       return (
         <Row>
           <Col xs={12}>
-            <textarea readOnly="readOnly" rows="10" style={{width: '100%'}} value={this.state.cont} className="hidden-xs"></textarea>
+            <FormControl componentClass="textarea" readOnly="readOnly" rows="3" value={this.state.cont} />
           </Col>
         </Row>
       );

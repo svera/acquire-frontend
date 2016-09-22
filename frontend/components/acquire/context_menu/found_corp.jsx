@@ -48,6 +48,7 @@ class FoundCorp extends React.Component {
         if (this.props.corps[i].siz == 0) {
           selectableCorps.push(
             <Button value={i} onClick={this.handleClickCorp} bsSize="xsmall" key={"f"+i}>
+              <span className={"c"+i}>&#9632;&nbsp;</span>
               {this.props.corps[i].nam}
             </Button>
           );

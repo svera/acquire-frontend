@@ -33,6 +33,7 @@ class UntieMerge extends React.Component {
           if (this.props.corps[i].tie) {
             selectableCorps.push(
               <Button value={i} onClick={this.handleClickCorp} key={"u"+i}>
+                <span className={"c"+i}>&#9632;&nbsp;</span>              
                 {this.props.corps[i].nam}
               </Button>
             );

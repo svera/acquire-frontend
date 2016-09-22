@@ -82,6 +82,7 @@ class BuyStock extends React.Component {
         }
         selectableCorps.push(
           <li key={"buy-stock-"+i} className={muted}><label>
+              <span className={"c"+i}>&#9632;&nbsp;</span>
               {this.props.corps[i].nam}&nbsp;
               <FormControl name={i} componentClass="select" onChange={this.handleChange} disabled={disabled} className="input-sm">
                 <option value="0">0</option>

@@ -47,89 +47,80 @@ svg #board {
     color: #f00;
 }
 
-td.c0, .btn-c0 {
-  background-color: #f00;
-  color: #fff;
-}
-
 .c1{
     color: #fdd017;
-}
-
-td.c1, .btn-c1 {
-  background-color: #fdd017;
-  color: #fff;
 }
 
 .c2{
     color: #f57c00;
 }
 
-td.c2, .btn-c2 {
-  background-color: #f57c00;
-  color: #fff;
-}
-
 .c3{
     color: #3c763d;
-}
-
-td.c3, .btn-c3 {
-  background-color: #3c763d;
-  color: #fff;
 }
 
 .c4{
     color: #00f;
 }
 
-td.c4, .btn-c4 {
-  background-color: #00f;
-  color: #fff;
-}
-
 .c5{
     color: #800080;
-}
-
-td.c5, .btn-c5 {
-  background-color: #800080;
-  color: #fff;
 }
 
 .c6{
     color: #40e0d0;
 }
 
-td.c6, .btn-c6 {
+.panel-default>.panel-heading .badge.c0,
+td .badge.c0 {
+  background-color: #f00;
+  color: #fff;
+}
+
+.panel-default>.panel-heading .badge.c1,
+td .badge.c1 {
+  background-color: #fdd017;
+  color: #fff;
+}
+
+.panel-default>.panel-heading .badge.c2,
+td .badge.c2 {
+  background-color: #f57c00;
+  color: #fff;
+}
+
+.panel-default>.panel-heading .badge.c3,
+td .badge.c3 {
+  background-color: #3c763d;
+  color: #fff;
+}
+
+.panel-default>.panel-heading .badge.c4,
+td .badge.c4 {
+  background-color: #00f;
+  color: #fff;
+}
+
+.panel-default>.panel-heading .badge.c5,
+td .badge.c5 {
+  background-color: #800080;
+  color: #fff;
+}
+
+.panel-default>.panel-heading .badge.c6,
+td .badge.c6 {
   background-color: #40e0d0;
   color: #fff;
 }
 
-.panel-default>.panel-heading .badge.c0 {
-  background-color: #f00;
+textarea {
+   resize: none;
 }
 
-.panel-default>.panel-heading .badge.c1 {
-  background-color: #fdd017;
+.table>thead>tr>th {
+    border-bottom: none;
 }
 
-.panel-default>.panel-heading .badge.c2 {
-  background-color: #f57c00;
-}
-
-.panel-default>.panel-heading .badge.c3 {
-  background-color: #3c763d;
-}
-
-.panel-default>.panel-heading .badge.c4 {
-  background-color: #00f;
-}
-
-.panel-default>.panel-heading .badge.c5 {
-  background-color: #800080;
-}
-
-.panel-default>.panel-heading .badge.c6 {
-  background-color: #40e0d0;
+.table>tbody>tr>td {
+    border-top: none;
 }
