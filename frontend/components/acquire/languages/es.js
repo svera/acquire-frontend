@@ -13,6 +13,9 @@ export const es = {
     "back": "Volver",
     "available_games": "Partidas disponibles",
     "no_games_available": "No hay partidas disponibles para unirse",
+    "no_limit": "Sin límite",
+    "x_seconds": "%{number} segundos",
+    "one_minute": "1 minuto",
     "lobby": {
       "title": "Sala de espera para la partida %{gameID}",
       "connected_players": "Jugadores conectados",

@@ -66,6 +66,7 @@ class App extends React.Component {
 
     parseMessage(data) {
       var msg = JSON.parse(data);
+      console.log(msg);
       switch (msg.typ) {
         case "out":
           if (msg.rea == 'ter') {
@@ -79,6 +80,9 @@ class App extends React.Component {
           }
           if (msg.rea == 'qui') {
             sessionStorage.setItem('info', this.t("left_room"));
+          }
+          if (msg.rea == 'ptm') {
+            sessionStorage.setItem('info', this.t("player_timeout"));
           }
           sessionStorage.setItem('role', '');
           this.setState({
