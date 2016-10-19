@@ -13,9 +13,9 @@ export const en = {
     "back": "Back",
     "available_games": "Available games",
     "no_games_available": "No games currently available to join",
-    "no_limit": "Sin límite",
-    "x_seconds": "%{number} segundos",
-    "one_minute": "1 minuto",
+    "no_limit": "No limit",
+    "x_seconds": "%{number} seconds",
+    "one_minute": "1 minute",
     "lobby": {
       "title": "Lobby for game %{gameID}",
       "connected_players": "Connected players",

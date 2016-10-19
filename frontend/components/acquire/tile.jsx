@@ -5,12 +5,13 @@ class Tile extends React.Component {
   texture() {
     return (
     <defs id="defs">
-        <pattern id="tile-texture" x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} patternUnits="userSpaceOnUse" >
+        <pattern id="tile-texture" x="0" y="0" width="1" height="1">
             <image x="0" y="0" width="1024px" height="683px" xlinkHref="img/wood.jpg" />
         </pattern>
     </defs>
     );
   }
+  
   constructor(props) {
       super(props);
       this.onClick = this.onClick.bind(this);
