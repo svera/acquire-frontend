@@ -78,9 +78,6 @@ class App extends React.Component {
           if (msg.rea == 'tim') {
             sessionStorage.setItem('info', this.t("room_timed_out"));
           }
-          if (msg.rea == 'qui') {
-            sessionStorage.setItem('info', this.t("left_room"));
-          }
           if (msg.rea == 'ptm') {
             sessionStorage.setItem('info', this.t("player_timeout"));
           }

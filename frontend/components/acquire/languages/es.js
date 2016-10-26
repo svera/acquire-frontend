@@ -5,7 +5,6 @@ export const es = {
     "game_terminated": "Partida terminada por su propietario",
     "kicked": "Te han expulsado de una partida",
     "room_timed_out": "La sala ha expirado",
-    "left_room": "Has abandonado la sala",
     "create_game": "Nueva partida",
     "join": "Unirse",
     "remove": "Eliminar",
