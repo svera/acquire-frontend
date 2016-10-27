@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/svera/acquire-frontend#readme",
   "devDependencies": {
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
     "webpack": "^1.13.0"
   },
   "dependencies": {
