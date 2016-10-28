@@ -11,32 +11,40 @@ svg .unincorporated {
     fill: #777;
 }
 
+$corporation0-color: #f00;
+$corporation1-color: #fdd017;
+$corporation2-color: #f57c00;
+$corporation3-color: #3c763d;
+$corporation4-color: #00f;
+$corporation5-color: #800080;
+$corporation6-color: #40e0d0;
+
 svg .c0{
-    fill: #f00;
+    fill: $corporation0-color;
 }
 
 svg .c1{
-    fill: #fdd017;
+    fill: $corporation1-color;
 }
 
 svg .c2{
-    fill: #f57c00;
+    fill: $corporation2-color;
 }
 
 svg .c3{
-    fill: #3c763d;
+    fill: $corporation3-color;
 }
 
 svg .c4{
-    fill: #00f;
+    fill: $corporation4-color;
 }
 
 svg .c5{
-    fill: #800080;
+    fill: $corporation5-color;
 }
 
 svg .c6{
-    fill: #40e0d0;
+    fill: $corporation6-color;
 }
 
 svg #board {

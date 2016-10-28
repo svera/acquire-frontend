@@ -8,6 +8,8 @@ import {es} from './components/acquire/languages/es.js';
 import Polyglot from 'node-polyglot';
 import ReconnectingWebSocket from 'reconnecting-websocket';
 
+require('../css/display.scss');
+
 const HOME = 0
 const LOBBY = 1
 const GAME = 2
