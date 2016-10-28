@@ -1,5 +1,7 @@
+@import 'colors';
+
 svg .empty {
-    fill: #000;
+    fill: $empty;
 }
 
 svg .tile {
@@ -8,16 +10,8 @@ svg .tile {
 }
 
 svg .unincorporated {
-    fill: #777;
+    fill: $unincorporated;
 }
-
-$corporation0-color: #f00;
-$corporation1-color: #fdd017;
-$corporation2-color: #f57c00;
-$corporation3-color: #3c763d;
-$corporation4-color: #00f;
-$corporation5-color: #800080;
-$corporation6-color: #40e0d0;
 
 svg .c0{
     fill: $corporation0-color;
@@ -52,72 +46,72 @@ svg #board {
 }
 
 .c0{
-    color: #f00;
+    color: $corporation0-color;
 }
 
 .c1{
-    color: #fdd017;
+    color: $corporation1-color;
 }
 
 .c2{
-    color: #f57c00;
+    color: $corporation2-color;
 }
 
 .c3{
-    color: #3c763d;
+    color: $corporation3-color;
 }
 
 .c4{
-    color: #00f;
+    color: $corporation4-color;
 }
 
 .c5{
-    color: #800080;
+    color: $corporation5-color;
 }
 
 .c6{
-    color: #40e0d0;
+    color: $corporation6-color;
 }
 
 .panel-default>.panel-heading .badge.c0,
 td .badge.c0 {
-  background-color: #f00;
+  background-color: $corporation0-color;
   color: #fff;
 }
 
 .panel-default>.panel-heading .badge.c1,
 td .badge.c1 {
-  background-color: #fdd017;
+  background-color: $corporation1-color;
   color: #fff;
 }
 
 .panel-default>.panel-heading .badge.c2,
 td .badge.c2 {
-  background-color: #f57c00;
+  background-color: $corporation2-color;
   color: #fff;
 }
 
 .panel-default>.panel-heading .badge.c3,
 td .badge.c3 {
-  background-color: #3c763d;
+  background-color: $corporation3-color;
   color: #fff;
 }
 
 .panel-default>.panel-heading .badge.c4,
 td .badge.c4 {
-  background-color: #00f;
+  background-color: $corporation4-color;
   color: #fff;
 }
 
 .panel-default>.panel-heading .badge.c5,
 td .badge.c5 {
-  background-color: #800080;
+  background-color: $corporation5-color;
   color: #fff;
 }
 
 .panel-default>.panel-heading .badge.c6,
 td .badge.c6 {
-  background-color: #40e0d0;
+  background-color: $corporation6-color;
   color: #fff;
 }
 
