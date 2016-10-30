@@ -4,9 +4,15 @@ import Badge from 'react-bootstrap/lib/Badge';
 class PlayerInfo extends React.Component {
 
   render() {
+    var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0
+    });
+
     return (
       <span style={{whiteSpace: "nowrap"}}>
-        {this.props.player.csh}$&nbsp;
+        {formatter.format(parseInt(this.props.player.csh))}&nbsp;
         <Badge className={"c0"} title={this.props.corps[0].nam}>{this.props.player.own[0]}</Badge>&nbsp;
         <Badge className={"c1"} title={this.props.corps[1].nam}>{this.props.player.own[1]}</Badge>&nbsp;
         <Badge className={"c2"} title={this.props.corps[2].nam}>{this.props.player.own[2]}</Badge>&nbsp;

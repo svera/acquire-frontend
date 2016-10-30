@@ -3,6 +3,15 @@ import Badge from 'react-bootstrap/lib/Badge';
 import Table from 'react-bootstrap/lib/Table';
 
 class PlayerInfobox extends React.Component {
+  
+  constructor(props) {
+      super(props);
+      this.formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0
+      });
+  }
 
   render() {
       return (
@@ -10,7 +19,7 @@ class PlayerInfobox extends React.Component {
               <tbody>
                 <tr>
                   <td><strong>{this.props.playerInfo.nam}</strong></td>
-                  <td>{this.props.playerInfo.csh}$</td>
+                  <td>{this.formatter.format(this.props.playerInfo.csh)}</td>
                   <td><Badge className="c0" title={this.props.corps[0].nam}>{this.props.playerInfo.own[0]}</Badge></td>
                   <td><Badge className="c1" title={this.props.corps[1].nam}>{this.props.playerInfo.own[1]}</Badge></td>
                   <td><Badge className="c2" title={this.props.corps[2].nam}>{this.props.playerInfo.own[2]}</Badge></td>
@@ -31,7 +40,7 @@ class PlayerInfobox extends React.Component {
         rivalsInfo.push(
           <tr key={"rival-info-"+i}>
             <td>{this.props.rivalsInfo[i].nam}</td>
-            <td>{this.props.rivalsInfo[i].csh}$</td>
+            <td>{this.formatter.format(this.props.rivalsInfo[i].csh)}</td>
             {this.rivalsOwnedSharesInfoMarkup(i)}
           </tr>
         );

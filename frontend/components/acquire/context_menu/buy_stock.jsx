@@ -13,7 +13,11 @@ class BuyStock extends React.Component {
       super(props);
       this.handleClick = this.handleClick.bind(this);
       this.handleChange = this.handleChange.bind(this);
-
+      this.formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0
+      });
       this.state = {
         error: '',
         buttonDisabled: false,
@@ -86,9 +90,9 @@ class BuyStock extends React.Component {
               {this.props.corps[i].nam}&nbsp;
               <FormControl name={i} componentClass="select" onChange={this.handleChange} disabled={disabled} className="input-sm">
                 <option value="0">0</option>
-                <option value="1">1 ({this.props.corps[i].prc}$)</option>
-                <option value="2">2 ({this.props.corps[i].prc*2}$)</option>
-                <option value="3">3 ({this.props.corps[i].prc*3}$)</option>
+                <option value="1">1 ({this.formatter.format(this.props.corps[i].prc)})</option>
+                <option value="2">2 ({this.formatter.format(this.props.corps[i].prc*2)})</option>
+                <option value="3">3 ({this.formatter.format(this.props.corps[i].prc*3)})</option>
               </FormControl>
           </label></li>
         );

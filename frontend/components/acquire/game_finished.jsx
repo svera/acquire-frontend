@@ -7,6 +7,12 @@ class GameFinished extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+
+    this.formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0
+    });    
   }
   
   render() {
@@ -41,7 +47,7 @@ class GameFinished extends React.Component {
       for (var key in keysSorted) {
         classification.push(
           <li key={"classification-"+key}>
-            {playersList[key].nam} - {playersList[key].csh}
+            {playersList[key].nam} - {this.formatter.format(playersList[key].csh)}
           </li>
         );
       }

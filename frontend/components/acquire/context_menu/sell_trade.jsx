@@ -13,6 +13,11 @@ class SellTrade extends React.Component {
       this.handleClick = this.handleClick.bind(this);
       this.handleChangeSell = this.handleChangeSell.bind(this);
       this.handleChangeTrade = this.handleChangeTrade.bind(this);
+      this.formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0
+      });
 
       this.corps = {};
       for (var i = 0; i < this.props.corps.length; i++) {
@@ -70,7 +75,7 @@ class SellTrade extends React.Component {
 
     for (var s=0; s <= this.props.playerInfo.own[corpNumber]; s++) {
       sellOptions.push(
-        <option value={s} key={"s"+s}>{s} ({this.props.corps[s].prc*s}$)</option>
+        <option value={s} key={"s"+s}>{s} ({this.formatter.format(parseInt(this.props.corps[corpNumber].prc)*s)})</option>
       );
     }
     return sellOptions;
