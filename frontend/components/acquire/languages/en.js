@@ -15,6 +15,7 @@ export const en = {
     "no_limit": "No limit",
     "x_seconds": "%{number} seconds",
     "one_minute": "1 minute",
+    "player_timeout": "You have been kicked out due to inactivity",
     "lobby": {
       "title": "Lobby for game %{gameID}",
       "connected_players": "Connected players",

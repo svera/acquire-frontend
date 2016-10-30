@@ -70,7 +70,7 @@ class SellTrade extends React.Component {
 
     for (var s=0; s <= this.props.playerInfo.own[corpNumber]; s++) {
       sellOptions.push(
-        <option value={s} key={"s"+s}>{s}</option>
+        <option value={s} key={"s"+s}>{s} ({this.props.corps[s].prc*s}$)</option>
       );
     }
     return sellOptions;
