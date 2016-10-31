@@ -18,6 +18,8 @@ class BuyStock extends React.Component {
         currency: 'USD',
         minimumFractionDigits: 0
       });
+      this.audio = new Audio('../../../../snd/till-with-bell.wav');
+
       this.state = {
         error: '',
         buttonDisabled: false,
@@ -54,6 +56,7 @@ class BuyStock extends React.Component {
         message["par"]["cor"][corp] = parseInt(this.buy[corp]);
       }
     }
+    this.audio.play();
     this.props.conn.send(
         JSON.stringify(message)
     );
