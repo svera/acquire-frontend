@@ -19,6 +19,11 @@ class SellTrade extends React.Component {
         minimumFractionDigits: 0
       });
 
+      this.state = {
+        error: '',
+        buttonDisabled: false,
+      }      
+
       this.corps = {};
       for (var i = 0; i < this.props.corps.length; i++) {
           if (this.props.corps[i].def) {
@@ -31,10 +36,36 @@ class SellTrade extends React.Component {
 
   handleChangeSell(event) {
     this.corps[event.target.name].sel = parseInt(event.target.value);
+    var errorMessage = this.isValid();
+    if (errorMessage != '') {
+      this.setState({
+        error: errorMessage,
+        buttonDisabled: true
+      });
+    } else {
+      this.setState({
+        error: '',
+        buttonDisabled: false
+      });
+    }
+    
   }
 
   handleChangeTrade(event) {
     this.corps[event.target.name].tra = parseInt(event.target.value);
+    var errorMessage = this.isValid();
+    if (errorMessage != '') {
+      this.setState({
+        error: errorMessage,
+        buttonDisabled: true
+      });
+    } else {
+      this.setState({
+        error: '',
+        buttonDisabled: false
+      });
+    }
+    
   }
 
   handleClick() {
@@ -92,6 +123,25 @@ class SellTrade extends React.Component {
     return tradeOptions;
   }
 
+  isValid() {
+    for (var i = 0; i < this.props.corps.length; i++) {
+      if (this.props.corps[i].def) {
+        if (this.corps[i].tra + this.corps[i].sel > this.props.playerInfo.own[i]) {
+          return this.props.translator("game.errors.not_enough_shares");
+        }
+      }
+    }
+    return '';
+  }  
+
+  showErrors() {
+    if (this.state.error != '') {
+      return (
+        <p className="text-danger">{this.state.error}</p>
+      );
+    }
+  }
+
   render() {
       return (
         <div>
@@ -109,8 +159,11 @@ class SellTrade extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={12}>
-              <Button bsStyle="primary" onClick={this.handleClick} className="pull-right">
+            <Col xs={7}>
+              {this.showErrors()}
+            </Col>
+            <Col xs={5}>
+              <Button bsStyle="primary" onClick={this.handleClick} disabled={this.state.buttonDisabled} className="pull-right">
                 {this.props.translator("game.sell_trade")}
               </Button>
             </Col>

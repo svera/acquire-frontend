@@ -65,7 +65,8 @@ export const en = {
       },
       "errors": {
         "buy_too_many_shares": "You can only buy a maximum of 3 stock shares per turn",
-        "not_enough_cash": "Not enough cash"
+        "not_enough_cash": "Not enough cash",
+        "not_enough_shares": "Not enough shares"
       }
     },
   }
