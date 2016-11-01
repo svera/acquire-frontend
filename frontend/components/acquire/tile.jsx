@@ -6,7 +6,7 @@ class Tile extends React.Component {
     return (
     <defs id="defs">
         <pattern id="tile-texture" x="0" y="0" width="1" height="1">
-            <image x="0" y="0" width="1024px" height="683px" xlinkHref="img/wood.jpg" />
+            <image x="0" y="0" width={this.props.width+"px"} height={this.props.height+"px"} xlinkHref="img/tile.jpg" />
         </pattern>
     </defs>
     );
@@ -40,7 +40,7 @@ class Tile extends React.Component {
     return (
       <g>
         {this.texture()}
-        <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} className="tile" style={{cursor: "pointer"}} fill="url(#tile-texture)" onClick={this.onClick} filter="url(#Bevel)" />
+        <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} className="tile" style={{cursor: "pointer"}} fill="url(#tile-texture)" onClick={this.onClick} />
         {this.unplayableIconMarkup()}
       </g>
     );
