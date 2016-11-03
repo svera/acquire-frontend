@@ -42,9 +42,9 @@ class GameFinished extends React.Component {
     getClassification() {
       var playersList = this.props.rivalsInfo;
       playersList.push(this.props.playerInfo);
-      var keysSorted = Object.keys(playersList).sort(function(a,b){return playersList[a].csh-playersList[b].csh});
+      var sorted = playersList.sort(this.compare);
       var classification = [];
-      for (var key in keysSorted) {
+      for (var key in sorted.reverse()) {
         classification.push(
           <li key={"classification-"+key}>
             {playersList[key].nam} - {this.formatter.format(playersList[key].csh)}
@@ -52,6 +52,16 @@ class GameFinished extends React.Component {
         );
       }
       return classification;
+    }
+
+    compare(a,b) {
+      if (a.csh < b.csh) {
+        return -1;
+      }
+      if (a.csh > b.csh) {
+        return 1;
+      }
+      return 0;
     }
 
     handleClick(event) {
