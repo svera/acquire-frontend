@@ -5,7 +5,7 @@ export const es = {
     "game_terminated": "Partida terminada por su propietario",
     "kicked": "Te han expulsado de una partida",
     "room_timed_out": "La sala ha expirado",
-    "create_game": "Nueva partida",
+    "create_game": "Crear partida",
     "join": "Unirse",
     "remove": "Eliminar",
     "cancel": "Cancelar",
@@ -15,7 +15,12 @@ export const es = {
     "no_limit": "Sin límite",
     "x_seconds": "%{number} segundos",
     "one_minute": "1 minuto",
-    "player_timeout": "Has sido expulsado de la partida por inactividad",    
+    "player_timeout": "Has sido expulsado de la partida por inactividad",
+    "home": {
+      "header": "¡Hazte rico!",
+      "subheader": "Compra, vende y especula para vencer a tus rivales",
+      "player_time_limit": "Límite de tiempo por turno",      
+    }, 
     "lobby": {
       "title": "Sala de espera para la partida %{gameID}",
       "connected_players": "Jugadores conectados",

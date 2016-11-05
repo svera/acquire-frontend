@@ -7,7 +7,7 @@ svg .empty {
 }
 
 svg .tile {
-    /*fill: #666;*/
+    fill: url(#tile-texture);
     cursor: pointer;
 }
 

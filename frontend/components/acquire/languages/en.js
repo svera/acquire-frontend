@@ -5,7 +5,7 @@ export const en = {
     "game_terminated": "Game terminated by owner",
     "kicked": "You have been kicked out of the game by its owner",
     "room_timed_out": "Room timed out",
-    "create_game": "New game",
+    "create_game": "Create game",
     "join": "Join",
     "remove": "Remove",
     "cancel": "Cancel",
@@ -16,6 +16,11 @@ export const en = {
     "x_seconds": "%{number} seconds",
     "one_minute": "1 minute",
     "player_timeout": "You have been kicked out due to inactivity",
+    "home": {
+      "header": "Get rich!",
+      "subheader": "Buy, sell and speculate to overcome your rivals",
+      "player_time_limit": "Player turn time limit",
+    },     
     "lobby": {
       "title": "Lobby for game %{gameID}",
       "connected_players": "Connected players",

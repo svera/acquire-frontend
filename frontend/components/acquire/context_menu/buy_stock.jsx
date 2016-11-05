@@ -18,7 +18,7 @@ class BuyStock extends React.Component {
         currency: 'USD',
         minimumFractionDigits: 0
       });
-      this.audio = new Audio('../../../../snd/till-with-bell.wav');
+      this.audio = new Audio('../../../../snd/till-with-bell.mp3');
 
       this.state = {
         error: '',

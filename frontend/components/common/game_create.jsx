@@ -37,18 +37,23 @@ class GameCreate extends React.Component {
               <Col xs={12}>
                   <form>
                       <FormGroup>
-                        <FormControl name="player-time" componentClass="select" onChange={this.handlePlayerTimeoutChange}>
-                            <option value="0" key={"player-time-0"}>{this.props.translator('no_limit')}</option>
-                            <option value="15" key={"player-time-15"}>{this.props.translator('x_seconds', {"number": 15})}</option>
-                            <option value="30" key={"player-time-30"}>{this.props.translator('x_seconds', {"number": 30})}</option>
-                            <option value="45" key={"player-time-45"}>{this.props.translator('x_seconds', {"number": 45})}</option>
-                            <option value="60" key={"player-time-60"}>{this.props.translator('one_minute')}</option>
-                        </FormControl>
+                        <label>
+                          {this.props.translator('home.player_time_limit')}
+                          <FormControl name="player-time" componentClass="select" onChange={this.handlePlayerTimeoutChange}>
+                              <option value="0" key={"player-time-0"}>{this.props.translator('no_limit')}</option>
+                              <option value="15" key={"player-time-15"}>{this.props.translator('x_seconds', {"number": 15})}</option>
+                              <option value="30" key={"player-time-30"}>{this.props.translator('x_seconds', {"number": 30})}</option>
+                              <option value="45" key={"player-time-45"}>{this.props.translator('x_seconds', {"number": 45})}</option>
+                              <option value="60" key={"player-time-60"}>{this.props.translator('one_minute')}</option>
+                          </FormControl>
+                        </label>
                       </FormGroup>
-                      <ButtonGroup>
-                        <Button onClick={this.handleClick} bsStyle="primary" bsSize="large">{this.props.translator('create_game')}</Button>
-                      </ButtonGroup>
                   </form>
+              </Col>
+          </Row>
+          <Row>
+              <Col xs={12}>
+                  <Button onClick={this.handleClick} bsStyle="primary" bsSize="large" className="pull-right">{this.props.translator('create_game')}</Button>
               </Col>
           </Row>
       </Panel>      

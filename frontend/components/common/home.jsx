@@ -48,8 +48,8 @@ class Home extends React.Component {
             </div>
             <Row>
               <Col xs={12} sm={7}>
-                <h2 className="cover-heading">Cover your page.</h2>
-                <p className="lead">Lorem ipsum dolor sit amet.</p>
+                <h2 className="cover-heading">{this.props.translator('home.header')}</h2>
+                <p className="lead">{this.props.translator('home.subheader')}</p>
                 <GameCreate conn={this.props.conn} gameName="acquire" translator={this.props.translator} />
               </Col>
               <Col xs={12} sm={5}>

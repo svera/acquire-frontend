@@ -40,7 +40,7 @@ class Tile extends React.Component {
     return (
       <g>
         {this.texture()}
-        <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} className="tile" style={{cursor: "pointer"}} fill="url(#tile-texture)" onClick={this.onClick} />
+        <rect x={this.props.x} y={this.props.y} width={this.props.width} height={this.props.height} rx={this.props.radius} ry={this.props.radius} className="tile" onClick={this.onClick} />
         {this.unplayableIconMarkup()}
       </g>
     );
