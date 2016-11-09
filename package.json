@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack -d --watch",
     "build": "webpack -p",
-    "start": "webpack-dev-server --inline --host 0.0.0.0"
+    "start": "webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",

@@ -7,6 +7,7 @@ import {en} from './components/acquire/languages/en.js';
 import {es} from './components/acquire/languages/es.js';
 import Polyglot from 'node-polyglot';
 import ReconnectingWebSocket from 'reconnecting-websocket';
+import config from './config';
 
 require('../css/display.scss');
 
@@ -28,7 +29,7 @@ class App extends React.Component {
 
       this.initLanguages();
       sessionStorage.setItem('info', '');
-      this.conn = new ReconnectingWebSocket('ws://localhost:8001');
+      this.conn = new ReconnectingWebSocket(config.wsServer);
 
       this.conn.onmessage = (e) => {
         this.parseMessage(e.data);
