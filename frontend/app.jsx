@@ -25,6 +25,7 @@ class App extends React.Component {
         players: [],
         status: null,
         rooms: [],
+        error: '',
       };
 
       this.initLanguages();
@@ -87,9 +88,14 @@ class App extends React.Component {
           sessionStorage.setItem('role', '');
           this.setState({
             screen: HOME,
+            error: ''
           });
           break;
+
         case "err":
+          this.setState({
+            error: msg.cnt,
+          });
           console.log(msg.cnt);
           break;
 
@@ -100,6 +106,7 @@ class App extends React.Component {
             gameID: msg.id
           });
           break;
+
         case "rms":
           if (this.state.screen == HOME) {
             this.setState({
@@ -107,6 +114,7 @@ class App extends React.Component {
             })
           }
           break;
+
         case "pls":
           if (this.state.screen == HOME || this.state.screen == LOBBY) {
             this.setState({
@@ -115,11 +123,13 @@ class App extends React.Component {
             });
           }
           break;
+
         case "upd":
           this.setState({
             screen: GAME,
             game: 'acquire',
             status: msg,
+            error: '',
           });
           break;
       }
@@ -132,7 +142,7 @@ class App extends React.Component {
       case LOBBY:
         return (<Lobby gameID={this.state.gameID} players={this.state.players} conn={this.conn} translator={this.t} />);
       case GAME:
-        return (<Game conn={this.conn} status={this.state.status} translator={this.t} />);
+        return (<Game conn={this.conn} status={this.state.status} error={this.state.error} translator={this.t} />);
     }
   }
 

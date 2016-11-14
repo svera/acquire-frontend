@@ -56,7 +56,7 @@ class Game extends React.Component {
                 <Board width="576" height="432" spacing="2" originX="0" originY="0" radius="0" board={this.props.status.brd} hand={this.props.status.hnd} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
               </Col>
               <Col sm={5}>
-                <ContextMenu conn={this.props.conn} status={this.props.status} translator={this.props.translator} />
+                <ContextMenu conn={this.props.conn} status={this.props.status} error={this.props.error} translator={this.props.translator} />
                 <PlayerInfobox playerInfo={this.props.status.ply} rivalsInfo={this.props.status.riv} corps={this.props.status.cor} translator={this.props.translator} />
               </Col>
             </Row>

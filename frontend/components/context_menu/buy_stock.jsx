@@ -105,9 +105,10 @@ class BuyStock extends React.Component {
 
   showErrors() {
     if (this.state.error != '') {
-      return (
-        <p className="text-danger">{this.state.error}</p>
-      );
+      return this.state.error;
+    }
+    if (this.props.error != '') {
+      return this.props.translator("game."+this.props.error);
     }
   }
 
@@ -139,7 +140,7 @@ class BuyStock extends React.Component {
           </Row>
           <Row>
             <Col xs={7}>
-              {this.showErrors()}
+              <p className="text-danger">{this.showErrors()}</p>
             </Col>
             <Col xs={5}>
               <Button bsStyle="primary" onClick={this.handleClick} disabled={this.state.buttonDisabled} className="pull-right">

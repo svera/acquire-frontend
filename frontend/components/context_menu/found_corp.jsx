@@ -18,15 +18,7 @@ class FoundCorp extends React.Component {
       this.state = {
         buttonDisabled: true,
       }
-/*
-      addStyle(Button, 'c0');
-      addStyle(Button, 'c1');
-      addStyle(Button, 'c2');
-      addStyle(Button, 'c3');
-      addStyle(Button, 'c4');
-      addStyle(Button, 'c5');
-      addStyle(Button, 'c6');
-*/
+
       this.corp = null;
   }
 
@@ -57,6 +49,13 @@ class FoundCorp extends React.Component {
     return selectableCorps;
   }
 
+  showErrors() {
+    if (this.props.error != '') {
+      return this.props.translator("game."+this.props.error);
+    }
+    return '';
+  }
+  
   render() {
       return (
         <div>
@@ -77,16 +76,19 @@ class FoundCorp extends React.Component {
                     </ButtonGroup>
                   </ButtonToolbar>
                 </FormGroup>
-                <FormGroup>
-                  <ButtonToolbar>
-                    <Button bsStyle="primary" onClick={this.handleClickCreate} disabled={this.state.buttonDisabled} className="pull-right">
-                      {this.props.translator("game.found_corporation")}
-                    </Button>
-                  </ButtonToolbar>
-                </FormGroup>
               </form>
             </Col>
           </Row>
+          <Row>
+            <Col xs={7}>
+              <p className="text-danger">{this.showErrors()}</p>
+            </Col>
+            <Col xs={5}>
+              <Button bsStyle="primary" onClick={this.handleClickCreate} disabled={this.state.buttonDisabled} className="pull-right">
+                {this.props.translator("game.found_corporation")}
+              </Button>
+            </Col>
+          </Row>          
         </div>
       );
   }

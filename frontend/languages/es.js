@@ -1,24 +1,24 @@
 export const es = {
   "es": {
     "connection_lost": "Perdida conexión con el servidor, reconectando...",
-    "connection_error": "No se pudo conectar con el servidor",
-    "game_terminated": "Partida terminada por su propietario",
-    "kicked": "Te han expulsado de una partida",
-    "room_timed_out": "La sala ha expirado",
+    "connection_error": "No se pudo conectar con el servidor.",
+    "game_terminated": "Partida terminada por su propietario.",
+    "kicked": "Te han expulsado de una partida.",
+    "room_timed_out": "La sala ha expirado.",
     "create_game": "Crear partida",
     "join": "Unirse",
     "remove": "Eliminar",
     "cancel": "Cancelar",
     "back": "Volver",
     "available_games": "Partidas disponibles",
-    "no_games_available": "No hay partidas disponibles para unirse",
+    "no_games_available": "No hay partidas disponibles para unirse.",
     "no_limit": "Sin límite",
     "x_seconds": "%{number} segundos",
     "one_minute": "1 minuto",
-    "player_timeout": "Has sido expulsado de la partida por inactividad",
+    "player_timeout": "Has sido expulsado de la partida por inactividad.",
     "home": {
       "header": "¡Hazte rico!",
-      "subheader": "Compra, vende y especula para vencer a tus rivales",
+      "subheader": "Compra, vende y especula para vencer a tus rivales.",
       "player_time_limit": "Límite de tiempo por turno",      
     }, 
     "lobby": {
@@ -43,7 +43,7 @@ export const es = {
       "founded_corporation": "¡Has fundado una nueva corporación! Por favor, selecciona una:",
       "found_corporation": "Fundar corporación",
       "buy_stock": "Comprar stock",
-      "buy_stock_description": "Selecciona el número de acciones que deseas comprar de las corporaciones activas",
+      "buy_stock_description": "Selecciona el número de acciones que deseas comprar de las corporaciones activas.",
       "sell_trade_title": "Vender / Intercambiar acciones",
       "sell_trade": "Vender / Intercambiar",
       "sell": "Vender",
@@ -51,15 +51,16 @@ export const es = {
       "untie_merge_title": "Hay un empate en la fusión:",
       "untie_merge": "Desempatar fusión",
       "claim_end": "Declarar fin de partida",
+      "not_end_game": "La partida no ha alcanzado las condiciones para declarar su fin.",      
       "history": {
-        "starter_player": "%{player} es el jugador inicial",
-        "played_tile": "%{player} jugó la ficha %{tile}",
-        "founded_corporation": "%{player} fundó %{corporation}",
-        "bought_stock": "%{player} compró %{amount} acciones de %{corporation}",
-        "sold_stock": "%{player} vendió %{amount} acciones de %{corporation}",
-        "traded_stock": "%{player} intercambió %{amount} acciones de %{corporation}",
-        "untied_merge": "%{player} desempató la fusión eligiendo %{corporation}",
-        "claimed_end": "%{player} declaró el fin de la partida",
+        "starter_player": "%{player} es el jugador inicial.",
+        "played_tile": "%{player} jugó la ficha %{tile}.",
+        "founded_corporation": "%{player} fundó %{corporation}.",
+        "bought_stock": "%{player} compró %{amount} acciones de %{corporation}.",
+        "sold_stock": "%{player} vendió %{amount} acciones de %{corporation}.",
+        "traded_stock": "%{player} intercambió %{amount} acciones de %{corporation}.",
+        "untied_merge": "%{player} desempató la fusión eligiendo %{corporation}.",
+        "claimed_end": "%{player} declaró el fin de la partida.",
       },
       "insufficient_players": {
         "title": "¡Oooooops!",
@@ -69,9 +70,9 @@ export const es = {
         "title": "Fin de partida"
       },
       "errors": {
-        "buy_too_many_shares": "Solo puedes comprar un máximo de 3 acciones por turno",
-        "not_enough_cash": "No tienes suficiente dinero",
-        "not_enough_shares": "No tienes suficientes acciones"        
+        "buy_too_many_shares": "Solo puedes comprar un máximo de 3 acciones por turno.",
+        "not_enough_cash": "No tienes suficiente dinero.",
+        "not_enough_shares": "No tienes suficientes acciones."        
       }
     },
   }
