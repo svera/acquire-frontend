@@ -21,7 +21,8 @@ class AddBot extends React.Component {
 
   render() {
     return (
-          <DropdownButton bsStyle="default" bsSize="large" title={this.props.text} id="add-bot">
+          <DropdownButton bsStyle="default" bsSize="large" title={this.props.translator('lobby.add_bot')} id="add-bot">
+            <MenuItem disabled>{this.props.translator('lobby.select_bot_level')}</MenuItem>
             <MenuItem eventKey="chaotic" onSelect={this.onSelectHandler}>Chaotic</MenuItem>
           </DropdownButton>
     );

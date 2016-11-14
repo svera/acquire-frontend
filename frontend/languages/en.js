@@ -27,6 +27,7 @@ export const en = {
       "start_game": "Start game",
       "start_game_disabled": "Waiting for %{number} more players...",
       "add_bot": "Add bot",
+      "select_bot_level": "Select bot level",      
     },
     "game": {
       "turn": "Turn %{turnNumber}",
@@ -52,6 +53,7 @@ export const en = {
       "untie_merge": "Untie merge",
       "claim_end": "Claim end",
       "not_end_game": "End game conditions not reached.",
+      "action_not_allowed": "Action not allowed",      
       "history": {
         "starter_player": "%{player} is the starting player.",
         "played_tile": "%{player} played tile %{tile}.",

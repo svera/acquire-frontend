@@ -25,27 +25,27 @@ class ContextMenu extends React.Component {
       switch (this.props.status.sta) {
         case 'PlayTile':
           return (
-            <PlayTile conn={this.props.conn} translator={this.props.translator} error={this.props.error} />
+            <PlayTile conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
 
         case 'FoundCorp':
           return (
-            <FoundCorp corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} />
+            <FoundCorp corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
 
         case 'BuyStock':
           return (
-            <BuyStock playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} />
+            <BuyStock playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
 
         case 'SellTrade':
           return (
-            <SellTrade playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} />
+            <SellTrade playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
 
         case 'UntieMerge':
           return (
-            <UntieMerge corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} />
+            <UntieMerge corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
         }
     }

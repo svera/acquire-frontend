@@ -27,6 +27,20 @@ class UntieMerge extends React.Component {
     );
   }
 
+  showErrors() {
+    if (this.props.error != '') {
+      return this.props.translator("game."+this.props.error);
+    }
+    return '';
+  }
+
+  showSuccess() {
+    if (this.props.success != '') {
+      return this.props.translator("game."+this.props.success);
+    }
+    return '';
+  }
+
   render() {
       var selectableCorps = [];
       for (var i = 0; i < this.props.corps.length; i++) {
@@ -54,7 +68,11 @@ class UntieMerge extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={12}>
+            <Col xs={7}>
+              <p className="text-danger">{this.showErrors()}</p>
+              <p className="text-success">{this.showSuccess()}</p>
+            </Col>          
+            <Col xs={5}>
               <Button bsStyle="primary" onClick={this.handleClickUntie} className="pull-right">
                 {this.props.translator("game.untie_merge")}
               </Button>

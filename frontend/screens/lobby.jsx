@@ -30,7 +30,7 @@ class Lobby extends React.Component {
         <Row>
           <Col xs={12}>
             <ButtonToolbar>
-              <AddBot conn={this.props.conn} text={this.props.translator('lobby.add_bot')} />
+              <AddBot conn={this.props.conn} translator={this.props.translator} />
               <StartGame conn={this.props.conn} players={this.props.players} translator={this.props.translator} />
             </ButtonToolbar>
           </Col>

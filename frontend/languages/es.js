@@ -27,6 +27,7 @@ export const es = {
       "add_bot": "Añadir bot",
       "start_game": "Comenzar partida",
       "start_game_disabled": "Esperando %{number} jugadores más...",
+      "select_bot_level": "Selecciona el nivel del bot",
     },
     "game": {
       "turn": "Turn %{turnNumber}",
@@ -51,7 +52,8 @@ export const es = {
       "untie_merge_title": "Hay un empate en la fusión:",
       "untie_merge": "Desempatar fusión",
       "claim_end": "Declarar fin de partida",
-      "not_end_game": "La partida no ha alcanzado las condiciones para declarar su fin.",      
+      "not_end_game": "La partida no ha alcanzado las condiciones para declarar su fin.",
+      "action_not_allowed": "Acción no permitida",
       "history": {
         "starter_player": "%{player} es el jugador inicial.",
         "played_tile": "%{player} jugó la ficha %{tile}.",

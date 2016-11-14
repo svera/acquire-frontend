@@ -11,6 +11,13 @@ class PlayTile extends React.Component {
     return '';
   }
 
+  showSuccess() {
+    if (this.props.success != '') {
+      return this.props.translator("game."+this.props.success);
+    }
+    return '';
+  }
+
   render() {
       return (
         <div>
@@ -22,6 +29,7 @@ class PlayTile extends React.Component {
           <Row>
             <Col xs={12}>
               <p className="text-danger">{this.showErrors()}</p>
+              <p className="text-success">{this.showSuccess()}</p>
             </Col>
           </Row>
         </div>

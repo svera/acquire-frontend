@@ -112,6 +112,13 @@ class BuyStock extends React.Component {
     }
   }
 
+  showSuccess() {
+    if (this.props.success != '') {
+      return this.props.translator("game."+this.props.success);
+    }
+    return '';
+  }
+
   render() {
       return (
         <div>
@@ -141,6 +148,7 @@ class BuyStock extends React.Component {
           <Row>
             <Col xs={7}>
               <p className="text-danger">{this.showErrors()}</p>
+              <p className="text-success">{this.showSuccess()}</p>
             </Col>
             <Col xs={5}>
               <Button bsStyle="primary" onClick={this.handleClick} disabled={this.state.buttonDisabled} className="pull-right">
