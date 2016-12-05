@@ -60,6 +60,7 @@ export const en = {
         "traded_stock": "%{player} traded %{amount} stock shares of %{corporation}",
         "untied_merge": "%{player} untied merge choosing %{corporation}",
         "claimed_end": "%{player} claimed end game",
+        "player_left": "%{player} has left the game"        
       },
       "insufficient_players": {
         "title": "Oooooops!",

@@ -60,6 +60,7 @@ export const es = {
         "traded_stock": "%{player} intercambió %{amount} acciones de %{corporation}",
         "untied_merge": "%{player} desempató la fusión eligiendo %{corporation}",
         "claimed_end": "%{player} declaró el fin de la partida",
+        "player_left": "%{player} ha abandonado la partida"
       },
       "insufficient_players": {
         "title": "¡Oooooops!",
