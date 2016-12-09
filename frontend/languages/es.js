@@ -55,14 +55,15 @@ export const es = {
       "not_end_game": "La partida no ha alcanzado las condiciones para declarar su fin.",
       "action_not_allowed": "Acción no permitida",
       "history": {
-        "starter_player": "%{player} es el jugador inicial.",
-        "played_tile": "%{player} jugó la ficha %{tile}.",
-        "founded_corporation": "%{player} fundó %{corporation}.",
-        "bought_stock": "%{player} compró %{amount} acciones de %{corporation}.",
-        "sold_stock": "%{player} vendió %{amount} acciones de %{corporation}.",
-        "traded_stock": "%{player} intercambió %{amount} acciones de %{corporation}.",
-        "untied_merge": "%{player} desempató la fusión eligiendo %{corporation}.",
-        "claimed_end": "%{player} declaró el fin de la partida.",
+        "starter_player": "%{player} es el jugador inicial",
+        "played_tile": "%{player} jugó la ficha %{tile}",
+        "founded_corporation": "%{player} fundó %{corporation}",
+        "bought_stock": "%{player} compró %{amount} acciones de %{corporation}",
+        "sold_stock": "%{player} vendió %{amount} acciones de %{corporation}",
+        "traded_stock": "%{player} intercambió %{amount} acciones de %{corporation}",
+        "untied_merge": "%{player} desempató la fusión eligiendo %{corporation}",
+        "claimed_end": "%{player} declaró el fin de la partida",
+        "player_left": "%{player} ha abandonado la partida"
       },
       "insufficient_players": {
         "title": "¡Oooooops!",

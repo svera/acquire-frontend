@@ -55,14 +55,15 @@ export const en = {
       "not_end_game": "End game conditions not reached.",
       "action_not_allowed": "Action not allowed",      
       "history": {
-        "starter_player": "%{player} is the starting player.",
-        "played_tile": "%{player} played tile %{tile}.",
-        "founded_corporation": "%{player} founded %{corporation}.",
-        "bought_stock": "%{player} bought %{amount} stock shares of corporation %{corporation}.",
-        "sold_stock": "%{player} sold %{amount} stock shares of %{corporation}.",
-        "traded_stock": "%{player} traded %{amount} stock shares of %{corporation}.",
-        "untied_merge": "%{player} untied merge choosing %{corporation}.",
-        "claimed_end": "%{player} claimed end game.",
+        "starter_player": "%{player} is the starting player",
+        "played_tile": "%{player} played tile %{tile}",
+        "founded_corporation": "%{player} founded %{corporation}",
+        "bought_stock": "%{player} bought %{amount} stock shares of corporation %{corporation}",
+        "sold_stock": "%{player} sold %{amount} stock shares of %{corporation}",
+        "traded_stock": "%{player} traded %{amount} stock shares of %{corporation}",
+        "untied_merge": "%{player} untied merge choosing %{corporation}",
+        "claimed_end": "%{player} claimed end game",
+        "player_left": "%{player} has left the game"        
       },
       "insufficient_players": {
         "title": "Oooooops!",
