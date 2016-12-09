@@ -52,6 +52,7 @@ export const en = {
       "untie_merge_title": "There is a tie in the merge:",
       "untie_merge": "Untie merge",
       "claim_end": "Claim end",
+      "end_game_claimed": "End game claimed!",
       "not_end_game": "End game conditions not reached.",
       "action_not_allowed": "Action not allowed",      
       "history": {

@@ -52,6 +52,7 @@ export const es = {
       "untie_merge_title": "Hay un empate en la fusión:",
       "untie_merge": "Desempatar fusión",
       "claim_end": "Declarar fin de partida",
+      "end_game_claimed": "¡Declarado el final de la partida!",
       "not_end_game": "La partida no ha alcanzado las condiciones para declarar su fin.",
       "action_not_allowed": "Acción no permitida",
       "history": {

@@ -40,9 +40,10 @@ class Game extends React.Component {
   }
 
   successMessage() {
+    // Is last round and game end was not claimed already?
     if (this.props.status.lst && !this.state.endGameClaimSuccess) {
       this.state.endGameClaimSucces = true;
-      return 'aaaaaa';
+      return 'end_game_claimed';
     }
     return '';
   }
