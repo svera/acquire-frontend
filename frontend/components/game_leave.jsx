@@ -1,4 +1,5 @@
 import React from 'react';
+import NavItem from 'react-bootstrap/lib/NavItem';
 
 class GameLeave extends React.Component {
 
@@ -18,7 +19,7 @@ class GameLeave extends React.Component {
   render() {
     if (sessionStorage.getItem('role') ==! 'mng') {
       return (
-        <a href="#" onClick={this.handleClick}>{this.props.text}</a>
+        <NavItem onClick={this.handleClick}>{this.props.text}</NavItem>
       );
     }
     return null;
