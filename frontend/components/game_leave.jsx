@@ -17,7 +17,7 @@ class GameLeave extends React.Component {
   }
 
   render() {
-    if (sessionStorage.getItem('role') ==! 'mng') {
+    if (sessionStorage.getItem('role') != 'mng') {
       return (
         <NavItem onClick={this.handleClick}>{this.props.text}</NavItem>
       );
