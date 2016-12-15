@@ -94,8 +94,8 @@ class BuyStock extends React.Component {
               <FormControl name={i} componentClass="select" onChange={this.handleChange} disabled={disabled} className="input-sm">
                 <option value="0">0</option>
                 <option value="1">1 ({this.formatter.format(this.props.corps[i].prc)})</option>
-                <option value="2">2 ({this.formatter.format(this.props.corps[i].prc*2)})</option>
-                <option value="3">3 ({this.formatter.format(this.props.corps[i].prc*3)})</option>
+                <option value="2" disabled={this.props.corps[i].rem < 2? true : false }>2 ({this.formatter.format(this.props.corps[i].prc*2)})</option>
+                <option value="3" disabled={this.props.corps[i].rem < 3? true : false }>3 ({this.formatter.format(this.props.corps[i].prc*3)})</option>
               </FormControl>
           </label></li>
         );
