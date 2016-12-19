@@ -7,7 +7,7 @@ var APP_DIR = path.resolve(__dirname, 'frontend');
 var config = {
   entry: APP_DIR + '/app.jsx',
   output: {
-    path: BUILD_DIR,
+    path: __dirname,
     filename: 'bundle.js'
   },
   module : {

@@ -136,10 +136,19 @@ class SellTrade extends React.Component {
 
   showErrors() {
     if (this.state.error != '') {
-      return (
-        <p className="text-danger">{this.state.error}</p>
-      );
+      return this.state.error;
     }
+    if (this.props.error != '') {
+      return this.props.translator("game."+this.props.error);
+    }
+    return '';
+  }
+
+  showSuccess() {
+    if (this.props.success != '') {
+      return this.props.translator("game."+this.props.success);
+    }
+    return '';
   }
 
   render() {
@@ -160,7 +169,8 @@ class SellTrade extends React.Component {
           </Row>
           <Row>
             <Col xs={7}>
-              {this.showErrors()}
+              <p className="text-danger">{this.showErrors()}</p>
+              <p className="text-success">{this.showSuccess()}</p>
             </Col>
             <Col xs={5}>
               <Button bsStyle="primary" onClick={this.handleClick} disabled={this.state.buttonDisabled} className="pull-right">

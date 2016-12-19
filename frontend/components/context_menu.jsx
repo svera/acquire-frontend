@@ -25,27 +25,27 @@ class ContextMenu extends React.Component {
       switch (this.props.status.sta) {
         case 'PlayTile':
           return (
-            <PlayTile conn={this.props.conn} translator={this.props.translator} />
+            <PlayTile conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
 
         case 'FoundCorp':
           return (
-            <FoundCorp corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
+            <FoundCorp corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
 
         case 'BuyStock':
           return (
-            <BuyStock playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator}  />
+            <BuyStock playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
 
         case 'SellTrade':
           return (
-            <SellTrade playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
+            <SellTrade playerInfo={this.props.status.ply} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
 
         case 'UntieMerge':
           return (
-            <UntieMerge corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
+            <UntieMerge corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} error={this.props.error} success={this.props.success} />
           );
         }
     }

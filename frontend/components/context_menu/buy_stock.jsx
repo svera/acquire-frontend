@@ -94,8 +94,8 @@ class BuyStock extends React.Component {
               <FormControl name={i} componentClass="select" onChange={this.handleChange} disabled={disabled} className="input-sm">
                 <option value="0">0</option>
                 <option value="1">1 ({this.formatter.format(this.props.corps[i].prc)})</option>
-                <option value="2">2 ({this.formatter.format(this.props.corps[i].prc*2)})</option>
-                <option value="3">3 ({this.formatter.format(this.props.corps[i].prc*3)})</option>
+                <option value="2" disabled={this.props.corps[i].rem < 2? true : false }>2 ({this.formatter.format(this.props.corps[i].prc*2)})</option>
+                <option value="3" disabled={this.props.corps[i].rem < 3? true : false }>3 ({this.formatter.format(this.props.corps[i].prc*3)})</option>
               </FormControl>
           </label></li>
         );
@@ -105,10 +105,18 @@ class BuyStock extends React.Component {
 
   showErrors() {
     if (this.state.error != '') {
-      return (
-        <p className="text-danger">{this.state.error}</p>
-      );
+      return this.state.error;
     }
+    if (this.props.error != '') {
+      return this.props.translator("game."+this.props.error);
+    }
+  }
+
+  showSuccess() {
+    if (this.props.success != '') {
+      return this.props.translator("game."+this.props.success);
+    }
+    return '';
   }
 
   render() {
@@ -139,7 +147,8 @@ class BuyStock extends React.Component {
           </Row>
           <Row>
             <Col xs={7}>
-              {this.showErrors()}
+              <p className="text-danger">{this.showErrors()}</p>
+              <p className="text-success">{this.showSuccess()}</p>
             </Col>
             <Col xs={5}>
               <Button bsStyle="primary" onClick={this.handleClick} disabled={this.state.buttonDisabled} className="pull-right">

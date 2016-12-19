@@ -7,7 +7,8 @@ class ClaimEnd extends React.Component {
       this.onClick = this.onClick.bind(this);
   }
 
-  onClick() {
+  onClick(event) {
+    event.preventDefault();      
     var message =  {"typ": "end", "par": {}};
     this.props.conn.send(
         JSON.stringify(message)
@@ -16,7 +17,7 @@ class ClaimEnd extends React.Component {
 
   render() {
       return (
-          <a className="pull-right" onClick={this.onClick} title={this.props.translator("game.claim_end")}>
+          <a href="#" className="pull-right" onClick={this.onClick} title={this.props.translator("game.claim_end")}>
             <i className="fa fa-trophy fa-lg"></i>
           </a>
       );
