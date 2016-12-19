@@ -1,13 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
 
-//var BUILD_DIR = path.resolve(__dirname, 'build');
+var BUILD_DIR = path.resolve(__dirname, 'build');
 var APP_DIR = path.resolve(__dirname, 'frontend');
 
 var config = {
   entry: APP_DIR + '/app.jsx',
   output: {
-    //path: __dirname,
+    path: __dirname,
     filename: 'bundle.js'
   },
   module : {
