@@ -5,7 +5,7 @@ var BUILD_DIR = path.resolve(__dirname, 'build');
 var APP_DIR = path.resolve(__dirname, 'frontend');
 
 var config = {
-  devtool: 'eval-source-map', 
+  devtool: 'cheap-module-source-map',     
   entry: APP_DIR + '/app.jsx',
   output: {
     path: BUILD_DIR,
@@ -27,7 +27,17 @@ var config = {
         loaders: ['style', 'css', 'sass']
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true
+      },
+      comments: false,
+      //sourceMap: false        
+    })
+  ]  
 };
 
 module.exports = config;

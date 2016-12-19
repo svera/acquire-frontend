@@ -1,6 +1,6 @@
 .DS_Store
-build/bundle.js
-build/bundle.js.map
+build
+# VS Code configuration file
 jsconfig.json
 frontend/config.js
 
