@@ -2,6 +2,7 @@
 build/bundle.js
 build/bundle.js.map
 jsconfig.json
+frontend/config.js
 
 # Logs
 logs
