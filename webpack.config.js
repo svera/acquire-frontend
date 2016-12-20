@@ -20,8 +20,8 @@ var config = {
         loader : 'babel'
       },
       {
-        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-        loader: "file"
+          test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+          loader: 'url-loader'
       },
       {
         test: /\.scss$/,
