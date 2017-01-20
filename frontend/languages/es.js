@@ -28,6 +28,7 @@ export const es = {
       "start_game": "Comenzar partida",
       "start_game_disabled": "Esperando %{number} jugadores más...",
       "select_bot_level": "Selecciona el nivel del bot",
+      "game_options": "Opciones de la partida",
     },
     "game": {
       "turn": "Turn %{turnNumber}",
