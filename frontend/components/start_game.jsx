@@ -13,7 +13,8 @@ class StartGame extends React.Component {
   }
 
   onClick () {
-    var message = {"typ": "ini", "par": {}}
+    var message = {"typ": "ini", "par": {"pto": this.props.gameParams.playerTimeout}}
+    console.log(JSON.stringify(message));
     this.props.conn.send(
         JSON.stringify(message)
     );
