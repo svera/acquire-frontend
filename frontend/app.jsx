@@ -101,6 +101,9 @@ class App extends React.Component {
 
         case "new":
           sessionStorage.setItem('role', 'mng');
+          if (localStorage.getItem('clientName') == '' || localStorage.getItem('clientName') == undefined) {
+            localStorage.setItem('clientName', 'Player '+1);
+          }          
           this.setState({
             screen: LOBBY,
             gameID: msg.id
@@ -121,6 +124,13 @@ class App extends React.Component {
               screen: LOBBY,
               players: msg.val
             });
+          }
+          break;
+
+        case "joi":
+          sessionStorage.setItem('clientNumber', msg.num);
+          if (localStorage.getItem('clientName') == "") {
+            localStorage.setItem('clientName', 'Player '+msg.num);
           }
           break;
 

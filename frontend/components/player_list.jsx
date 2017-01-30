@@ -11,6 +11,10 @@ class PlayerList extends React.Component {
         <ListGroup>
           {
             this.props.players.map(function(player, playerNumber) {
+                // Client must not be shown in lobby's player list
+                if (playerNumber == sessionStorage.getItem('clientNumber')) {
+                  return;
+                }
                 if (player.own) {
                   return (
                     <ListGroupItem key={playerNumber}>
