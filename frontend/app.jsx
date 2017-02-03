@@ -99,17 +99,6 @@ class App extends React.Component {
           console.log(msg.cnt);
           break;
 
-        case "new":
-          sessionStorage.setItem('role', 'mng');
-          if (localStorage.getItem('clientName') == '' || localStorage.getItem('clientName') == undefined) {
-            localStorage.setItem('clientName', 'Player '+1);
-          }          
-          this.setState({
-            screen: LOBBY,
-            gameID: msg.id
-          });
-          break;
-
         case "rms":
           if (this.state.screen == HOME) {
             this.setState({
@@ -128,10 +117,17 @@ class App extends React.Component {
           break;
 
         case "joi":
+          if (msg.own) {
+            sessionStorage.setItem('role', 'mng');
+          }
           sessionStorage.setItem('clientNumber', msg.num);
           if (localStorage.getItem('clientName') == "") {
             localStorage.setItem('clientName', 'Player '+msg.num);
           }
+          this.setState({
+            screen: LOBBY,
+            gameID: msg.id
+          });          
           break;
 
         case "upd":

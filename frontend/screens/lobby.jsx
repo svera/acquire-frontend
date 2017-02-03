@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayerName from '../components/player_name.jsx';
 import PlayerList from '../components/player_list.jsx';
 import AddBot from '../components/add_bot.jsx';
 import StartGame from '../components/start_game.jsx';
@@ -27,8 +28,6 @@ class Lobby extends React.Component {
         }
       };
       this.handlePlayerTimeoutChange = this.handlePlayerTimeoutChange.bind(this);
-      this.handleClientNameSubmit = this.handleClientNameSubmit.bind(this);
-      this.handleClientNameChange = this.handleClientNameChange.bind(this);
   }
 
   handlePlayerTimeoutChange(event) {
@@ -37,18 +36,6 @@ class Lobby extends React.Component {
         playerTimeout: parseInt(event.target.value)
       }
     });
-  }
-
-  handleClientNameSubmit(event) {
-    event.preventDefault();
-    var message = {"typ": "scd", "par": {"nam": localStorage.getItem('clientName')}};
-    this.props.conn.send(
-        JSON.stringify(message)
-    );
-  }
-
-  handleClientNameChange(event) {
-   localStorage.setItem('clientName', event.target.value);
   }
 
   render() {
@@ -107,15 +94,11 @@ class Lobby extends React.Component {
 
               <Col xs={12} sm={6}>
                 <h3>{this.props.translator('lobby.connected_players')}</h3>
-                <form onSubmit={this.handleClientNameSubmit}>
-                  <FormGroup>
-                      <FormControl name="player-name" ref="player-name" type="text" bsSize="small" defaultValue={localStorage.getItem('clientName')} onChange={this.handleClientNameChange}></FormControl>
-                  </FormGroup>
-                </form>
+                <PlayerName conn={this.props.conn} />
                 <PlayerList players={this.props.players} conn={this.props.conn} translator={this.props.translator} />
                 {addBot}
               </Col>
-              
+
           </Row>
         </Grid>
       </div>
