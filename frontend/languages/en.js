@@ -16,6 +16,7 @@ export const en = {
     "x_seconds": "%{number} seconds",
     "one_minute": "1 minute",
     "player_timeout": "You have been kicked out due to inactivity.",
+    "game_panicked": "Sorry, game has been ended due to an internal error",
     "home": {
       "header": "Get rich!",
       "subheader": "Buy, sell and speculate to overcome your rivals",
