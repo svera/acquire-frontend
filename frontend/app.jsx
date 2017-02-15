@@ -85,7 +85,10 @@ class App extends React.Component {
           if (msg.rea == 'ptm') {
             sessionStorage.setItem('info', this.t("player_timeout"));
           }
-          sessionStorage.setItem('role', '');
+          if (msg.rea == 'pan') {
+            sessionStorage.setItem('info', this.t("game_panicked"));
+          }
+         sessionStorage.setItem('role', '');
           this.setState({
             screen: HOME,
             error: ''

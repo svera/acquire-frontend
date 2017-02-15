@@ -16,6 +16,7 @@ export const es = {
     "x_seconds": "%{number} segundos",
     "one_minute": "1 minuto",
     "player_timeout": "Has sido expulsado de la partida por inactividad.",
+    "game_panicked": "Lo sentimos, pero el juego ha finalizado debido a un error interno",    
     "home": {
       "header": "¡Hazte rico!",
       "subheader": "Compra, vende y especula para vencer a tus rivales.",
