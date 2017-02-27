@@ -14,17 +14,16 @@ class StartGame extends React.Component {
 
   onClick () {
     var message = {"typ": "ini", "par": {"pto": this.props.gameParams.playerTimeout}}
-    console.log(JSON.stringify(message));
     this.props.conn.send(
         JSON.stringify(message)
     );
   }
 
   updateButtonState() {
-    var neededPlayers = MINIMUM_PLAYERS-this.props.players.length;
+    var neededPlayers = MINIMUM_PLAYERS-Object.keys(this.props.players).length;
     this.disabled = true;
     this.text = this.props.translator('lobby.start_game_disabled', {'number': neededPlayers});
-    if (this.props.players.length > 2) {
+    if (neededPlayers <= 0) {
       this.disabled = false;
       this.text = this.props.translator('lobby.start_game');
     }

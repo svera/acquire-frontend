@@ -42,13 +42,32 @@ class Lobby extends React.Component {
     if (sessionStorage.getItem('role') == 'mng') {
       var addBot = (
         <ButtonToolbar>
-          <AddBot conn={this.props.conn} translator={this.props.translator} />
+          <AddBot conn={this.props.conn} players={this.props.players} translator={this.props.translator} />
         </ButtonToolbar>
       );
-      var startGame = (
-        <ButtonToolbar>
-          <StartGame conn={this.props.conn} players={this.props.players} translator={this.props.translator} gameParams={this.state.gameParams} />
-        </ButtonToolbar>
+      var gameOptions = (
+        <Col xs={12} sm={6}>
+          <h3>{this.props.translator('lobby.game_options')}</h3>        
+          <Panel>
+            <form>
+                <FormGroup>
+                  <label>
+                    {this.props.translator('home.player_time_limit')}
+                    <FormControl name="player-time" componentClass="select" onChange={this.handlePlayerTimeoutChange}>
+                        <option value="0" key={"player-time-0"}>{this.props.translator('no_limit')}</option>
+                        <option value="15" key={"player-time-15"}>{this.props.translator('x_seconds', {"number": 15})}</option>
+                        <option value="30" key={"player-time-30"}>{this.props.translator('x_seconds', {"number": 30})}</option>
+                        <option value="45" key={"player-time-45"}>{this.props.translator('x_seconds', {"number": 45})}</option>
+                        <option value="60" key={"player-time-60"}>{this.props.translator('one_minute')}</option>
+                    </FormControl>
+                  </label>
+                </FormGroup>
+            </form>
+            <ButtonToolbar>
+              <StartGame conn={this.props.conn} players={this.props.players} translator={this.props.translator} gameParams={this.state.gameParams} />
+            </ButtonToolbar>
+          </Panel>
+        </Col>
       );
     }
     return (
@@ -71,26 +90,7 @@ class Lobby extends React.Component {
         <Grid>
           <h2>{this.props.translator('lobby.title', {'gameID': this.props.gameID})}</h2>
           <Row>
-              <Col xs={12} sm={6}>
-                <h3>{this.props.translator('lobby.game_options')}</h3>        
-                <Panel>
-                  <form>
-                      <FormGroup>
-                        <label>
-                          {this.props.translator('home.player_time_limit')}
-                          <FormControl name="player-time" componentClass="select" onChange={this.handlePlayerTimeoutChange}>
-                              <option value="0" key={"player-time-0"}>{this.props.translator('no_limit')}</option>
-                              <option value="15" key={"player-time-15"}>{this.props.translator('x_seconds', {"number": 15})}</option>
-                              <option value="30" key={"player-time-30"}>{this.props.translator('x_seconds', {"number": 30})}</option>
-                              <option value="45" key={"player-time-45"}>{this.props.translator('x_seconds', {"number": 45})}</option>
-                              <option value="60" key={"player-time-60"}>{this.props.translator('one_minute')}</option>
-                          </FormControl>
-                        </label>
-                      </FormGroup>
-                  </form>
-                  {startGame}
-                </Panel>
-              </Col>
+              {gameOptions}
 
               <Col xs={12} sm={6}>
                 <h3>{this.props.translator('lobby.connected_players')}</h3>
