@@ -10,6 +10,7 @@ class AddBot extends React.Component {
   constructor(props) {
     super(props);
     this.onSelectHandler = this.onSelectHandler.bind(this);
+    this.disabled = false;
   }
 
   onSelectHandler(eventKey) {
@@ -19,9 +20,19 @@ class AddBot extends React.Component {
     );
   }
 
+  updateButtonState() {
+    if (Object.keys(this.props.players).length == 6) {
+      this.disabled = true;
+    } else {
+      this.disabled = false;
+    }
+  }
+
+
   render() {
+    this.updateButtonState();    
     return (
-      <DropdownButton bsStyle="default" title={this.props.translator('lobby.add_bot')} id="add-bot">
+      <DropdownButton bsStyle="default" title={this.props.translator('lobby.add_bot')} id="add-bot" disabled={this.disabled}>
         <MenuItem disabled>{this.props.translator('lobby.select_bot_level')}</MenuItem>
         <MenuItem eventKey="chaotic" onSelect={this.onSelectHandler}>Chaotic</MenuItem>
       </DropdownButton>
