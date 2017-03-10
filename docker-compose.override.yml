@@ -6,4 +6,3 @@ services:
     volumes:
      - .:/usr/share/nginx/html/acquire-frontend
     command: ash -c "npm install && npm run dev"
-    
