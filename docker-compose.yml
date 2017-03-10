@@ -2,9 +2,6 @@ version: "2"
 services:
   acquire-frontend:
     build: .
-    ports:
-      - "8080:8080"
-    volumes:
-     - .:/usr/share/nginx/html/acquire-frontend
-    command: ash -c "npm install && export PATH=./node_modules/.bin:$PATH && npm run dev"
-
+    environment: 
+      PATH: ./node_modules/.bin:$PATH
+    container_name: acquire-frontend
