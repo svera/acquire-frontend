@@ -7,7 +7,7 @@ import {en} from './languages/en.js';
 import {es} from './languages/es.js';
 import Polyglot from 'node-polyglot';
 import ReconnectingWebSocket from 'reconnecting-websocket';
-import config from './config';
+import config from './config.js';
 
 require('../css/display.scss');
 
