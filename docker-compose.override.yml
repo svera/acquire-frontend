@@ -1,8 +1,0 @@
-version: "2"
-services:
-  acquire-frontend:
-    ports:
-      - "8080:8080"
-    volumes:
-     - .:/usr/share/nginx/html/acquire-frontend
-    command: ash -c "npm install && npm run dev"
