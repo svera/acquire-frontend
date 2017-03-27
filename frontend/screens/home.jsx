@@ -58,6 +58,11 @@ class Home extends React.Component {
               </Col>
             </Row>
         </Grid>
+        <footer className="footer">
+            <div className="container">
+                  <p className="text-muted text-center">&copy; 2017 <a href="http://sergiovera.es">Sergio Vera</a></p>
+            </div>
+        </footer>        
       </div>
     );
   }
