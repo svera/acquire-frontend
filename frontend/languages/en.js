@@ -29,7 +29,8 @@ export const en = {
       "start_game_disabled": "Waiting for %{number} more players...",
       "add_bot": "Add bot",
       "select_bot_level": "Select bot level",
-      "game_options": "Game options",      
+      "game_options": "Game options",
+      "your_name": "Your name",      
     },
     "game": {
       "turn": "Turn %{turnNumber}",

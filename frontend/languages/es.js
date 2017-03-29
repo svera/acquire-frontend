@@ -30,6 +30,7 @@ export const es = {
       "start_game_disabled": "Esperando %{number} jugadores más...",
       "select_bot_level": "Selecciona el nivel del bot",
       "game_options": "Opciones de la partida",
+      "your_name": "Tu nombre",            
     },
     "game": {
       "turn": "Turn %{turnNumber}",

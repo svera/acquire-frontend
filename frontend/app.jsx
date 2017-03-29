@@ -70,7 +70,6 @@ class App extends React.Component {
 
     parseMessage(data) {
       var msg = JSON.parse(data);
-      console.log(msg);
       switch (msg.typ) {
         case "out":
           if (msg.rea == 'ter') {
@@ -99,7 +98,6 @@ class App extends React.Component {
           this.setState({
             error: msg.cnt,
           });
-          console.log(msg.cnt);
           break;
 
         case "rms":

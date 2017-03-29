@@ -94,7 +94,7 @@ class Lobby extends React.Component {
 
               <Col xs={12} sm={6}>
                 <h3>{this.props.translator('lobby.connected_players')}</h3>
-                <PlayerName conn={this.props.conn} />
+                <PlayerName conn={this.props.conn} translator={this.props.translator} />
                 <PlayerList players={this.props.players} conn={this.props.conn} translator={this.props.translator} />
                 {addBot}
               </Col>
