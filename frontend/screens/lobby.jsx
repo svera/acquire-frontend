@@ -75,7 +75,7 @@ class Lobby extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Acquire</a>
+              <a href="#">Acquire</a> <small>BETA</small>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
