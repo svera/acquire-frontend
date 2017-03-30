@@ -27,7 +27,7 @@ class PlayerName extends React.Component {
     return (
         <form onSubmit={this.handleClientNameSubmit}>
             <FormGroup>
-                <FormControl name="player-name" ref="player-name" type="text" bsSize="small" defaultValue={localStorage.getItem('clientName')} onChange={this.handleClientNameChange} placeholder={self.props.translator('lobby.your_name')}></FormControl>
+                <FormControl name="player-name" ref="player-name" type="text" bsSize="small" defaultValue={localStorage.getItem('clientName')} onChange={this.handleClientNameChange} placeholder={this.props.translator('lobby.your_name')}></FormControl>
             </FormGroup>
         </form>
     );
