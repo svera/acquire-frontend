@@ -101,11 +101,9 @@ class App extends React.Component {
           break;
 
         case "rms":
-          if (this.state.screen == HOME) {
-            this.setState({
-              rooms: msg.val
-            })
-          }
+          this.setState({
+            rooms: msg.val
+          })
           break;
 
         case "pls":
