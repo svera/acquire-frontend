@@ -57,7 +57,8 @@ export const en = {
       "claim_end": "Claim end",
       "end_game_claimed": "End game claimed!",
       "not_end_game": "End game conditions not reached.",
-      "action_not_allowed": "Action not allowed",      
+      "action_not_allowed": "Action not allowed",
+      "not_an_acquirer_corporation": "Chosen corporation isn't an acquirer one",
       "history": {
         "starter_player": "%{player} is the starting player",
         "played_tile": "%{player} played tile %{tile}",

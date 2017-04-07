@@ -13,10 +13,15 @@ class UntieMerge extends React.Component {
       this.handleClickUntie = this.handleClickUntie.bind(this);
       this.handleClickCorp = this.handleClickCorp.bind(this);
 
+      this.state = {
+        buttonDisabled: true,
+      }
+
       this.corp = null;
   }
 
   handleClickCorp(event) {
+    this.setState({buttonDisabled: false});    
     this.corp = parseInt(event.target.value)
   }
 
@@ -73,7 +78,7 @@ class UntieMerge extends React.Component {
               <p className="text-success">{this.showSuccess()}</p>
             </Col>          
             <Col xs={5}>
-              <Button bsStyle="primary" onClick={this.handleClickUntie} className="pull-right">
+              <Button bsStyle="primary" onClick={this.handleClickUntie} disabled={this.state.buttonDisabled} className="pull-right">
                 {this.props.translator("game.untie_merge")}
               </Button>
             </Col>
