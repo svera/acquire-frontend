@@ -51,12 +51,18 @@ class BuyStock extends React.Component {
 
   handleClick() {
     var message = {"typ": "buy", "par": {"cor": {}}};
+    var totalBought = 0;
     for (var corp in this.buy) {
       if (this.buy.hasOwnProperty(corp)) {
+        totalBought += parseInt(this.buy[corp]);
         message["par"]["cor"][corp] = parseInt(this.buy[corp]);
       }
     }
-    this.audio.play();
+
+    if (totalBought > 0) {
+      this.audio.play();
+    }
+
     this.props.conn.send(
         JSON.stringify(message)
     );

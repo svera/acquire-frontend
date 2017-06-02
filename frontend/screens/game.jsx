@@ -69,7 +69,7 @@ class Game extends React.Component {
           <Grid>
             <Row>
               <Col sm={7}>
-                <Board width="576" height="432" spacing="2" originX="0" originY="0" radius="0" board={this.props.status.brd} hand={this.props.status.hnd} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
+                <Board width="576" height="432" spacing="2" originX="0" originY="0" radius="0" board={this.props.status.brd} state={this.props.status.sta} hand={this.props.status.hnd} corps={this.props.status.cor} conn={this.props.conn} translator={this.props.translator} />
               </Col>
               <Col sm={5}>
                 <ContextMenu conn={this.props.conn} status={this.props.status} error={this.props.error} success={this.successMessage()} translator={this.props.translator} />

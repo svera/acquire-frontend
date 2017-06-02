@@ -23,6 +23,7 @@ class Board extends React.Component {
     var originX = parseInt(this.props.originX);
     var originY = parseInt(this.props.originY);
     var letters = { A: 0, B: 1, C: 2, D: 3, E: 4, F: 5, G: 6, H: 7, I: 8 };
+    var curtain = '';
 
     for (var i = 0; i < 12; i++) {
       for (var letter in letters) {
@@ -44,11 +45,19 @@ class Board extends React.Component {
         }
       }
     }
+
+    if (this.props.state != 'PlayTile') {
+      curtain = <rect id={"curtain"} width={this.width} height={this.height} rx={this.props.radius} ry={this.props.radius} />;
+    } else {
+      curtain = '';
+    }
+
     var viewBox = "0 0 "+(originX+this.width)+" "+originX+this.height;
     return (
       <svg viewBox={viewBox}>
         <rect width={this.width} height={this.height} id="board" rx={this.props.radius} ry={this.props.radius} />
         {grid}
+        {curtain}
       </svg>
     );
   }
