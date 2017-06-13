@@ -69,7 +69,9 @@ class App extends React.Component {
     }
 
     parseMessage(data) {
-      var msg = JSON.parse(data);
+      var wrapped = JSON.parse(data);
+      var msg = wrapped.cnt;
+      
       switch (msg.typ) {
         case "out":
           if (msg.rea == 'ter') {
