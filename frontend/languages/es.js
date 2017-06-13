@@ -33,7 +33,7 @@ export const es = {
       "your_name": "Tu nombre",            
     },
     "game": {
-      "turn": "Turn %{turnNumber}",
+      "turn": "Turno %{turnNumber}",
       "terminate": "Terminar la partida",
       "size": "Tamaño",
       "price": "Precio",
