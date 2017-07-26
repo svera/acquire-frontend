@@ -28,6 +28,8 @@ class App extends React.Component {
         error: '',
       };
 
+      this.expectedStatusSequenceNumber = 1;
+
       this.initLanguages();
       sessionStorage.setItem('info', '');
       this.conn = new ReconnectingWebSocket(config.wsServer);
@@ -72,7 +74,7 @@ class App extends React.Component {
       var wrapped = JSON.parse(data);
       var msg = wrapped.cnt;
       
-      switch (msg.typ) {
+      switch (wrapped.typ) {
         case "out":
           if (msg.rea == 'ter') {
             sessionStorage.setItem('info', this.t("game_terminated"));
@@ -132,6 +134,11 @@ class App extends React.Component {
           break;
 
         case "upd":
+          if (wrapped.seq > this.expectedStatusSequenceNumber) {
+            console.log("Received out of order update, expecting " + this.expectedStatusSequenceNumber + ", got " + wrapped.seq);
+          } else {
+            this.expectedStatusSequenceNumber++;
+          }
           this.setState({
             screen: GAME,
             game: 'acquire',
