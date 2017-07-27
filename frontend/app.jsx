@@ -136,6 +136,9 @@ class App extends React.Component {
         case "upd":
           if (wrapped.seq > this.expectedStatusSequenceNumber) {
             console.log("Received out of order update, expecting " + this.expectedStatusSequenceNumber + ", got " + wrapped.seq);
+            this.expectedStatusSequenceNumber == wrapped.seq + 1;
+          } else if (wrapped.seq < this.expectedStatusSequenceNumber){
+            return;
           } else {
             this.expectedStatusSequenceNumber++;
           }
