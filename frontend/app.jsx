@@ -28,8 +28,6 @@ class App extends React.Component {
         error: '',
       };
 
-      this.expectedStatusSequenceNumber = 1;
-
       this.initLanguages();
       sessionStorage.setItem('info', '');
       this.conn = new ReconnectingWebSocket(config.wsServer);
@@ -130,7 +128,8 @@ class App extends React.Component {
           this.setState({
             screen: LOBBY,
             gameID: msg.id
-          });          
+          });
+          this.expectedStatusSequenceNumber = 1;   
           break;
 
         case "upd":
