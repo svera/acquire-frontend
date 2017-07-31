@@ -4,12 +4,14 @@ var path = require('path');
 var BUILD_DIR = path.resolve(__dirname, 'build');
 var APP_DIR = path.resolve(__dirname, 'frontend');
 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var config = {
   devtool: 'eval-source-map', 
   entry: APP_DIR + '/app.jsx',
   output: {
     path: BUILD_DIR,
-    publicPath: "/build",
+    publicPath: "/",
     filename: 'bundle.js'
   },
   module : {
@@ -28,7 +30,12 @@ var config = {
         loaders: ['style', 'css', 'sass']
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'template/index.ejs'
+    })       
+  ]    
 };
 
 module.exports = config;

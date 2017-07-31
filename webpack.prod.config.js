@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var CompressionPlugin = require('compression-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var BUILD_DIR = path.resolve(__dirname, 'build');
 var APP_DIR = path.resolve(__dirname, 'frontend');
@@ -10,8 +11,9 @@ var config = {
   entry: APP_DIR + '/app.jsx',
   output: {
     path: BUILD_DIR,
-    publicPath: "/build",    
-    filename: 'bundle.js'
+    publicPath: "/",    
+    filename: 'bundle.[hash].js',
+    chunkFilename: "bundle.[hash]js"
   },
   module : {
     loaders : [
@@ -54,7 +56,11 @@ var config = {
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8
-    })    
+    }),
+    new HtmlWebpackPlugin({
+      template: 'template/index.ejs',
+      filename: '../index.html'
+    })       
   ]  
 };
 
