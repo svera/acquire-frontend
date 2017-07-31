@@ -11,7 +11,7 @@ var config = {
   entry: APP_DIR + '/app.jsx',
   output: {
     path: BUILD_DIR,
-    publicPath: "/",    
+    publicPath: "/bundle",    
     filename: 'bundle.[hash].js',
     chunkFilename: "bundle.[hash]js"
   },
