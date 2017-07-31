@@ -1,6 +1,8 @@
 import React from 'react';
 import ClaimEnd from './claim_end.jsx';
 import Button from 'react-bootstrap/lib/Button';
+import ToggleButton from 'react-bootstrap/lib/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/lib/ToggleButtonGroup';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
@@ -51,10 +53,10 @@ class UntieMerge extends React.Component {
       for (var i = 0; i < this.props.corps.length; i++) {
           if (this.props.corps[i].tie) {
             selectableCorps.push(
-              <Button value={i} onClick={this.handleClickCorp} key={"u"+i}>
+              <ToggleButton value={i} onChange={this.handleClickCorp} key={"u"+i}>
                 <span className={"c"+i}>&#9632;&nbsp;</span>              
                 {this.props.corps[i].nam}
-              </Button>
+              </ToggleButton>
             );
           }
       }
@@ -65,9 +67,9 @@ class UntieMerge extends React.Component {
             <Col xs={12}>
               <form>
                 <FormGroup>
-                  <ButtonGroup>
+                  <ToggleButtonGroup>
                     {selectableCorps}
-                  </ButtonGroup>
+                  </ToggleButtonGroup>
                 </FormGroup>
               </form>
             </Col>

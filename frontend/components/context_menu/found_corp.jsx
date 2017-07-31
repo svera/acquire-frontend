@@ -1,7 +1,8 @@
 import React from 'react';
 import ClaimEnd from './claim_end.jsx';
 import Button from 'react-bootstrap/lib/Button';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
+import ToggleButton from 'react-bootstrap/lib/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/lib/ToggleButtonGroup';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Row from 'react-bootstrap/lib/Row';
@@ -39,10 +40,10 @@ class FoundCorp extends React.Component {
     for (var i = offset; i < limit; i++) {
         if (this.props.corps[i].siz == 0) {
           selectableCorps.push(
-            <Button value={i} onClick={this.handleClickCorp} bsSize="xsmall" key={"f"+i}>
+            <ToggleButton value={i} onChange={this.handleClickCorp} bsSize="xsmall" key={"f"+i}>
               <span className={"c"+i}>&#9632;&nbsp;</span>
               {this.props.corps[i].nam}
-            </Button>
+            </ToggleButton>
           );
         }
     }
@@ -72,15 +73,9 @@ class FoundCorp extends React.Component {
               <form>
                 <FormGroup>
                   <ButtonToolbar>
-                    <ButtonGroup>
-                      {this.foundableCorpsMarkup(0, 2)}
-                    </ButtonGroup>
-                    <ButtonGroup>
-                      {this.foundableCorpsMarkup(2, 5)}
-                    </ButtonGroup>
-                    <ButtonGroup>
-                      {this.foundableCorpsMarkup(5, 7)}
-                    </ButtonGroup>
+                    <ToggleButtonGroup type="radio" name="corporation">
+                      {this.foundableCorpsMarkup(0, 7)}
+                    </ToggleButtonGroup>
                   </ButtonToolbar>
                 </FormGroup>
               </form>
