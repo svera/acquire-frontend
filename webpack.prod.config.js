@@ -1,41 +1,43 @@
-var webpack = require('webpack');
-var path = require('path');
-var CompressionPlugin = require('compression-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require("webpack");
+var path = require("path");
+var CompressionPlugin = require("compression-webpack-plugin");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-var BUILD_DIR = path.resolve(__dirname, 'build');
-var APP_DIR = path.resolve(__dirname, 'frontend');
+var BUILD_DIR = path.resolve(__dirname, "build");
+var APP_DIR = path.resolve(__dirname, "frontend");
 
 var config = {
-  devtool: 'cheap-module-source-map',     
-  entry: APP_DIR + '/app.jsx',
+  devtool: "cheap-module-source-map",     
+  entry: APP_DIR + "/app.jsx",
   output: {
     path: BUILD_DIR,
     publicPath: "build",    
-    filename: 'bundle.[hash].js',
+    filename: "bundle.[hash].js",
     chunkFilename: "bundle.[hash]js"
   },
   module : {
-    loaders : [
+    rules : [
       {
         test : /\.jsx?/,
+        loader: "babel-loader",
         include : APP_DIR,
-        loader : 'babel'
       },
       {
-          test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
-          loader: 'url-loader'
+        test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+        loader: "url-loader"
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
+        use: [
+          "style-loader", "css-loader", "sass-loader"
+        ]
       }
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({ // <-- key to reducing React's <size></size>
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+    new webpack.DefinePlugin({ // <-- key to reducing React"s <size></size>
+      "process.env": {
+        "NODE_ENV": JSON.stringify("production")
       }
     }),    
     new webpack.optimize.UglifyJsPlugin({
@@ -44,7 +46,6 @@ var config = {
         screw_ie8: true
       },
       comments: false,
-      sourceMap: false,
       debug: false,
       compressor: {
         warnings: false
@@ -58,8 +59,8 @@ var config = {
       minRatio: 0.8
     }),
     new HtmlWebpackPlugin({
-      template: 'template/index.ejs',
-      filename: '../index.html'
+      template: "template/index.ejs",
+      filename: "../index.html"
     })       
   ]  
 };
