@@ -8,7 +8,7 @@ class History extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        cont: ""
+        cont: this.props.translator(this.props.log[0].key, this.props.log[0].arg) + "\n"
       }
   }
 
