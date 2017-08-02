@@ -163,6 +163,7 @@ class App extends React.Component {
       if (this.updateBuffer[i].seq != this.expectedStatusSequenceNumber) {
         return;
       }
+      console.log("Applying pending update " + this.updateBuffer[i].seq);
 
       this.setState({
         screen: GAME,
