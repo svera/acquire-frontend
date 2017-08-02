@@ -158,9 +158,8 @@ class App extends React.Component {
     // Sort pending updates by sequence number
     this.updateBuffer.sort((a,b) => a.seq - b.seq);
 
-    var len = this.updateBuffer.length;
     // Apply pending updates
-    for (var i = 0; i < len; i++) {
+    for (var i = 0; i < this.updateBuffer.length; i++) {
       if (this.updateBuffer[i].seq != this.expectedStatusSequenceNumber) {
         return;
       }
@@ -173,9 +172,9 @@ class App extends React.Component {
       });
 
       // Remove applied update from buffer
-      this.updateBuffer.splice(i, 1);
       this.expectedStatusSequenceNumber++;
     }
+    this.updateBuffer = [];
   }
 
   render() {
