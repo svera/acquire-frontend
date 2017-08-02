@@ -134,6 +134,8 @@ class App extends React.Component {
         break;
 
       case "upd":
+        // Update messages need to be processed in a specific order, which is not guaranteed to be the
+        // same as the reception order, thus we have to check it and reorder if needed.
         if (wrapped.seq > this.expectedStatusSequenceNumber) {
           console.log("Received out of order update, expecting " + this.expectedStatusSequenceNumber + ", got " + wrapped.seq);
           this.updateBuffer.push(wrapped);
