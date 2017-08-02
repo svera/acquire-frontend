@@ -158,8 +158,9 @@ class App extends React.Component {
     // Sort pending updates by sequence number
     this.updateBuffer.sort((a,b) => a.seq - b.seq);
 
+    var len = this.updateBuffer.length;
     // Apply pending updates
-    for (var i = 0; i < this.updateBuffer.length; i++) {
+    for (var i = 0; i < len; i++) {
       if (this.updateBuffer[i].seq != this.expectedStatusSequenceNumber) {
         return;
       }
