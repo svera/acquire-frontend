@@ -67,7 +67,7 @@ class UntieMerge extends React.Component {
             <Col xs={12}>
               <form>
                 <FormGroup>
-                  <ToggleButtonGroup>
+                  <ToggleButtonGroup type="radio" name="corporation">
                     {selectableCorps}
                   </ToggleButtonGroup>
                 </FormGroup>
