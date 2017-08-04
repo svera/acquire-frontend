@@ -1,25 +1,52 @@
 import React from 'react';
 import Badge from 'react-bootstrap/lib/Badge';
+import Timer from 'timer.js';
 
 class PlayerInfo extends React.Component {
 
-  render() {
-    var formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 0
-    });
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: sessionStorage.getItem('timeout'),
+    };
+    this.timer = new Timer({
+        tick: 1,
+        onstart: function(millisec) {
+          this.setState({
+            time: Math.round(millisec / 1000)
+          });
+        }.bind(this),
+        ontick: function(millisec) {
+          this.setState({
+            time: Math.round(millisec / 1000)
+          });
+        }.bind(this),
+      });
+  }
 
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.player.trn && this.timer.getStatus() == 'started') {
+      this.timer.stop();
+    } else if (nextProps.player.trn && this.timer.getStatus() != 'started') {
+      this.timer.start(sessionStorage.getItem('timeout'));
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.player.trn) {
+        this.timer.start(sessionStorage.getItem('timeout'));
+    }
+  }
+
+  componentWillUnmount() {
+    this.timer.stop();
+    sessionStorage.setItem('timeout', 0);
+  }
+
+  render() {
     return (
       <span style={{whiteSpace: "nowrap"}}>
-        {formatter.format(parseInt(this.props.player.csh))}&nbsp;
-        <Badge className={"c0"} title={this.props.corps[0].nam}>{this.props.player.own[0]}</Badge>&nbsp;
-        <Badge className={"c1"} title={this.props.corps[1].nam}>{this.props.player.own[1]}</Badge>&nbsp;
-        <Badge className={"c2"} title={this.props.corps[2].nam}>{this.props.player.own[2]}</Badge>&nbsp;
-        <Badge className={"c3"} title={this.props.corps[3].nam}>{this.props.player.own[3]}</Badge>&nbsp;
-        <Badge className={"c4"} title={this.props.corps[4].nam}>{this.props.player.own[4]}</Badge>&nbsp;
-        <Badge className={"c5"} title={this.props.corps[5].nam}>{this.props.player.own[5]}</Badge>&nbsp;
-        <Badge className={"c6"} title={this.props.corps[6].nam}>{this.props.player.own[6]}</Badge>&nbsp;
+        { this.state.time > 0 && this.state.time < 11 ? this.props.translator('game.time_left', {'time': this.state.time}) : null }
       </span>
     );
   }
