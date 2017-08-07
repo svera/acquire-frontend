@@ -2,7 +2,7 @@ import React from 'react';
 import Badge from 'react-bootstrap/lib/Badge';
 import Timer from 'timer.js';
 
-SHOW_TIME_ALERT_IF_LESS_THAN = 11;
+const SHOW_TIME_ALERT_IF_LESS_THAN = 11;
 
 class PlayerInfo extends React.Component {
 
