@@ -2,6 +2,8 @@ import React from 'react';
 import Badge from 'react-bootstrap/lib/Badge';
 import Timer from 'timer.js';
 
+SHOW_TIME_ALERT_IF_LESS_THAN = 11;
+
 class PlayerInfo extends React.Component {
 
   constructor(props) {
@@ -46,7 +48,7 @@ class PlayerInfo extends React.Component {
   render() {
     return (
       <span style={{whiteSpace: "nowrap"}}>
-        { this.state.time > 0 && this.state.time < 11 ? this.props.translator('game.time_left', {'time': this.state.time}) : null }
+        { this.state.time > 0 && this.state.time < SHOW_TIME_ALERT_IF_LESS_THAN ? this.props.translator('game.time_left', {'time': this.state.time}) : null }
       </span>
     );
   }
