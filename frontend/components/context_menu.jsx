@@ -55,7 +55,7 @@ class ContextMenu extends React.Component {
     return (
       <Row>
         <Col xs={9}>
-          <PlayerInfo player={this.props.status.ply} corps={this.props.status.cor} />
+          <PlayerInfo player={this.props.status.ply} translator={this.props.translator} />
         </Col>
         <Col xs={3}>
           <ClaimEnd conn={this.props.conn} translator={this.props.translator} />

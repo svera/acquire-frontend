@@ -58,7 +58,8 @@ export const es = {
       "end_game_claimed": "¡Declarado el final de la partida!",
       "not_end_game": "La partida no ha alcanzado las condiciones para declarar su fin.",
       "action_not_allowed": "Acción no permitida",
-      "not_an_acquirer_corporation": "La corporación elegida no es una de las adquisidoras",      
+      "not_an_acquirer_corporation": "La corporación elegida no es una de las adquisidoras",
+      "time_left": "%{time} segundos restantes",
       "history": {
         "starter_player": "%{player} es el jugador inicial",
         "played_tile": "%{player} jugó la ficha %{tile}",

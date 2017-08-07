@@ -36,6 +36,7 @@ class Lobby extends React.Component {
         playerTimeout: parseInt(event.target.value)
       }
     });
+    sessionStorage.setItem('timeout', parseInt(event.target.value));
   }
 
   render() {

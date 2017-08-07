@@ -3,7 +3,7 @@
 ## Installation
 
 ### Requirements
-* [Docker & Docker-compose](docker.com).
+* [Docker & Docker-compose](https://docker.com).
 
 ### Usage
 

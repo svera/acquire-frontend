@@ -49,7 +49,7 @@ class BuyStock extends React.Component {
     }
   }
 
-  handleClick() {
+  handleClick(event) {
     var message = {"typ": "buy", "par": {"cor": {}}};
     var totalBought = 0;
     for (var corp in this.buy) {

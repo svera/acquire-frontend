@@ -59,6 +59,7 @@ export const en = {
       "not_end_game": "End game conditions not reached.",
       "action_not_allowed": "Action not allowed",
       "not_an_acquirer_corporation": "Chosen corporation isn't an acquirer one",
+      "time_left": "%{time} seconds left",
       "history": {
         "starter_player": "%{player} is the starting player",
         "played_tile": "%{player} played tile %{tile}",
