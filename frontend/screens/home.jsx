@@ -1,6 +1,7 @@
 import React from 'react';
 import GameCreate from '../components/game_create.jsx';
 import GameJoin from '../components/game_join.jsx';
+import Instructions from '../components/instructions.jsx';
 import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import NavItem from 'react-bootstrap/lib/NavItem';

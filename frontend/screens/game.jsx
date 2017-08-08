@@ -7,19 +7,23 @@ import GameFinished from '../components/game_finished.jsx'
 import History from '../components/history.jsx'
 import GameLeave from '../components/game_leave.jsx';
 import GameDestroy from '../components/game_destroy.jsx';
+import Sidebar from '../components/sidebar.jsx';
+import Instructions from '../components/instructions.jsx';
 import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Grid from 'react-bootstrap/lib/Grid';
 import Modal from 'react-bootstrap/lib/Modal';
+import Button from 'react-bootstrap/lib/Button';
 
 class Game extends React.Component {
 
   constructor(props) {
       super(props);
       this.state = {
-        endGameClaimSuccess: false
+        endGameClaimSuccess: false,
+        isVisible: false
       }
   }
 
@@ -48,6 +52,10 @@ class Game extends React.Component {
     return '';
   }
 
+  updateModal(isVisible) {
+    this.setState({isVisible: isVisible});
+  }
+
   render() {
       return (
         <div>
@@ -74,6 +82,10 @@ class Game extends React.Component {
               <Col sm={5}>
                 <ContextMenu conn={this.props.conn} status={this.props.status} error={this.props.error} success={this.successMessage()} translator={this.props.translator} />
                 <PlayerInfobox playerInfo={this.props.status.ply} rivalsInfo={this.props.status.riv} corps={this.props.status.cor} translator={this.props.translator} />
+                <Button onClick={ () => this.updateModal(true) }>Display Modal Dialog</Button>
+                <Sidebar side="left" title="How to play" isVisible={ this.state.isVisible } onHide={ () => this.updateModal(false) }>
+                  <Instructions />
+                </Sidebar>                
               </Col>
             </Row>
             <Row>
