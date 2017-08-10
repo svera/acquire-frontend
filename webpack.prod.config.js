@@ -3,7 +3,7 @@ var path = require("path");
 var CompressionPlugin = require("compression-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-var BUILD_DIR = path.resolve(__dirname, "build");
+var BUILD_DIR = path.resolve(__dirname, "public/build");
 var APP_DIR = path.resolve(__dirname, "frontend");
 
 var config = {
@@ -11,7 +11,7 @@ var config = {
   entry: APP_DIR + "/app.jsx",
   output: {
     path: BUILD_DIR,
-    publicPath: "build",    
+    publicPath: BUILD_DIR,    
     filename: "bundle.[hash].js",
     chunkFilename: "bundle.[hash]js"
   },

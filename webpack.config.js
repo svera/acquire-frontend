@@ -1,7 +1,7 @@
 var webpack = require("webpack");
 var path = require("path");
 
-var BUILD_DIR = path.resolve(__dirname, "build");
+var BUILD_DIR = path.resolve(__dirname, "public/build");
 var APP_DIR = path.resolve(__dirname, "frontend");
 
 var HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -35,7 +35,8 @@ var config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "template/index.ejs"
+      template: "template/index.ejs",
+      filename: "index.html"
     })       
   ]    
 };
