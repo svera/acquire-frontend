@@ -1,7 +1,7 @@
 var webpack = require("webpack");
 var path = require("path");
 
-var BUILD_DIR = path.resolve(__dirname, "public/build");
+var PUBLIC_DIR = path.resolve(__dirname, "public");
 var APP_DIR = path.resolve(__dirname, "frontend");
 
 var HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -10,7 +10,7 @@ var config = {
   devtool: "eval-source-map", 
   entry: APP_DIR + "/app.jsx",
   output: {
-    path: BUILD_DIR,
+    path: PUBLIC_DIR,
     publicPath: "/",
     filename: "bundle.js"
   },
