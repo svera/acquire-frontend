@@ -3,17 +3,17 @@ var path = require("path");
 var CompressionPlugin = require("compression-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-var BUILD_DIR = path.resolve(__dirname, "build");
+var PUBLIC_DIR = path.resolve(__dirname, "public");
 var APP_DIR = path.resolve(__dirname, "frontend");
 
 var config = {
   devtool: "cheap-module-source-map",     
   entry: APP_DIR + "/app.jsx",
   output: {
-    path: BUILD_DIR,
-    publicPath: "build",    
-    filename: "bundle.[hash].js",
-    chunkFilename: "bundle.[hash]js"
+    path: PUBLIC_DIR,
+    publicPath: "/",    
+    filename: "build/bundle.[hash].js",
+    chunkFilename: "build/bundle.[hash]js"
   },
   module : {
     rules : [
@@ -60,7 +60,7 @@ var config = {
     }),
     new HtmlWebpackPlugin({
       template: "template/index.ejs",
-      filename: "../index.html"
+      filename: "index.html"
     })       
   ]  
 };
