@@ -99,7 +99,7 @@ class ContextMenu extends React.Component {
     return (
       <Panel header={this.getTitle()}>
         {this.getContent()}
-        <Sidebar side="left" title="How to play" isVisible={ this.state.isVisible } onHide={ () => this.updateModal(false) }>
+        <Sidebar side="left" title={this.props.translator("game.instructions.title")} isVisible={ this.state.isVisible } onHide={ () => this.updateModal(false) }>
           <Instructions translator={this.props.translator} />
         </Sidebar>                      
       </Panel>

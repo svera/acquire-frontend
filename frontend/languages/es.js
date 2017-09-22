@@ -83,8 +83,9 @@ export var es = {
         "not_enough_cash": "No tienes suficiente dinero.",
         "not_enough_shares": "No tienes suficientes acciones."        
       },
-      "instructions": "\
-        <h3>Objetivo del juego</h3>\
+      "instructions": {
+        "title": "Como jugar",
+        "text": "<h3>Objetivo del juego</h3>\
         <p>Tener más dinero que nadie al acabar la partida. Ganas dinero formando corporaciones, comprando\
         las acciones correctas en el momento preciso, así como absorbiendo y expandiendo corporaciones de las que posees acciones.</p>\
         <h3>Como jugar</h3>\
@@ -193,7 +194,8 @@ export var es = {
         <p>Las bonificaciones de accionista mayoritario y minoritario son pagadas\
         para todas las corporaciones activas, y todas las acciones son vendidas a sus precios en ese momento. \
         Las acciones de una corporación que no esté en tablero no tienen valor.\
-        ¡El jugador con más dinero es el ganador de la partida!</p>"      
+        ¡El jugador con más dinero es el ganador de la partida!</p>"  
+      }
     }
   }
 };

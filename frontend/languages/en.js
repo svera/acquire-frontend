@@ -83,8 +83,9 @@ export var en = {
         "not_enough_cash": "Not enough cash.",
         "not_enough_shares": "Not enough shares."
       },
-      "instructions": "\
-        <h3>Object of the game</h3>\
+      "instructions": {
+        "title": "How to play",
+        "text": "<h3>Object of the game</h3>\
         <p>Have the most money at the end of the game. You make money by forming corporations, buying\
         the right stock at the right time, as well as merging and expanding corporations in which you own stock.</p>\
         <h3>How to play</h3>\
@@ -205,6 +206,7 @@ export var en = {
         for all active corporations, and all stocks are sold back to the\
         stock market bank at current prices. Stock in a corporation that is not on the board is worthless.\
         The player with the most money wins!</p>"
+      }
     }
   }
 };
