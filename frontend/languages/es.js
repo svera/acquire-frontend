@@ -193,7 +193,7 @@ export var es = {
         <p>Las bonificaciones de accionista mayoritario y minoritario son pagadas\
         para todas las corporaciones activas, y todas las acciones son vendidas a sus precios en ese momento. \
         Las acciones de una corporación que no esté en tablero no tienen valor.\
-        ¡Vence el jugador con más dinero!</p>"      
+        ¡El jugador con más dinero es el ganador de la partida!</p>"      
     }
   }
 };
