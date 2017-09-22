@@ -9,12 +9,22 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import ClaimEnd from './context_menu/claim_end.jsx';
 import PlayerInfo from './player_info.jsx';
+import Button from 'react-bootstrap/lib/Button';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 import Badge from 'react-bootstrap/lib/Badge';
+import Sidebar from '../components/sidebar.jsx';
+import Instructions from '../components/instructions.jsx';
 
 class ContextMenu extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: false
+    }
+  }
 
   getContent() {
     if (!this.props.status.ply.trn) {
@@ -55,6 +65,8 @@ class ContextMenu extends React.Component {
     return (
       <Row>
         <Col xs={9}>
+          <Button bsSize="sm" onClick={ () => this.updateModal(true) }>?</Button>
+          &nbsp;
           <PlayerInfo player={this.props.status.ply} translator={this.props.translator} />
         </Col>
         <Col xs={3}>
@@ -79,10 +91,17 @@ class ContextMenu extends React.Component {
     );
   }
 
+  updateModal(isVisible) {
+    this.setState({isVisible: isVisible});
+  }
+
   render() {
     return (
       <Panel header={this.getTitle()}>
         {this.getContent()}
+        <Sidebar side="left" title={this.props.translator("game.instructions.title")} isVisible={ this.state.isVisible } onHide={ () => this.updateModal(false) }>
+          <Instructions translator={this.props.translator} />
+        </Sidebar>                      
       </Panel>
     )
   }
