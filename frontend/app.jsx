@@ -152,6 +152,9 @@ class App extends React.Component {
           this.applyPendingUpdates();
         }
         
+        case "gst":
+          sessionStorage.setItem('timeout', parseInt(msg.par.pto));
+
         break;
     }
   }
