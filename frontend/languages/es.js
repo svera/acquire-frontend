@@ -69,7 +69,8 @@ export var es = {
         "traded_stock": "%{player} intercambió %{amount} acciones de %{corporation}",
         "untied_merge": "%{player} desempató la fusión eligiendo %{corporation}",
         "claimed_end": "%{player} declaró el fin de la partida",
-        "player_left": "%{player} ha abandonado la partida"
+        "player_left": "%{player} ha abandonado la partida",
+        "no_tiles_available": "%{player} no recibió ninguna ficha nueva porque no hay más disponibles",            
       },
       "insufficient_players": {
         "title": "¡Oooooops!",

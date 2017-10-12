@@ -69,7 +69,8 @@ export var en = {
         "traded_stock": "%{player} traded %{amount} stock shares of %{corporation}",
         "untied_merge": "%{player} untied merge choosing %{corporation}",
         "claimed_end": "%{player} claimed end game",
-        "player_left": "%{player} has left the game"        
+        "player_left": "%{player} has left the game",
+        "no_tiles_available": "%{player} didn't receive any new tiles because there aren't any available",    
       },
       "insufficient_players": {
         "title": "Oooooops!",
