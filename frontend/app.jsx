@@ -151,9 +151,11 @@ class App extends React.Component {
         if (this.updateBuffer.length > 0) {
           this.applyPendingUpdates();
         }
+
+        break;
         
-        case "gst":
-          sessionStorage.setItem('timeout', parseInt(msg.par.pto));
+      case "gst":
+        sessionStorage.setItem('timeout', parseInt(msg.par.pto));
 
         break;
     }
