@@ -97,7 +97,7 @@ class App extends React.Component {
 
       case "err":
         this.setState({
-          error: msg.cnt,
+          error: msg.des,
         });
         break;
 
@@ -155,7 +155,7 @@ class App extends React.Component {
         break;
         
       case "gst":
-        sessionStorage.setItem('timeout', parseInt(msg.par.pto));
+        sessionStorage.setItem('timeout', parseInt(msg.pto));
 
         break;
     }
