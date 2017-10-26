@@ -69,7 +69,7 @@ class SellTrade extends React.Component {
   }
 
   handleClick(event) {
-    var message =  {"typ": "sel", "par": {"cor": this.corps}};
+    var message =  {"typ": "sel", "cnt": {"cor": this.corps}};
     this.props.conn.send(
         JSON.stringify(message)
     );

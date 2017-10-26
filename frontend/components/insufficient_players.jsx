@@ -11,7 +11,7 @@ class InsufficientPlayers extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    var message = {"typ": "qui", "par": {"ply": "slf"}}
+    var message = {"typ": "qui", "cnt": {"ply": "slf"}}
     this.props.conn.send(
         JSON.stringify(message)
     );

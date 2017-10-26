@@ -50,12 +50,12 @@ class BuyStock extends React.Component {
   }
 
   handleClick(event) {
-    var message = {"typ": "buy", "par": {"cor": {}}};
+    var message = {"typ": "buy", "cnt": {"cor": {}}};
     var totalBought = 0;
     for (var corp in this.buy) {
       if (this.buy.hasOwnProperty(corp)) {
         totalBought += parseInt(this.buy[corp]);
-        message["par"]["cor"][corp] = parseInt(this.buy[corp]);
+        message["cnt"]["cor"][corp] = parseInt(this.buy[corp]);
       }
     }
 

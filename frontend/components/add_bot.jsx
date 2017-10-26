@@ -14,7 +14,7 @@ class AddBot extends React.Component {
   }
 
   onSelectHandler(eventKey) {
-    var message = {"typ": "bot", "par": {"lvl": eventKey}}
+    var message = {"typ": "bot", "cnt": {"lvl": eventKey}}
     this.props.conn.send(
         JSON.stringify(message)
     );

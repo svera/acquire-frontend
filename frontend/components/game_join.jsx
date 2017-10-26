@@ -12,7 +12,7 @@ class GameJoin extends React.Component {
   handleClick(event) {
     event.preventDefault();
     var gameID = event.currentTarget.dataset.gameid;
-    var message = {"typ": "joi", "par": {"rom": gameID, "nam": localStorage.getItem('clientName')}}
+    var message = {"typ": "joi", "cnt": {"rom": gameID, "nam": localStorage.getItem('clientName')}}
     this.props.conn.send(
         JSON.stringify(message)
     );

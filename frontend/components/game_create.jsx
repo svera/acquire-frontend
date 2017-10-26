@@ -16,7 +16,7 @@ class GameCreate extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    var message = {"typ": "cre", "par": {"drv": this.props.gameName, "nam": localStorage.getItem('clientName')}};
+    var message = {"typ": "cre", "cnt": {"drv": this.props.gameName, "nam": localStorage.getItem('clientName')}};
     this.props.conn.send(
         JSON.stringify(message)
     );

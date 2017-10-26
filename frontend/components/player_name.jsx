@@ -13,7 +13,7 @@ class PlayerName extends React.Component {
 
   handleClientNameSubmit(event) {
     event.preventDefault();
-    var message = {"typ": "scd", "par": {"nam": localStorage.getItem('clientName')}};
+    var message = {"typ": "scd", "cnt": {"nam": localStorage.getItem('clientName')}};
     this.props.conn.send(
         JSON.stringify(message)
     );

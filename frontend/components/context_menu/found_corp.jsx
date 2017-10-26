@@ -29,7 +29,7 @@ class FoundCorp extends React.Component {
   }
 
   handleClickCreate() {
-    var message = {"typ": "ncp", "par": {"cor": this.corp}};
+    var message = {"typ": "ncp", "cnt": {"cor": this.corp}};
     this.props.conn.send(
         JSON.stringify(message)
     );
