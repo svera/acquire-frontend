@@ -10,7 +10,7 @@ class KickPlayer extends React.Component {
   handleClick(event) {
     var playerNumber = parseInt(event.currentTarget.dataset['number']);
     event.preventDefault();
-    var message = {"typ": "kck", "par": {"ply": playerNumber}}
+    var message = {"typ": "kck", "cnt": {"ply": playerNumber}}
     this.props.conn.send(
         JSON.stringify(message)
     );

@@ -9,7 +9,7 @@ class ClaimEnd extends React.Component {
 
   onClick(event) {
     event.preventDefault();      
-    var message =  {"typ": "end", "par": {}};
+    var message =  {"typ": "end", "cnt": {}};
     this.props.conn.send(
         JSON.stringify(message)
     );
