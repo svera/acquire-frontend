@@ -2,6 +2,8 @@ import React from 'react';
 import Form from 'react-bootstrap/lib/Form';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
+import InputGroup from 'react-bootstrap/lib/InputGroup';
+import Button from 'react-bootstrap/lib/Button';
 
 class PlayerName extends React.Component {
 
@@ -27,7 +29,12 @@ class PlayerName extends React.Component {
     return (
         <form onSubmit={this.handleClientNameSubmit}>
             <FormGroup>
-                <FormControl name="player-name" ref="player-name" type="text" bsSize="small" defaultValue={localStorage.getItem('clientName')} onChange={this.handleClientNameChange} placeholder={this.props.translator('lobby.your_name')}></FormControl>
+                <InputGroup>
+                    <FormControl name="player-name" ref="player-name" type="text" bsSize="small" defaultValue={localStorage.getItem('clientName')} onChange={this.handleClientNameChange} placeholder={this.props.translator('lobby.your_name')}></FormControl>
+                    <InputGroup.Button>
+                        <Button type="submit" bsSize="small">{this.props.translator('lobby.change_name')}</Button>
+                    </InputGroup.Button>                    
+                </InputGroup>
             </FormGroup>
         </form>
     );

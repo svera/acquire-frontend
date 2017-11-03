@@ -30,7 +30,8 @@ export var es = {
       "start_game_disabled": "Esperando %{number} jugadores más...",
       "select_bot_level": "Selecciona el nivel del bot",
       "game_options": "Opciones de la partida",
-      "your_name": "Tu nombre",            
+      "your_name": "Tu nombre",
+      "change_name": "Cambiar",
     },
     "game": {
       "turn": "Turno %{turnNumber}",

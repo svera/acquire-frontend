@@ -30,7 +30,8 @@ export var en = {
       "add_bot": "Add bot",
       "select_bot_level": "Select bot level",
       "game_options": "Game options",
-      "your_name": "Your name",      
+      "your_name": "Your name",
+      "change_name": "Change",
     },
     "game": {
       "turn": "Turn %{turnNumber}",
