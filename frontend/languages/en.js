@@ -115,14 +115,10 @@ export var en = {
         <p><strong>Merging corporations:</strong> When a player plays a tile that\
         connects two (or more) corporations, a merger takes place.\
         The larger corporation (the one with more tiles) survives\
-        and the smaller corporation becomes defunct. During the\
-        merger, the merging tile does not add to the size of either\
-        corporation for any purpose. If the corporations are the\
+        and the smaller corporations become defunct. If the corporations are the\
         same size, then the mergemaker decides which corporation\
         survives. The surviving corporation absorbs the defunct\
-        one. The defunct company is removed from the gameboard.</p>\
-        <p><em>Note:</em> if more than two corporations are merged by one\
-        tile, see multiple mergers section below for details.</p>\
+        ones. The defunct companies are removed from the gameboard.</p>\
         <p><strong>Safe corporations:</strong> A corporation that contains 11 or more\
         tiles is considered <em>safe</em> and cannot be absorbed by another\
         corporation for the rest of the game. A safe corporation\
@@ -134,14 +130,13 @@ export var en = {
         with the most and second-most stocks are declared majority\
         and minority stockholders. The banker pays them the majority\
         and minority stockholders’ bonuses as described below.</p>\
-        <p>If only one player owns stock in the defunct corporation,\
+        <p>If only one player owns stock in the defunct corporations,\
         that player gets both bonuses. If there is a tie for majority\
-        stockholder, add the majority and minority bonuses\
-        together, divide evenly and round up to the next payable\
-        dollar amount if necessary. (The minority shareholder\
+        stockholder, the majority and minority bonuses will be added \
+        and then divided evenly and round up. (The minority shareholder\
         gets no bonus.) If there is a tie for minority stockholder,\
         split the minority bonus among the tied players.</p>\
-        <p><em>Note:</em> Stockholders in the surviving corporation don’t get\
+        <p><em>Note:</em> Stockholders in the surviving corporations don’t get\
         any bonuses, but the value of their stock will probably go\
         up because the corporation has grown larger.</p>\
         <p>After bonuses have been paid out, each stockholder must\
@@ -159,17 +154,6 @@ export var en = {
         corporation. Of course, the supply of surviving stock cards\
         is limited, so you can’t acquire stock that is not available.</li>\
         </ul>\
-        <p><em>Note:</em> Players are allowed to choose more than one of the\
-        above options. For example, a player could hold onto a few\
-        of the defunct stocks, sell some and trade some.</p>\
-        <p><strong>Multiple mergers:</strong> It is possible that one tile could cause\
-        the merger of three or four corporations. The largest\
-        corporation survives and the smaller ones become defunct.\
-        The mergemaker breaks any ties. The smaller corporations\
-        are dealt with - one at a time - from largest to smallest.\
-        Majority and minority stockholder bonuses are paid out as\
-        described previously, and then the defunct stock is held,\
-        sold or traded. As usual, the mergemaker goes first.</p>\
         <h4>2. Buying stocks</h4>\
         <p>After placing a tile, the player may buy stock in any active\
         corporation. This is optional. A player may decide to buy\
@@ -189,19 +173,18 @@ export var en = {
         the game.</p>\
         <h4>3. End of turn</h4>\
         <p>A player receives a new tile to replace\
-        the one he/she played. This is not done until the end of\
-        the turn. At this time, if a player has any permanently\
+        the one he/she played. At this time, if a player has any permanently\
         unplayable tiles (ones that merge two safe corporations),\
-        that player receives an equal number of replacement tiles. This is\
-        only done once per turn. If more unplayable tiles are\
-        drawn, the player must wait until his/her next turn to\
-        discard them. Tiles that would form an eighth corporation\
+        that player receives an equal number of replacement tiles. \
+        If more unplayable tiles are\
+        drawn, those will be replace in his/her next turn. \
+        Tiles that would form an eighth corporation\
         are not traded in.</p>\
         <h3>Ending the game</h3>\
         <p>The game ends when one player, during his/her turn, announces\
         that either all active corporations are safe or that one corporation\
-        has 41 or more tiles on the gameboard. A player does not have\
-        to announce that the game is over if it is to his/her advantage\
+        has 41 or more tiles on the gameboard, clicking on  <i className=\"fa fa-trophy fa-lg\"></i>. \
+        A player does not have to announce that the game is over if it is to his/her advantage\
         to continue playing. After announcing that the game is over,\
         the player may finish the turn.</p>\
         <p>Majority and minority shareholders’ bonuses are paid out\

@@ -114,12 +114,10 @@ export var es = {
         <p><strong>Fusionar corporaciones:</strong> Cuando un jugador juega una ficha que \
         conecta dos (o más) corporaciones, se produce una fusión.\
         La corporación más grande (la que cuenta con más fichas) sobrevive\
-        y la más pequeña desaparece. Durante la fusión, \
-        la ficha que la desencadena no se añade al tamaño de ninguna de las corporaciones \
-        involucradas bajo ningún concepto. Si ambas corporaciones son del mismo tamaño,\
+        y las más pequeñas desaparecen. Si todas las corporaciones son del mismo tamaño,\
         el jugador que efectua la fusión decide cual de ellas sobrevive.\
-        La corporación superviviente absorbe a la difunta,\
-        volviendo a estar esta última disponible para ser fundada de nuevo.</p>\
+        La corporación superviviente absorbe a las difuntas,\
+        volviendo a estar estas últimas disponibles para ser fundadas de nuevo.</p>\
         <p><strong>Corporaciones seguras:</strong> Una corporación compuesta de 11 fichas o más\
         es considerada <em>segura</em> y no puede ser absorbida por otra durante el \
         resto del juego. Una corporación segura puede absorber a otra más pequeña, pero dos\
@@ -130,14 +128,14 @@ export var es = {
         de una fusión, los jugadores \
         con el mayor y segundo mayor número de acciones son declarados accionista mayoritario y minoritario, \
         respectivamente, recibiendo las bonificaciones correspondientes.</p>\
-        <p>Si un solo jugador cuenta con acciones de la corporación absorbida,\
+        <p>Si un solo jugador cuenta con acciones de las corporaciones absorbidas,\
         este obtiene ambas bonificaciones. Si hay más de un accionista mayoritario, \
         se suman las bonificaciones de accionista mayoritario y minoritario y se divide el resultado a partes iguales\
         entre ellos. \
         (El accionista minoritario no recibe bonificación.) \
         Si hay más de un accionista minoritario, \
         la bonificación de accionista minoritario se divide entre ellos.</p>\
-        <p><em>Nota:</em> Los accionistas en la corporación superviviente no reciben\
+        <p><em>Nota:</em> Los accionistas de la corporación superviviente no reciben\
         ninguna bonificación, pero el valor de sus acciones probablemente aumentará\
         debido al crecimiento de dicha corporación.</p>\
         <p>Tras el pago de las bonificaciones, cada accionista debe\
@@ -154,17 +152,6 @@ export var es = {
         Por supuesto, la cantidad de acciones es limitada,\
         por lo que no puedes obtener acciones si no hay más disponibles.</li>\
         </ul>\
-        <p><em>Nota:</em> Los jugadores pueden realizar más de una de esas opciones.\
-        Por ejemplo, un jugador podría conservar varias acciones de una corporación absorbida,\
-        vender otras pocas e intercambiar el resto.</p>\
-        <p><strong>Fusión múltiple:</strong> Es posible que una ficha provoque\
-        la fusión de tres o cuatro corporaciones. La mayor de esas corporaciones\
-        sobrevive y las más pequeñas son absorbidas.\
-        El jugador que provoca la fusión rompe cualquier empate. La fusión comienza \
-        desde la corporación más pequeña a la mayor.\
-        Las bonificaciones de accionista mayoritario y minoritario se pagan tal y como se \
-        describió previamente, y las acciones de la corporación absorbida pueden manterse,\
-        venderse o intercambiarse. Como es habitual, quien inicia la fusión es el primero en comprar y vender.</p>\
         <h4>2. Comprar acciones</h4>\
         <p>Tras colocar una ficha, el jugador puede comprar acciones de cualquier \
         corporación activa. Esto es opcional. Un jugador puede decidir no comprar ninguna acción \
@@ -180,17 +167,16 @@ export var es = {
         absorbida para poder conseguir dinero vendiendo sus acciones.</p>\
         <h4>3. Final del turno</h4>\
         <p>El jugador recibe una nueva ficha para sustituir la que ha jugado. \
-        Esto no se hace hasta el final del turno.\
         En ese momento, si el jugador cuenta con fichas permanentemente injugables \
         (aquellas que fusionarian dos corporaciones seguras), \
-        el jugador recibe el mismo número de fichas para sustituirlas. Esto \
-        solo se realiza una vez por turno. Si tras la substitución se obtienen más fichas injugables,\
+        el jugador recibe el mismo número de fichas para sustituirlas. \
+        Si tras la substitución se obtienen más fichas injugables,\
         estás serán sustituidas el siguiente turno.\
         Las fichas que pueden formar una octava corporación no son sustituibles.</p>\
         <h3>Fin del juego</h3>\
         <p>La partida termina cuando uno de los jugadores, durante su turno, declara\
         que todas las corporaciones activas son seguras o que una corporación\
-        tiene un tamaño de 41 fichas o superior. Un jugador no está obligado a declarar\
+        tiene un tamaño de 41 fichas o superior, haciendo click en <i class=\"fa fa-trophy fa-lg\"></i>. Un jugador no está obligado a declarar\
         el fin del juego si es más ventajoso para él seguir jugando. \
         Tras anunciar el fin de la partida, el jugador puede finalizar su turno.</p>\
         <p>Las bonificaciones de accionista mayoritario y minoritario son pagadas\

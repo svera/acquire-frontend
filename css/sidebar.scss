@@ -38,6 +38,11 @@
 .Sidebar.modal .modal-dialog .modal-content .modal-body {
   padding: 0;
 }
+
+.modal-body {
+  padding: 1em;
+}
+
 .Sidebar.modal.fade:not(.in).left .modal-dialog {
   transform: translate3d(-100%, 0, 0);
 }
